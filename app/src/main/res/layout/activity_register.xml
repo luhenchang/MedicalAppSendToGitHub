@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Linear_Relaty"
+    tools:context="com.example.ls.shoppingmall.user.activity.LoginActivity">
+
+    <com.example.ls.shoppingmall.utils.layoututils.OverScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/app_background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_gravity="center"
+                android:background="@drawable/login_iv_top"
+                android:layout_width="@dimen/x55"
+                android:layout_height="@dimen/x80"
+                android:layout_marginTop="@dimen/x18"
+                android:layout_marginBottom="@dimen/x10"
+                android:gravity="center"
+                android:textColor="#fb7675"
+                android:textSize="@dimen/x35" />
+
+            <LinearLayout style="@style/Login_sytle_lineayout">
+
+                <ImageView
+                    style="@style/Login_image"
+                    android:src="@drawable/user_login_phone" />
+
+                <View style="@style/Login_view" />
+
+                <EditText
+                    android:id="@+id/regist_phone_et"
+                    style="@style/Register_Editer"
+                    android:layout_width="wrap_content"
+                    android:hint="@string/Registered_inputphone_hint" />
+                <Button
+                    android:id="@+id/regest_delet_phone_bt"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:layout_marginRight="@dimen/x25"
+                    android:background="@drawable/delete"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/Login_sytle_lineayout">
+
+                <ImageView
+                    style="@style/Login_image"
+                    android:src="@drawable/login_yanzma" />
+
+                <View style="@style/Login_view" />
+
+                <EditText
+                    android:id="@+id/regist_messge_et"
+                    style="@style/Register_Editer"
+                    android:layout_width="wrap_content"
+                    android:hint="请输入验证码" />
+
+                <TextView
+                    android:id="@+id/regist_send_messge_tv"
+                    style="@style/register_style_text_time" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/Login_sytle_lineayout">
+
+                <ImageView
+                    style="@style/Login_image"
+                    android:src="@drawable/user_login_clock" />
+
+                <View style="@style/Login_view" />
+
+                <EditText
+                    android:id="@+id/regist_input_password_et"
+                    style="@style/Login_Editer"
+                    android:layout_width="wrap_content"
+                    android:hint="@string/Login_password_hint" />
+                <Button
+                    android:id="@+id/regest_delet_password_bt"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:layout_marginRight="@dimen/x25"
+                    android:background="@drawable/delete"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/Login_sytle_lineayout">
+
+                <ImageView
+                    style="@style/Login_image"
+                    android:src="@drawable/user_login_message" />
+
+                <View style="@style/Login_view" />
+
+                <EditText
+                    android:id="@+id/regist_invit_et"
+                    style="@style/Login_Editer"
+                    android:layout_width="wrap_content"
+                    android:hint="@string/Registered_ma" />
+                <Button
+                    android:id="@+id/regest_delet_invite_bt"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:layout_marginRight="@dimen/x25"
+                    android:background="@drawable/delete"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/x20"
+                android:layout_marginTop="@dimen/x10"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/regist_allowed_cb"
+                    android:layout_width="@dimen/x13"
+                    android:layout_height="@dimen/x13"
+                    android:background="@drawable/register_checkbox"
+                    android:button="@null" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x10"
+                    android:text="@string/Registered_allow"
+                    android:textColor="#595959"
+                    android:textSize="@dimen/x12" />
+
+                <TextView
+                    android:id="@+id/tv_user_rigist_need"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Registered_agreedment"
+                    android:textColor="#fb7574"
+                    android:textSize="@dimen/x12"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <RelativeLayout
+                style="@style/Linear_Relaty"
+                android:layout_marginTop="@dimen/x10"
+                android:gravity="center_vertical"
+                android:paddingBottom="@dimen/x10">
+
+                <TextView
+                    android:id="@+id/zhuce_textview"
+                    style="@style/register_style_text"
+                    android:layout_marginTop="@dimen/x5"
+                    android:background="@drawable/selected_red_shapter_ager"
+                    android:text="@string/Registered" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x1"
+                    android:layout_below="@+id/zhuce_textview"
+                    android:layout_marginLeft="@dimen/x25"
+                    android:layout_marginRight="@dimen/x25"
+                    android:layout_marginTop="@dimen/x10"
+                    android:background="#e1e1e1" />
+
+                <TextView
+                    android:id="@+id/regist_to_login_tv"
+                    style="@style/login_style_text"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/selected_blue_shapter_ager"
+                    android:text="@string/Registered_goLogin" />
+            </RelativeLayout>
+        </LinearLayout>
+    </com.example.ls.shoppingmall.utils.layoututils.OverScrollView>
+</LinearLayout>

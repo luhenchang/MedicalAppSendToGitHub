@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginLeft="@dimen/x25"
+        android:layout_marginRight="@dimen/x25"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.example.ls.shoppingmall.utils.layoututils.CircleImageView
+            android:id="@+id/cv_medical_header"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/medical_header_iv" />
+
+        <TextView
+            android:textColor="@color/base_text"
+            android:textSize="15sp"
+            android:id="@+id/tv_medical_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="张木木" />
+
+        <TextView
+            android:id="@+id/tv_medical_positon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="新生儿科"
+            android:textColor="@color/base_text_red"
+            android:textSize="13sp" />
+        <TextView
+            android:id="@+id/tv_medical_hospital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="第一中心医院"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+</LinearLayout>

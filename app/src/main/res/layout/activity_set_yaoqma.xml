@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ls.shoppingmall.community.activity.SetPassword">
+    <include
+        android:id="@+id/header_top"
+        layout="@layout/myinformation_header_include"/>
+    <LinearLayout
+        android:layout_marginTop="@dimen/x5"
+        android:background="#ffffff"
+        android:layout_below="@+id/header_top"
+        android:id="@+id/heaer_padter"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x84"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="邀请码"
+            android:textSize="20sp"
+            android:id="@+id/back_to_after"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x13"
+            android:layout_marginRight="@dimen/x16"
+            />
+
+
+        <EditText
+            android:id="@+id/tv_search_home"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x26"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/back_to_after"
+            android:layout_weight="1"
+            android:background="@drawable/search_juxing_shape"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:hint="请输入邀请码"
+            android:padding="5dp"
+            android:singleLine="true"
+            android:textColor="#999999"
+            android:textColorHint="@color/color_b7b8bd"
+            android:textSize="@dimen/x13" />
+
+        <TextView
+            android:background="@drawable/text_shaper_red"
+            android:textSize="16sp"
+            android:id="@+id/medical_search_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/x10"
+            android:layout_marginRight="@dimen/x20"
+            android:gravity="center_vertical"
+            android:textColor="@color/base_text_red"
+            android:text="确定" />
+    </LinearLayout>
+    <TextView
+        android:textColor="#898787"
+        android:textSize="16sp"
+        android:layout_margin="@dimen/x20"
+        android:layout_below="@+id/heaer_padter"
+        android:text="此邀请码有优惠，购买周卡延期2天，购买月卡延期10天，购买季卡延期20天，购买半年卡延期30天，购买年卡延期60天。对所有医师团生效，并且永久有效。"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

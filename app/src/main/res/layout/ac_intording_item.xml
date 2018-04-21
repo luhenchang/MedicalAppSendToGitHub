@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x90"
+        android:layout_margin="@dimen/x11"
+        app:cardElevation="@dimen/x5">
+        <!--ac_intro_adapter_money ac_intor_tv card_name ac_intor_tl ac_intor_tl-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/x20">
+
+                <TextView
+                    android:id="@+id/fuhao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="￥"
+                    android:textColor="@color/base_text_red"
+                    android:textSize="@dimen/x15" />
+
+                <TextView
+                    android:id="@+id/ac_intro_adapter_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/fuhao"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/fuhao"
+                    android:text="20"
+                    android:textColor="@color/base_text_red"
+                    android:textSize="@dimen/x21" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/x20"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/card_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x25"
+                    android:text="周卡"
+                    android:textColor="@color/base_text"
+                    android:textSize="@dimen/x15" />
+
+                <TextView
+                    android:id="@+id/ac_intor_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/card_name"
+                    android:layout_marginTop="@dimen/x5"
+                    android:text="持续7天"
+                    android:textSize="@dimen/x11" />
+            </RelativeLayout>
+<!--card_name ac_intor_tv ac_intor_tl-->
+            <ImageView
+                android:id="@+id/ac_intor_tl"
+                android:layout_width="@dimen/x15"
+                android:layout_height="@dimen/x15"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/x20"
+                android:background="@drawable/ic_uncheck" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

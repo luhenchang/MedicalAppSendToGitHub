@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <RelativeLayout
+        android:id="@+id/adapter_last_item3_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:contentDescription="@string/app_name"
+            android:id="@+id/adpter_item3_iv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/x20"
+            android:layout_marginEnd="@dimen/x10"
+            android:layout_marginTop="@dimen/x20"
+            android:background="@drawable/lastinforactivity_mesage" />
+
+        <TextView
+            android:id="@+id/adapter_item3_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x25"
+            android:layout_toEndOf="@+id/adpter_item3_iv1"
+            android:paddingEnd="@dimen/x20"
+            android:text="根据你的病症,以下保健品对你有所帮助"
+            android:textColor="#1a9ab5"
+            android:textSize="@dimen/x14" />
+
+        <View
+            android:id="@+id/adapter_item3_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x3"
+            android:layout_below="@+id/adapter_item3_tv1"
+            android:layout_marginLeft="@dimen/x20"
+            android:layout_marginRight="@dimen/x20"
+            android:layout_marginTop="@dimen/x15"
+            android:background="#f3f3f3" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/adapter_last_item3_header"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:id="@+id/adapter_last_header_iv"
+                android:layout_width="@dimen/x80"
+                android:layout_height="@dimen/x80"
+                android:layout_marginStart="23dp"
+                 />
+
+            <TextView
+                android:id="@+id/adapter_last_header_tv1_second"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="@dimen/x5"
+                android:paddingRight="@dimen/x10"
+                android:layout_toEndOf="@+id/adapter_last_header_iv"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:maxLength="26"
+                android:text="多吃8种蔬菜血液垃圾清理干净Cersl29例子就可以哦"
+                android:textColor="#262626"
+                android:textSize="@dimen/x13"
+                android:textStyle="bold" />
+<!--adapter_last_header_iv adapter_last_header_tv1_second  adapter_last_header_tv2 -->
+            <TextView
+                android:id="@+id/adapter_last_header_tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/adapter_last_header_tv1_second"
+                android:layout_below="@+id/adapter_last_header_tv1_second"
+                android:layout_marginTop="@dimen/x14"
+                android:ellipsize="end"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:paddingEnd="@dimen/x15"
+                android:text="￥ 169.00"
+                android:textColor="@color/base_text_red"
+                android:textSize="14sp" />
+        </RelativeLayout>
+        <View
+            android:layout_marginTop="@dimen/x17"
+            android:background="#f0f0f0"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

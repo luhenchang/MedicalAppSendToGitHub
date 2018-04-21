@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:layout_margin="@dimen/x5"
+        app:cardElevation="@dimen/x4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x50">
+
+        <RelativeLayout
+            android:id="@+id/ac_family_item_rl"
+            style="@style/userinformation_relativelayout"
+            android:layout_marginTop="@dimen/x1">
+
+            <TextView
+                android:id="@+id/ac_family_item_tv"
+                style="@style/family_item_text"
+                android:text="父亲" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

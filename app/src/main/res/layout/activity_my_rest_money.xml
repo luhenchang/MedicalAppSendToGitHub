@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f3f3f3"
+    android:orientation="vertical"
+    tools:context="com.example.ls.shoppingmall.user.activity.MyRestMoneyActivity">
+
+    <include layout="@layout/myinformation_header_include" />
+
+    <com.example.ls.shoppingmall.utils.layoututils.OverScrollView
+        android:id="@+id/myscroll_myslf_os"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/x10"
+        android:scrollbars="none">
+        <!--充值-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textColor="@color/messge_right_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x10"
+                    android:layout_marginTop="@dimen/x8"
+                    android:text="@string/user_remain_money"
+                    android:textSize="@dimen/x12" />
+
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/x5"
+                    android:layout_marginBottom="@dimen/x15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/image_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/x15"
+                        android:background="@drawable/user_remain_money"
+                        android:gravity="center_vertical" />
+
+                    <TextView
+                        android:id="@+id/ac_recharg_money_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/image_tv"
+                        android:layout_marginStart="@dimen/x20"
+                        android:layout_toEndOf="@+id/image_tv"
+                        android:gravity="center_vertical"
+                        android:text="￥100.00"
+                        android:textColor="@color/base_text"
+                        android:textSize="@dimen/x16"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x6"
+                    android:background="#f3f3f3" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x35"
+                    android:background="#ffffff"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/x15"
+                        android:gravity="center_vertical"
+                        android:text="@string/user_recode"
+                        android:textColor="@color/base_text"
+                        android:textSize="@dimen/x14" />
+                </RelativeLayout>
+            </LinearLayout>
+<!--剩余-->
+            <TextView
+                android:id="@+id/ac_add_money"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x40"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="@dimen/x20"
+                android:background="@drawable/selected_lager_red_shapter_ager"
+                android:gravity="center"
+                android:text="@string/user_rechager"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x14" />
+        </RelativeLayout>
+    </com.example.ls.shoppingmall.utils.layoututils.OverScrollView>
+</LinearLayout>

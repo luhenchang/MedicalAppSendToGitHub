@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/y3"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/x2"
+    android:background="#f0f0f0"
+    android:elevation="@dimen/x10"
+    app:cardElevation="@dimen/x5"
+    android:layout_height="wrap_content">
+
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            app:layout_heightPercent="25%w"
+            app:layout_widthPercent="70%w"
+            android:layout_height="0dp"
+            android:paddingLeft="@dimen/x11"
+            android:paddingTop="@dimen/x25"
+            android:layout_width="0dp">
+            <TextView
+                app:layout_widthPercent="24%w"
+                android:singleLine="true"
+                android:id="@+id/tv_medical_consalPrise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥50.001"
+                android:textColor="@color/base_text_red"
+                android:textSize="@dimen/x13" />
+
+            <TextView
+                android:singleLine="true"
+                app:layout_widthPercent="29%w"
+                android:id="@+id/tv_medical_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x12"
+                android:layout_toEndOf="@+id/tv_medical_consalPrise"
+                android:text="XX医师团"
+                android:textColor="@color/base_text"
+                android:textSize="@dimen/x14" />
+
+            <TextView
+                android:clickable="true"
+                android:gravity="center"
+                app:layout_widthPercent="33%w"
+                android:id="@+id/tv_medical_erwm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/tv_medical_name"
+                android:background="@drawable/text_shapter_consal"
+                android:text="群二维码"
+                android:textColor="@color/white"
+                android:textSize="@dimen/x12" />
+
+            <TextView
+                android:singleLine="true"
+                android:id="@+id/tv_medical_time"
+                android:layout_marginTop="@dimen/x7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_medical_consalPrise"
+                android:text="预约时长: 2018.2.11-2018.2.22"
+                android:textSize="12sp" />
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_erwm"
+                android:layout_toRightOf="@+id/tv_medical_time"
+                android:layout_below="@+id/tv_medical_erwm"
+                android:layout_width="@dimen/x50"
+                android:layout_height="@dimen/x40" />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_weight="3"
+            android:layout_width="@dimen/x100"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/x4">
+
+            <TextView
+                android:singleLine="true"
+                android:id="@+id/tv_medical_backmoney_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x10"
+                android:text="2018/3/16 10:001"
+                android:textSize="12sp" />
+
+            <TextView
+                android:clickable="true"
+                android:id="@+id/tv_medical_backmoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/y10"
+                android:background="@drawable/text_shaper_red"
+                android:text="退款"
+                android:textColor="@color/base_text_red"
+                android:textSize="@dimen/x14" />
+        </com.zhy.android.percent.support.PercentLinearLayout>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+</android.support.v7.widget.CardView>
+</com.zhy.android.percent.support.PercentRelativeLayout>

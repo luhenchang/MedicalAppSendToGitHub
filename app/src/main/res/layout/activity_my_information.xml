@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/inqery_view"
+    android:orientation="vertical"
+    tools:context="com.example.ls.shoppingmall.user.activity.MyInformationActivity">
+
+    <include layout="@layout/usermassage_header_top" />
+
+    <com.example.ls.shoppingmall.utils.layoututils.OverScrollView
+        android:id="@+id/myscroll_myslf_os"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                style="@style/userinformation_relativelayout"
+                android:layout_marginTop="@dimen/x8">
+
+                <TextView
+                    style="@style/userinformation_text"
+                    android:text="头像" />
+
+                <com.example.ls.shoppingmall.utils.layoututils.CircleImageView
+                    android:id="@+id/ivMineLogo"
+                    style="@style/userinformation_circleimageview" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ac_infor_nickname"
+                style="@style/userinformation_relativelayout"
+                android:layout_marginTop="@dimen/x1">
+
+                <TextView
+                    style="@style/userinformation_text"
+                    android:text="昵称" />
+
+                <EditText
+                    android:textColor="@color/messge_right_text"
+                    android:id="@+id/ac_myinfor_nick_et"
+                    style="@style/userinformation_editor_right"
+                    android:hint="请输入昵称"
+                    android:text="" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ac_infor_username"
+                style="@style/userinformation_relativelayout"
+                android:layout_marginTop="@dimen/x4">
+
+                <TextView
+                    style="@style/userinformation_text"
+                    android:text="姓名" />
+
+                <EditText
+                    android:textColor="@color/messge_right_text"
+                    android:id="@+id/ac_myinfor_names_et"
+                    style="@style/userinformation_editor_right"
+                    android:hint="请输入姓名"
+                    android:text="" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ac_infor_usersex"
+                style="@style/userinformation_relativelayout"
+                android:layout_marginTop="@dimen/x1">
+
+                <TextView
+                    style="@style/userinformation_text"
+                    android:text="性别" />
+
+                <TextView
+                    android:id="@+id/ac_myinfor_sex_tv"
+                    style="@style/userinformation_text_right"
+                    android:text="男" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ac_infor_age"
+                style="@style/userinformation_relativelayout"
+                android:layout_marginTop="@dimen/x1">
+
+                <TextView
+                    style="@style/userinformation_text"
+                    android:text="年龄" />
+                <LinearLayout
+                    android:layout_alignParentRight="true"
+                    style="@style/userinformation_text_right">
+                    <TextView
+                        android:textSize="@dimen/x13"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:id="@+id/ac_myinfor_age_tv"
+                        android:text="20"/>
+                    <TextView
+                        android:paddingLeft="3dp"
+                        android:textSize="@dimen/x13"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:text="岁"/>
+                </LinearLayout>
+               <!-- <TextView
+                    android:id="@+id/ac_myinfor_age_tv"
+                    style="@style/userinformation_text_right"
+                    android:text="20岁" />-->
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ac_infor_height"
+                style="@style/userinformation_relativelayout"
+                android:layout_marginTop="@dimen/x1">
+
+                <TextView
+                    style="@style/userinformation_text"
+                    android:text="身高" />
+
+              <!--  <TextView
+                    android:id="@+id/ac_myinfor_height_tv"
+                    style="@style/userinformation_text_right"
+                    android:text="170cm" />-->
+                <LinearLayout
+                    android:layout_alignParentRight="true"
+                    style="@style/userinformation_text_right">
+                    <TextView
+                        android:textSize="@dimen/x13"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:id="@+id/ac_myinfor_height_tv"
+                        android:text="170"/>
+                    <TextView
+                        android:paddingLeft="3dp"
+                        android:textSize="@dimen/x13"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:text="cm"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ac_infor_weight"
+                style="@style/userinformation_relativelayout"
+                android:layout_marginTop="@dimen/x1">
+
+                <TextView
+                    style="@style/userinformation_text"
+                    android:text="体重" />
+
+                <EditText
+                    android:maxLength="4"
+                    android:inputType="number"
+                    android:textColor="@color/messge_right_text"
+                    android:id="@+id/ac_myinfor_weight_etss"
+                    style="@style/userinformation_editor_right"
+                    android:hint="请输入体重kg"
+                    android:text="" />
+            </RelativeLayout>
+            <!--病历史-->
+            <RelativeLayout
+                android:id="@+id/ac_infor_desease_hestory"
+                style="@style/userinformation_relativelayout"
+                android:layout_marginTop="@dimen/x1">
+
+                <TextView
+                    style="@style/userinformation_text"
+                    android:text="病例史" />
+
+                <TextView
+                    style="@style/userinformation_text_right"
+                    android:text="" />
+            </RelativeLayout>
+        </LinearLayout>
+    </com.example.ls.shoppingmall.utils.layoututils.OverScrollView>
+</LinearLayout>

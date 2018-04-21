@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f7f6f6"
+    tools:context="com.example.ls.shoppingmall.user.activity.IntruducActivity">
+    <include
+        android:id="@+id/top_header_intor"
+        layout="@layout/myinformation_header_include" />
+    <ListView
+        android:layout_marginBottom="@dimen/x60"
+        android:layout_below="@+id/top_header_intor"
+        android:divider="@null"
+        android:scrollbars="none"
+        android:id="@+id/ac_intrudu_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/pay_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x40"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/x20"
+        android:background="@drawable/selected_lager_red_shapter_ager"
+        android:gravity="center"
+        android:text="购买"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/x14" />
+</RelativeLayout>

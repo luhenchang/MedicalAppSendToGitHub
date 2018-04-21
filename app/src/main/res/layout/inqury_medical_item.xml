@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:visibility="gone"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView style="@style/inquery_medicals_item_tv_top" />
+
+    <View style="@style/inquery_medicals_item_view" />
+
+    <com.example.ls.shoppingmall.community.utis.HorizontalListView
+        android:layout_marginLeft="@dimen/x8"
+        android:id="@+id/community_item1_horlist"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:visibility="visible"></com.example.ls.shoppingmall.community.utis.HorizontalListView>
+
+    <LinearLayout style="@style/inquery_medicals_item_lin0"
+        android:visibility="gone"
+        >
+
+        <LinearLayout
+            android:id="@+id/inquery_medical_item1_lin1"
+            style="@style/inquery_medicals_item_lin">
+
+            <com.example.ls.shoppingmall.utils.layoututils.CircleImageView
+                android:id="@+id/com_item_first_ciriv1"
+                android:layout_width="@dimen/x50"
+                android:layout_height="@dimen/x50"
+                android:src="@drawable/medical_header_iv" />
+
+            <TextView
+                android:id="@+id/com_item_first_name_tv1"
+                style="@style/inquery_medicals_item_tv"
+                android:text="张木木" />
+
+            <TextView
+                android:id="@+id/com_item_first_targe_tv1"
+                style="@style/inquery_medicals_item_tv1"
+                android:text="主治医生"
+                android:textColor="#ff5a5f" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/inquery_medical_item1_lin2"
+            style="@style/inquery_medicals_item_lin">
+
+            <com.example.ls.shoppingmall.utils.layoututils.CircleImageView
+                android:id="@+id/com_item_first_ciriv2"
+
+
+                android:layout_width="@dimen/x50"
+                android:layout_height="@dimen/x50"
+                android:layout_gravity="center"
+                android:src="@drawable/medical_header_iv" />
+
+            <TextView
+
+                android:id="@+id/com_item_first_name_tv2"
+
+                style="@style/inquery_medicals_item_tv"
+                android:text="张木木" />
+
+            <TextView
+
+                android:id="@+id/com_item_first_targe_tv2"
+                style="@style/inquery_medicals_item_tv1"
+                android:text="主治医生" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/inquery_medical_item1_lin3"
+            style="@style/inquery_medicals_item_lin">
+
+            <com.example.ls.shoppingmall.utils.layoututils.CircleImageView
+                android:id="@+id/com_item_first_ciriv3"
+
+                android:layout_width="@dimen/x50"
+                android:layout_height="@dimen/x50"
+                android:layout_gravity="center"
+                android:src="@drawable/medical_header_iv" />
+
+            <TextView
+
+                android:id="@+id/com_item_first_name_tv3"
+
+                style="@style/inquery_medicals_item_tv"
+                android:text="张木木" />
+
+            <TextView
+
+                android:id="@+id/com_item_first_targe_tv3"
+                style="@style/inquery_medicals_item_tv1"
+                android:text="主治医生" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/inquery_medical_item1_lin4"
+            style="@style/inquery_medicals_item_lin">
+
+            <com.example.ls.shoppingmall.utils.layoututils.CircleImageView
+                android:id="@+id/com_item_first_ciriv4"
+
+                android:layout_width="@dimen/x50"
+                android:layout_height="@dimen/x50"
+                android:layout_gravity="center"
+                android:src="@drawable/medical_header_iv" />
+
+            <TextView
+
+                android:id="@+id/com_item_first_name_tv4"
+
+                style="@style/inquery_medicals_item_tv"
+                android:text="张木木" />
+
+            <TextView
+
+                android:id="@+id/com_item_first_targe_tv4"
+                style="@style/inquery_medicals_item_tv1"
+                android:text="主治医生" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x5"
+        android:layout_marginTop="@dimen/x18"
+        android:background="#f0f0f0" />
+</LinearLayout>

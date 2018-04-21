@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+        <View
+            android:id="@+id/item4_view"
+            android:background="#f3f3f3"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+        <RelativeLayout
+            android:id="@+id/item4_relati"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:textColor="#e2000000"
+                android:text="商品推荐"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+            <TextView
+                android:textColor="#dc3a36"
+                android:layout_marginEnd="20dp"
+                android:layout_alignParentEnd="true"
+                android:text="查看更多"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:background="#71616164" />
+        <RelativeLayout
+            android:layout_marginBottom="@dimen/x10"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:layout_width="60dp"
+                android:id="@+id/adapter_last_header_iv"
+                android:layout_marginStart="15dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/ic_launcher" />
+            <TextView
+                android:layout_marginTop="10dp"
+                android:maxLines="2"
+                android:id="@+id/adapter_last_header_tv4_four"
+                android:textSize="14sp"
+                android:text="多吃这种蔬多吃这种蔬菜血多这种蔬菜血多吃这种蔬多吃这种蔬菜血液垃圾清理干净真的好菜血液垃圾清理干净真的好液垃圾清理干净真的好菜血液垃圾清理干净真的好"
+                android:ellipsize="end"
+                android:textColor="#f50d0c0c"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/adapter_last_header_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/adapter_last_header_tv4"
+                android:layout_below="@+id/adapter_last_header_tv4_four"
+                android:textSize="12sp"
+                android:maxLines="2"
+                android:text="￥169.00"
+                android:layout_marginTop="6dp"
+                android:textColor="#ec0806"
+                android:layout_marginStart="10dp"
+                android:maxEms="20"
+                android:ellipsize="end"
+                android:layout_toEndOf="@+id/adapter_last_header_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">巧医</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!-- 修改头像 -->
+    <string name="personal_update_photo_title">选择头像</string>
+    <string name="personal_update_photo_photograph">拍照</string>
+    <string name="personal_update_photo_gallery">选择本地图片</string>
+    <string name="personal_user_message_title">个人信息</string>
+    <!--登录界面--><!--注册-->
+    <string name="Registered">注 册</string>
+    <string name="Registered_logo_top">Logo产品名称</string>
+    <string name="Registered_ma">请输入邀请码 ( 选填 )</string>
+    <string name="Registered_allow">我已经阅读并同意</string>
+    <string name="Registered_agreedment">《用户注册协议》</string><!--协议-->
+    <string name="See_ok">随便看看</string>
+    <string name="Login">登 录</string>
+    <string name="sure">确定</string>
+    <string name="Registered_goLogin">已有账号，立马登录</string>
+    <string name="Registered_inputphone_hint">请输入手机号</string>
+    <string name="Registered_message_hint">请输入验证码</string>
+    <string name="Login_password_hint">请输入密码</string>
+    <string name="Login_newpassword_hint">请输入新密码</string>
+    <!--刷新头和尾文字-->
+    <string name="Refrush_header_text">下拉刷新</string>
+    <!--余额界面-->
+    <string name="user_remain_money">我的余额</string>
+    <string name="user_recode">消费记录</string><!--记录-->
+    <string name="user_rechager">充值</string><!--充值-->
+    <!---->
+    <string name="ay_symptoms">你选择的部位为眼睛</string><!--常见症状-->
+    <string name="ay_symptomss">输入你的症状或从列表选择它</string><!--常见症状-->
+    <string name="ay_input_symptom_hint">输入症状</string><!--输入症状-->
+    <string name="community_fragment_base_editor">输入科室或医院名称</string>
+    <string name="inqury_phone">电话问诊</string><!--问诊-->
+    <string name="inqury_weixin">微信问诊</string>
+    <string name="inqury_familydoctor">专家</string>
+    <string name="inqury_familay">家庭医师</string>
+    <string name="inqury_medical_map">周边医生</string>
+    <string name="medical_tager_two_string">张医生 | 张医生 | 张医生 | 张医生</string>
+    <!--对话头部分-->
+    <string name="conversation_top">对话1</string>
+
+
+    <string name="tag_hint">Tag为大小写字母，数字，下划线,中文， 多个用以逗号分隔</string>
+    <string name="alias_hint">Alias为大小写字母，数字，下划线</string>
+    <string name="style_hint">style为数字</string>
+    <string name="error_style_empty">style不能为空</string>
+    <string name="error_alias_empty">alias不能为空</string>
+    <string name="error_tag_empty">tag不能为空</string>
+    <string name="error_tag_gs_empty">格式不对</string>
+    <string name="error_network">网络连接异常,初始化失败 请检查网络！</string>
+    <string name="logining">程序在后台执行, 请查看日志！</string>
+    <string name="setting_su">设置成功</string>
+    <!--加载框-->
+    <string name="loading">加载中...</string>
+    <!--家庭医生-->
+    <string name="family_doctor_olderman">老人医师团</string>
+    <string name="family_doctor_yongerman">儿童医师团</string>
+    <string name="family_doctor_woman">妇女医师团</string>
+    <!--TalkAndCaseWebActivity.java-->
+    <string name="collect_success">收藏成功</string>
+    <string name="collect_cancal">取消收藏</string>
+</resources>

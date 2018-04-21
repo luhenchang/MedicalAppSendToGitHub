@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/x6"
+        android:background="@color/white"
+        android:elevation="@dimen/x1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/heaer_padter"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x54"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/back_to_after"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x13"
+                    android:layout_marginRight="@dimen/x16"
+                    android:background="@drawable/back_img" />
+
+
+                <EditText
+                    android:id="@+id/tv_search_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/back_to_after"
+                    android:layout_weight="1"
+                    android:background="@drawable/search_home_shape"
+                    android:drawableLeft="@drawable/search_seacher_iv"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:hint="请输入或者点击你的病症"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:textColor="#999999"
+                    android:textColorHint="@color/color_b7b8bd"
+                    android:textSize="@dimen/x13" />
+
+                <TextView
+                    android:id="@+id/medical_search_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="@dimen/x10"
+                    android:layout_marginRight="@dimen/x20"
+                    android:gravity="center_vertical"
+                    android:text="搜索" />
+
+            </LinearLayout>
+                <com.example.ls.shoppingmall.utils.layoututils.MyFlowLayout
+                    android:visibility="gone"
+                    android:layout_below="@+id/heaer_padter"
+                    android:id="@+id/select_adapter_xcflow_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/x10"
+                    android:layout_marginLeft="20dp"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/secondLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x18"
+        android:layout_marginRight="@dimen/x18"
+        android:layout_marginTop="@dimen/x10">
+
+        <EditText
+            android:id="@+id/search_symptom_et"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:background="@drawable/search_home_shape"
+            android:clickable="true"
+            android:drawablePadding="5dp"
+            android:drawableStart="@drawable/search_seacher_iv"
+            android:hint="@string/ay_input_symptom_hint"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textColorHint="#999999"
+            android:textSize="14sp" />
+<!--search_symptom_et tv_search -->
+        <TextView
+            android:id="@+id/tv_search"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_margin="@dimen/x5"
+            android:text="搜索"
+            android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>

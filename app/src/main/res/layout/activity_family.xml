@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.example.ls.shoppingmall.user.activity.FamilyActivity">
+
+    <include
+        android:id="@+id/top_header"
+        layout="@layout/myinformation_header_include" />
+
+    <ListView
+        android:layout_marginBottom="@dimen/x55"
+        android:layout_marginTop="@dimen/x8"
+        android:divider="@null"
+        android:background="@color/white"
+        android:layout_below="@+id/top_header"
+        android:id="@+id/ac_family_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" />
+
+    <TextView
+        android:id="@+id/ac_family_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x40"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/x15"
+        android:background="@drawable/selected_lager_red_shapter_ager"
+        android:gravity="center"
+        android:text="添加"
+        android:textColor="@color/white"
+        android:textSize="@dimen/x18" />
+</RelativeLayout>

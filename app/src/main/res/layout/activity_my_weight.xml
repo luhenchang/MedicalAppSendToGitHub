@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:background="@color/inqery_view"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/usermassage_header_top" />
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/x6"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <EditText
+            android:inputType="number"
+            android:layout_margin="@dimen/x10"
+            android:id="@+id/mydata_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/circle_text_shaper"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:hint="体重kg"
+            android:textColor="#606060"
+            android:textColorHint="#B5B5B5"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>
+

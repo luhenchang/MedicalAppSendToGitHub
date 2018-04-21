@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_marginTop="@dimen/x6"
+        android:id="@+id/commun_adapter_item1_item_line"
+        style="@style/inquery_medicals_item_lin">
+        <com.example.ls.shoppingmall.utils.layoututils.CircleImageView
+            android:id="@+id/community_fisrt_cv"
+            android:layout_margin="@dimen/x10"
+            android:layout_width="@dimen/x50"
+            android:layout_height="@dimen/x50"
+            android:src="@drawable/medical_header_iv" />
+
+        <TextView
+            android:id="@+id/community_fisrt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="张木木" />
+
+        <TextView
+            android:id="@+id/community_fisrt_name2"
+            style="@style/inquery_medicals_item_tv1"
+            android:text="主治医生" />
+    </LinearLayout>
+</LinearLayout>

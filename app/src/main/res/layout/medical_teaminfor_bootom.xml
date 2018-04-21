@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:paddingBottom="@dimen/x50"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:padding="@dimen/x10"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.ls.shoppingmall.community.utis.HorizontalListView
+
+            android:id="@+id/hl_medical_bootom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x110">
+
+        </com.example.ls.shoppingmall.community.utis.HorizontalListView>
+        <TextView
+            android:background="@mipmap/delete"
+            android:id="@+id/tv_medical_dissmissdilog"
+            android:layout_margin="@dimen/x5"
+            android:layout_alignParentRight="true"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+    </RelativeLayout>
+
+</LinearLayout>

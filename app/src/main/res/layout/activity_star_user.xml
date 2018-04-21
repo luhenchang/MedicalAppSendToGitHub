@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/ac_star_user_lin"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.example.ls.shoppingmall.home.activity.StarUserActivity">
+    <include
+        android:id="@+id/top_header"
+        layout="@layout/myinformation_header_include"/>
+    <TextView
+        android:gravity="center"
+        android:text="你好，用户名"
+        android:textSize="@dimen/x14"
+        android:textColor="@color/base_text_red"
+        android:layout_marginTop="@dimen/x15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="@dimen/x5"
+        android:layout_marginRight="@dimen/x15"
+        android:layout_marginLeft="@dimen/x15"
+        android:text="我是A.l医生，我与超过100,000的医生合作，以帮助你了解病状，并告诉你让你感觉到良好的最佳路径，让我们开始吧！"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/x20"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:background="@drawable/lastinforactivity_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:textColor="@color/base_text_red"
+        android:layout_marginTop="@dimen/x20"
+        android:gravity="center"
+        android:text="点击任何位置开始使用"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:layout_marginTop="@dimen/x50"
+        android:layout_gravity="center"
+        android:background="@drawable/app_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

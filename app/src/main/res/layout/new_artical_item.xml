@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x45"
+        android:layout_below="@+id/adapter_last_item2_header"
+        android:layout_marginBottom="2dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:id="@+id/ac_artical_item_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="@dimen/x10"
+                android:layout_toEndOf="@+id/ac_artical_item_iv"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:maxLength="10"
+                android:paddingEnd="@dimen/x10"
+                android:text="多吃8种蔬菜血液垃圾清理干净多吃8种蔬菜血液垃圾清理干净多吃8种蔬菜血液垃圾清理干净多吃8种蔬菜血液垃圾清理干净"
+                android:textColor="#f55e5858"
+                android:textSize="@dimen/x14"
+                android:textStyle="bold" />
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/ac_adapter_tv"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="25dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/ic_uncheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginTop="@dimen/x17"
+            android:background="#efefef" />
+    </LinearLayout>
+</RelativeLayout>

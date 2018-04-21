@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/inqery_view"
+    tools:context="com.example.ls.shoppingmall.user.activity.SettingActivity">
+
+    <include
+        android:id="@+id/top_header"
+        layout="@layout/myinformation_header_include" />
+
+    <com.example.ls.shoppingmall.utils.layoututils.OverScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/top_header"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/x7"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/ac_set_message"
+                style="@style/userinformation_relativelayout"
+                android:layout_marginTop="@dimen/x1">
+
+                <TextView
+                    style="@style/userinformation_text"
+                    android:text="消息提醒" />
+
+                <Switch
+                    android:id="@+id/ac_setting_suond_sw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/x20"
+                    android:switchMinWidth="20dp"
+                    android:textOff="  "
+                    android:textOn="  "
+                    android:thumb="@drawable/thumb"
+                    android:track="@drawable/track" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ac_set_serve"
+                style="@style/userinformation_relativelayout"
+                android:layout_marginTop="@dimen/x1">
+
+                <TextView
+                    style="@style/setting_text"
+                    android:text="服务条款" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ac_set_clearlurch"
+                style="@style/userinformation_relativelayout"
+                android:layout_marginTop="@dimen/x1">
+
+                <TextView
+                    style="@style/setting_text"
+                    android:text="清理缓存" />
+
+                <TextView
+                    android:id="@+id/ac_setting_cacher"
+                    style="@style/setting_text_right"
+                    android:text="" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/ac_set_password"
+                style="@style/userinformation_relativelayout"
+                android:layout_marginTop="@dimen/x1">
+
+                <TextView
+                    style="@style/setting_text"
+                    android:text="修改密码" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/ac_set_yaoqma"
+                style="@style/userinformation_relativelayout"
+                android:layout_marginTop="@dimen/x1">
+
+                <TextView
+                    style="@style/setting_text"
+                    android:text="填写邀请码" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/ac_set_getLocation"
+                style="@style/userinformation_relativelayout"
+                android:layout_marginTop="@dimen/x1">
+
+                <TextView
+                    style="@style/setting_text"
+                    android:text="定位" />
+
+                <Switch
+                    android:id="@+id/sw_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/x20"
+                    android:switchMinWidth="20dp"
+                    android:textOff="  "
+                    android:textOn="  "
+                    android:thumb="@drawable/thumb"
+                    android:track="@drawable/track" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ac_infor_weight"
+                style="@style/userinformation_relativelayout"
+                android:layout_marginTop="@dimen/x1">
+
+                <TextView
+                    style="@style/userinformation_text"
+                    android:text="关于我们" />
+            </RelativeLayout>
+        </LinearLayout>
+    </com.example.ls.shoppingmall.utils.layoututils.OverScrollView>
+     <!--退出登录-->
+    <TextView
+        android:layout_margin="@dimen/x20"
+        android:id="@+id/log_out"
+        android:textColor="@color/white"
+        android:textSize="@dimen/x18"
+        android:gravity="center"
+        android:text="退出当前账户"
+        android:background="@drawable/selected_lager_red_shapter_ager"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x40"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

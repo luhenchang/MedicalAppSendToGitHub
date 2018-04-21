@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f4f3f3"
+    tools:context="com.example.ls.shoppingmall.community.activity.MedicalResultActivity">
+    <include layout="@layout/myinformation_header_include" />
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/x6"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x100"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/medicals_style_tv"
+            android:drawableTop="@drawable/family_team_iv"
+            android:text="@string/family_doctor_olderman" />
+
+        <!--兼容-->
+        <TextView
+            android:id="@+id/ft_comm_winxing_tv"
+            style="@style/medicals_style_tv"
+            android:drawableTop="@drawable/children_team_iv"
+            android:text="@string/family_doctor_yongerman" />
+
+
+        <TextView
+            android:id="@+id/ft_comm_map_tv"
+            style="@style/medicals_style_tv"
+            android:drawableTop="@drawable/wuman_team_iv"
+            android:text="@string/family_doctor_woman" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:textSize="@dimen/x14"
+            android:layout_marginLeft="@dimen/x15"
+            android:layout_marginTop="@dimen/x30"
+            android:text="说明"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/ac_family_medcal_tv"
+            android:textSize="@dimen/x13"
+            android:layout_marginLeft="@dimen/x15"
+            android:layout_marginTop="@dimen/x6"
+            android:layout_marginRight="@dimen/x6"
+            android:text="说明文内汝拉拢到积分垃圾的立法接收到了放假啊酸辣粉撒酒疯拉屎江东父老上来就放辣椒水电费了敬爱是否登录就路径是否垃圾砥砺奋进案例三打飞机拉屎的减肥啦伺机待发垃圾的发链接哎输了放假了"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>
+

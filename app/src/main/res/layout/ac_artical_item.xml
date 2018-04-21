@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.CardView
+        android:layout_margin="@dimen/x2"
+        app:cardElevation="@dimen/x2"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/adapter_last_item2_header"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp">
+
+            <ImageView
+                android:scaleType="fitXY"
+                android:id="@+id/ac_artical_item_iv"
+                android:layout_width="@dimen/x90"
+                android:layout_height="@dimen/x60"
+                android:layout_margin="4dp"
+                android:contentDescription="@string/app_name" />
+
+            <TextView
+                android:id="@+id/ac_artical_item_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="@dimen/x10"
+                android:layout_toEndOf="@+id/ac_artical_item_iv"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:maxLength="10"
+                android:paddingEnd="@dimen/x10"
+                android:text="多吃8种蔬菜血液垃圾清理干净多吃8种蔬菜血液垃圾清理干净多吃8种蔬菜血液垃圾清理干净多吃8种蔬菜血液垃圾清理干净"
+                android:textColor="#f55e5858"
+                android:textSize="@dimen/x14"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/ac_adapter_tv"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="25dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/ic_uncheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

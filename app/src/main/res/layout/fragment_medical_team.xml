@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/inquery_medical_item1_lin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x35">
+
+                <TextView
+                    android:id="@+id/tv_medical_team"
+                    style="@style/inquery_medicals_item1_tv_second" />
+
+                <TextView
+                    android:id="@+id/com_adapter_item1_more_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/x15"
+                    android:layout_marginTop="@dimen/x3"
+                    android:gravity="center"
+                    android:text="查看更多"
+                    android:textColor="@color/messge_right_text" />
+            </LinearLayout>
+
+            <View style="@style/inquery_medicals_item_view" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x80"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.example.ls.shoppingmall.utils.layoututils.CircleImageView
+                android:id="@+id/iv_medical_team_header"
+                android:layout_width="@dimen/x50"
+                android:layout_height="@dimen/x50"
+                android:layout_marginLeft="@dimen/x10"
+                android:background="@drawable/medical_header_iv" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/x10">
+
+                <TextView
+                    android:textColor="@color/base_text"
+                    android:id="@+id/tv_medical_team_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="某某医师团"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:textSize="14sp"
+                    android:id="@+id/tv_medical_team_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x5"
+                    android:text="医师团"
+                    android:textColor="@color/base_text_red" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/ac_adapter_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/ic_uncheck"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_below="@+id/medical_header_iv"
+            android:background="@color/inqurey_item_view" />
+
+    </LinearLayout>
+</RelativeLayout>

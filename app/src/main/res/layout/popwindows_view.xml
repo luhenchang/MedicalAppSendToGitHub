@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_widthPercent="90%"
+        app:layout_heightPercent="18%"
+        android:layout_margin="15dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="10dp">
+
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x10"
+            android:gravity="center"
+            android:text="职业经历"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+      <View
+          android:background="@color/inqery_view"
+          android:layout_width="match_parent"
+          android:layout_margin="@dimen/x5"
+          android:layout_height="1dp"/>
+        <TextView
+            android:id="@+id/tv_medical_hostory"
+            android:maxLines="2"
+            android:textSize="14sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/x10"
+            android:layout_marginTop="@dimen/x10"
+            android:text="医生都是该医师团里面及其优秀而且有多年经验，希望能够帮助你！" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</com.zhy.android.percent.support.PercentLinearLayout>

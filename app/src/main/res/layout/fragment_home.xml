@@ -1,0 +1,225 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".home.fragment.HomeFragment">
+
+    <include
+        android:id="@+id/titlebar"
+        layout="@layout/titlebar" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="330dp"
+        android:layout_below="@+id/titlebar"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/x40">
+
+        <LinearLayout
+            android:id="@+id/header_top"
+            android:layout_width="@dimen/x30"
+            android:layout_height="@dimen/x26"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/fl_header"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x10" />
+
+            <FrameLayout
+                android:layout_weight="1"
+                android:id="@+id/fl_header_after"
+                android:layout_width="@dimen/x30"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_bozi"
+            android:layout_width="30dp"
+            android:layout_height="10dp"
+            android:layout_below="@+id/header_top"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"></FrameLayout>
+        <!--身体部位-->
+        <LinearLayout
+            android:id="@+id/fl_bottom"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fl_bozi"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+            <!--手臂左边-->
+            <FrameLayout
+                android:id="@+id/after_jian"
+                android:layout_width="@dimen/x60"
+                android:layout_height="@dimen/x17"
+                android:layout_gravity="center_horizontal"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <!--左边手臂-->
+                <FrameLayout
+                    android:id="@+id/after_left_arlm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_beibu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <!--胸部-->
+                    <FrameLayout
+                        android:id="@+id/after_heart"
+                        android:layout_width="match_parent"
+                        android:layout_height="24dp"
+                        android:layout_weight="1">
+
+                    </FrameLayout>
+                    <!--腹部-->
+
+                    <FrameLayout
+                        android:id="@+id/after_duzi"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_weight="1">
+
+                    </FrameLayout>
+                </LinearLayout>
+                <!--手臂右边-->
+                <FrameLayout
+                    android:id="@+id/after_right_arlm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+                <!--左手-->
+                <FrameLayout
+                    android:id="@+id/after_left_hander"
+                    android:layout_width="@dimen/x15"
+                    android:layout_height="match_parent" />
+                <!--屁股部-->
+                <LinearLayout
+                    android:id="@+id/ll_tongbu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <!--腰部位-->
+                    <FrameLayout
+                        android:id="@+id/after_left_yaobu"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x10"
+                        android:layout_weight="1" />
+                    <!--宽部位-->
+                    <FrameLayout
+                        android:id="@+id/after_left_kuanbu"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x10"
+                        android:layout_weight="1" />
+                </LinearLayout>
+                <!--右手手-->
+                <FrameLayout
+                    android:id="@+id/after_right_hander"
+                    android:layout_width="@dimen/x15"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="128dp"
+            android:layout_below="@+id/fl_bottom"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/fl_foot"
+                android:layout_width="60dp"
+                android:layout_height="110dp"
+                android:layout_gravity="center_horizontal"
+
+                android:orientation="horizontal">
+                <!--左腿-->
+                <FrameLayout
+                    android:id="@+id/left_lege"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+                <!--左腿-->
+                <FrameLayout
+                    android:id="@+id/right_lege"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_weight="1"
+                android:id="@+id/fl_jiaobu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="380dp"
+            android:layout_marginBottom="@dimen/x10">
+
+            <ImageView
+                android:id="@+id/home_man_iv"
+                android:layout_width="140dp"
+                android:layout_height="290dp"
+                android:background="@drawable/female_f" />
+        </LinearLayout>
+
+    </RelativeLayout>
+    <!-- <android.support.v7.widget.RecyclerView
+         android:id="@+id/rv_home"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_below="@id/titlebar" />
+ -->
+    <LinearLayout
+        android:id="@+id/ib_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:onClick="Ratate"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/x13"
+            android:layout_height="@dimen/x13"
+            android:background="@drawable/xuanzhuan" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x5"
+            android:text="旋转" />
+    </LinearLayout>
+</RelativeLayout>

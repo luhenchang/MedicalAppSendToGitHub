@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/x60"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+        <ImageView
+            android:contentDescription="@string/app_name"
+            android:layout_marginEnd="@dimen/x10"
+            android:layout_centerVertical="true"
+            android:id="@+id/refrush_image"
+            android:layout_width="@dimen/x20"
+            android:layout_height="@dimen/x20"
+            />
+        <TextView
+            android:textColor="#d7d3d3"
+            android:id="@+id/refrush_tv"
+            android:text="@string/Refrush_header_text"
+            android:layout_marginEnd="@dimen/x10"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/refrush_image" />
+</RelativeLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ls.shoppingmall.home.activity.TalkAndCaseWebActivity">
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y38"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/back_to_agin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/x18"
+                android:background="@drawable/back_img" />
+
+            <TextView
+                android:id="@+id/title_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:text="@string/conversation_top"
+                android:textColor="#000000"
+                android:textSize="@dimen/x18" />
+
+            <RelativeLayout
+                android:id="@+id/talk_artical_rl"
+                android:layout_alignParentRight="true"
+                android:layout_width="@dimen/x80"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/talk_case_conneting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/x14"
+                    android:drawablePadding="@dimen/x6"
+                    android:gravity="center_vertical"
+                    android:text="收藏"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/x15" />
+
+                <ImageView
+                    android:id="@+id/talk_case_conne_iv"
+                    android:layout_width="@dimen/x20"
+                    android:layout_height="@dimen/x16"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/x5"
+                    android:layout_toStartOf="@+id/talk_case_conneting"
+                    android:background="@drawable/top_connect" />
+            </RelativeLayout>
+        </RelativeLayout>
+    <ProgressBar
+        android:layout_below="@+id/header"
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:progressDrawable="@drawable/pg"
+        android:visibility="gone"
+
+        />
+    <WebView
+        android:layout_below="@+id/header"
+        android:id="@+id/web_case"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </WebView>
+</RelativeLayout>

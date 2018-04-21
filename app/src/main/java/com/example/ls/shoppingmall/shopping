@@ -1,0 +1,110 @@
+   Unknow(0),
+
+    SCHEDULER_ERROR(101),//计划任务异常
+
+    RegisterRepeat(10001),//用户名已注册
+    VerifyCodeExp(10002),//验证码过期或无效
+    Locked(10003),//账户已锁定
+    LoginNameOrPwdError(10004),//账户或密码错误
+    TokenInvalid(10005),//token无效
+    WECHAT_AUTH_ERROR(10006),//微信授权异常
+    WECHAT_NOT_AUTHORIZED(10007),//微信用户未授权
+    WECHAT_CODE_INVALID(10008),//微信CODE无效
+    SMS_MOBILE_NOT_EXIST(10009),//短信-错误的手机号码
+    SMS_OTHER_ERROR(10011),//短信-其他原因
+    USER_NOT_EXIST(10012),//用户不存在
+    ACCOUNT_CASH_LACK(10013),//账户余额不足
+    ACCOUNT_MALL_VIP_USED(10014),//VIP优惠已使用，无法退款
+    SMS_CONN_ERROR(10015),//短信-网络错误，请重试
+    SMS_QUICK_ERROR(10016),//短信-号码异常/同一号码发送次数过于频繁
+    ACCOUNT_NOT_MALL_VIP(10017),//用户不是商品vip
+    HEALTH_INFO_STATUS_ERROR(10018),//家庭健康表状态有误
+    RECHARGE_USE(10019),//有正在使用的充值记录
+    NON_PRINCIPAL(10020),//没有本金
+    RECHARGE_REFUND_FEE_ERROR(10021),//充值状态不对或金额有误
+
+    ProprietorVerifyError(20001),
+
+    MALL_INVALID(30001),//商品下架
+    MALL_NOT_EXIST(30002),//商品不存在
+    MALL_CART_ERROR(30003),//购物车异常
+    ORDER_STATUS_ERROR(30004),//订单状态错误
+    ORDER_NOT_EXIST(30005),//订单不存在
+    ORDER_REFUND_ERROR(30006),//订单退款失败
+    FAVORITES_EXISTS(30007),//收藏已存在
+    FAVORITES_NOT_EXISTS(30008),//收藏不存在
+    ADDRESS_IDNO_ERROR(30009),//身份证不正确
+    VIP_ORDER_NOT_ENOUGH(30010),//order为营养套餐商品，没有达到指定金额
+    ADDRESS_NOT_EXIST(30011),//地址不存在
+    TRACKINFO_NOT_EXIT(30012),//没有物流信息
+    HEALTH_WAIT_RECOMMEND(30013),//营养师推荐订单后才能重新编辑
+    SUPPLIER_INVALID(30014),//营养师推荐订单-商品不合适
+    RECOMMEND_ORDER_SEND_ERROR(30015),//推荐订单发送失败
+    MALL_REFUND_FEE_POOR(30016),//退款金额设置不合理
+    ARTICLE_INVALID(30017),//文章不存在或下架
+    WITHDRAW_EXIST(30018),//已申请提现
+    WITHDRAW_INVALID(30019);//提现单无效
+
+ refreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+                initData();
+                refreshlayout.finishRefresh(1000/*,false*/);//传入false表示刷新失败
+            }
+        });
+        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(RefreshLayout refreshlayout) {
+                refreshlayout.finishLoadMore(1000/*,false*/);//传入false表示加载失败
+            }
+        });
+
+     <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_below="@+id/top_header"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.scwang.smartrefresh.layout.header.ClassicsHeader
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+          <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+       @Override
+        public boolean onKeyDown(int keyCode, KeyEvent event) {
+            if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){
+                if((System.currentTimeMillis()-exitTime) > 2000){
+                    Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                    exitTime = System.currentTimeMillis();
+                } else {
+                    finish();
+                    System.exit(0);
+                }
+                return true;
+            }
+            return super.onKeyDown(keyCode, event);
+        }
+
+
+     InputFilter inputFilter = new InputFilter() {
+                Pattern pattern = Pattern.compile("[^a-zA-Z0-9\\.\\,\\!\\“\\”\\/\\@\\`\\~\\(\\)\\*\\&\\%\\#\\^\\-\\+\\[\\]\\?\\u4E00-\\u9FA5_]");
+
+                @Override
+                public CharSequence filter(CharSequence charSequence, int i, int i1, Spanned spanned, int i2, int i3) {
+                    Matcher matcher = pattern.matcher(charSequence);
+                    if (!matcher.find()) {
+                        return null;
+                    } else {
+                        Toast.makeText(DiseasHistoryActivity.this, "只能输入汉子和字母数字", Toast.LENGTH_SHORT).show();
+                        return "";
+                    }
+
+                }
+            };
+            editSms.setFilters(new InputFilter[]{inputFilter, new InputFilter.LengthFilter(220)});
+
+

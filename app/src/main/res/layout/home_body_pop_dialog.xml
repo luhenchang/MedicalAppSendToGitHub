@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/actionsheet_bottom_norma2l"
+    android:layout_margin="@dimen/x30"
+    android:layout_height="match_parent">
+    <TextView
+        android:visibility="gone"
+        android:background="@drawable/actionsheet_bottom_pressed"
+        android:id="@+id/tv_item2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="部位" />
+    <ListView
+        android:scrollbars="none"
+        android:divider="@null"
+        android:id="@+id/home_body_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+</LinearLayout>

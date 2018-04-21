@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f3f3f3"
+    android:orientation="vertical"
+    tools:context="com.example.ls.shoppingmall.user.activity.MessageActivity">
+
+    <include layout="@layout/message_header_include" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x50"
+            android:background="#ffffff">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/at_message_tb"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x45"
+                app:tabGravity="fill"
+                app:tabIndicatorColor="@color/base_text_red"
+                app:tabSelectedTextColor="@color/base_text_red" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x10" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/ac_message_vp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+        >
+
+        </android.support.v4.view.ViewPager>
+    </LinearLayout>
+</LinearLayout>

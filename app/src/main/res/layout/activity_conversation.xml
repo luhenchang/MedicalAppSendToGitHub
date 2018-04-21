@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.ls.shoppingmall.community.activity.ConversationActivity">
+
+    <include
+        android:id="@+id/include_top"
+        layout="@layout/myinformation_header_include" />
+
+    <WebView
+        android:layout_below="@+id/include_top"
+        android:id="@+id/ac_conversation_wv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <LinearLayout
+        android:background="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_height="@dimen/x49">
+        <TextView
+            android:textSize="@dimen/x9"
+            android:layout_marginTop="@dimen/x6"
+            android:layout_marginBottom="@dimen/x5"
+            android:drawablePadding="@dimen/x4"
+            android:drawableTop="@drawable/shared_to_friend_iv"
+            android:layout_marginLeft="@dimen/x20"
+            android:text="分享"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="@dimen/x9"
+            android:layout_marginTop="@dimen/x6"
+            android:layout_marginBottom="@dimen/x5"
+            android:layout_marginStart="@dimen/x18"
+            android:drawablePadding="@dimen/x4"
+            android:drawableTop="@drawable/connection_my_goods"
+            android:layout_marginLeft="@dimen/x20"
+            android:text="分享"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="@dimen/x20"
+            android:background="@color/base_text_red"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="@dimen/x16"
+            android:layout_weight="1"
+            android:text="电话咨询 ￥90.00"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</RelativeLayout>

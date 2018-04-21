@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.ls.shoppingmall.utils.layoututils.OverScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ls.shoppingmall.home.activity.BodySelectActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f3f3f3"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            app:cardElevation="@dimen/x2">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/ft_message_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/user_message_no" />
+                <com.example.ls.shoppingmall.utils.layoututils.CircleImageView
+                    app:border_color="@color/white"
+                    app:border_width="@dimen/x2"
+                    android:id="@+id/ft_user_header_iv"
+                    style="@style/user_fragment_circleview" />
+
+                <TextView
+                    android:id="@+id/ft_user_name_tv"
+                    style="@style/user_fragment_username_tv" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+        <!--第二个模块-->
+        <LinearLayout
+            android:visibility="gone"
+            style="@style/user_fragment_lin">
+
+            <TextView
+                android:id="@+id/ft_mine_remaimoney_tv"
+                style="@style/user_fragment_tv"
+                android:drawableTop="@drawable/user_money"
+                android:text="余额" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/ft_mine_ordder_tv"
+                style="@style/user_fragment_tv"
+                android:layout_marginStart="@dimen/x40"
+                android:drawableTop="@drawable/user_goods"
+                android:text="订单" />
+            <!--优惠卡-->
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/ft_mine_card_tv"
+                style="@style/user_fragment_tv"
+                android:layout_marginStart="@dimen/x40"
+                android:drawableTop="@drawable/user_card"
+                android:text="优惠卡" />
+        </LinearLayout>
+        <!--第3个模块-->
+        <LinearLayout style="@style/user_fragment_lin">
+
+            <TextView
+                android:id="@+id/ft_mine_ask_tv"
+                style="@style/user_fragment_tv"
+                android:drawablePadding="@dimen/x6"
+                android:drawableTop="@drawable/user_ask_message"
+                android:text="咨询" />
+
+            <TextView
+                android:id="@+id/ft_mine_circle_tv"
+                style="@style/user_fragment_tv"
+                android:layout_marginStart="@dimen/x40"
+                android:drawableTop="@drawable/user_book"
+                android:text="文章" />
+
+            <TextView
+                android:id="@+id/ft_mine_family_tv"
+                style="@style/user_fragment_tv"
+                android:layout_marginStart="@dimen/x40"
+                android:drawableTop="@drawable/user_famaly"
+                android:text="家人" />
+
+            <TextView
+                android:id="@+id/ft_mine_collection_tv"
+                style="@style/user_fragment_tv"
+                android:layout_marginStart="@dimen/x40"
+                android:drawableTop="@drawable/user_collection"
+                android:text="收藏" />
+        </LinearLayout>
+        <!--第4个模块-->
+        <LinearLayout style="@style/user_fragment_lin">
+
+            <TextView
+                android:id="@+id/ft_mine_setting_tv"
+                style="@style/user_fragment_tv"
+                android:drawableTop="@drawable/user_setting"
+                android:text="设置" />
+        </LinearLayout>
+    </LinearLayout>
+</com.example.ls.shoppingmall.utils.layoututils.OverScrollView>

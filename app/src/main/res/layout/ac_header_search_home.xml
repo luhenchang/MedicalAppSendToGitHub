@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+    <include layout="@layout/myinformation_header_include" />
+
+    <TextView
+        android:id="@+id/tv_select_name"
+        android:layout_marginTop="@dimen/x20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ay_symptoms"
+        android:textColor="@color/base_text_red"
+        android:textSize="@dimen/x16" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x15"
+        android:text="@string/ay_symptomss"
+        android:textColor="#848080"
+        android:textSize="@dimen/x15" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x20"
+        android:background="@drawable/lastinforactivity_top" />
+</LinearLayout>

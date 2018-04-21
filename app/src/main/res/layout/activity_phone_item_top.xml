@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/medical_information_rl"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView style="@style/inquery_medicals_item1_top_image" />
+
+        <TextView style="@style/inquery_medicals_item1_name_tv" />
+
+        <TextView style="@style/inquery_medicals_item1_name1_tv" />
+
+        <TextView style="@style/inquery_medicals_item1_name2_tv" />
+
+        <TextView style="@style/inquery_medicals_item1_name3_tv" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/medical_informations"
+            android:layout_marginTop="14dp"
+            android:background="#e9e7e7" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    tools:context=".app.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        <View
+            android:id="@+id/view_main"
+            android:background="@color/inqurey_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"/>
+        <android.support.v7.widget.CardView
+            android:id="@+id/main_card_visibal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            >
+
+
+            <RadioGroup
+                android:layout_marginBottom="3dp"
+                android:id="@+id/rg_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/x6"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_home"
+                    style="@style/MainButtonStyle"
+                    android:drawablePadding="@dimen/x4"
+                    android:drawableTop="@drawable/home_button_selector"
+                    android:text="首页" />
+
+                <RadioButton
+                    android:id="@+id/rb_cart"
+                    style="@style/MainButtonStyle"
+                    android:drawablePadding="@dimen/x4"
+                    android:drawableTop="@drawable/cart_button_selector"
+                    android:text="健康商城" />
+
+
+                <RadioButton
+                    android:id="@+id/rb_community"
+                    style="@style/MainButtonStyle"
+                    android:drawablePadding="@dimen/x2"
+                    android:drawableTop="@drawable/community_button_selector"
+                    android:text="医师" />
+
+                <RadioButton
+                    android:id="@+id/rb_user"
+                    style="@style/MainButtonStyle"
+                    android:drawablePadding="@dimen/x4"
+                    android:drawableTop="@drawable/user_button_selector"
+                    android:text="我的" />
+            </RadioGroup>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_circal_visibal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x45"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3">
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/activity_main_message_tv"
+                android:layout_marginTop="@dimen/x5"
+                android:layout_marginRight="@dimen/x20"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/message_bg_red"
+                android:gravity="center"
+                android:maxLength="2"
+                android:maxLines="1"
+                android:text=""
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x6" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</RelativeLayout>
+

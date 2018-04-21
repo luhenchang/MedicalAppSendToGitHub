@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="7dp">
+
+    <RelativeLayout
+        android:id="@+id/top_gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/adpter_item1_iv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/x10"
+            android:layout_marginStart="@dimen/x20"
+            android:layout_marginTop="@dimen/x20"
+            android:background="@drawable/lastinforactivity_mesage"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/adapter_item1_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x25"
+            android:layout_toEndOf="@+id/adpter_item1_iv1"
+            android:paddingRight="@dimen/x20"
+            android:paddingStart="@dimen/x1"
+            android:text="我们平台驻扎了一些优秀的医师，你可以向他们进一步咨询"
+            android:textColor="#1a9ab5"
+            android:textSize="@dimen/x14" />
+
+        <View
+            android:id="@+id/adapter_item1_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x3"
+            android:layout_below="@+id/adapter_item1_tv1"
+            android:layout_marginLeft="@dimen/x20"
+            android:layout_marginRight="@dimen/x20"
+            android:layout_marginTop="@dimen/x15"
+            android:background="#efefef" />
+
+        <LinearLayout
+            android:id="@+id/adapter_item1_linlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/adapter_item1_view"
+            android:layout_marginLeft="@dimen/x10"
+            android:layout_marginRight="@dimen/x10"
+            android:layout_marginTop="@dimen/x15"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/line_lastadapter_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.example.ls.shoppingmall.utils.layoututils.CircleImageView
+                    android:id="@+id/iv_last_header1"
+                    android:layout_width="@dimen/x45"
+                    android:layout_height="@dimen/x45"
+                    android:src="@drawable/medical_header_iv" />
+
+                <TextView
+                    android:id="@+id/tv_last_name1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/x4"
+                    android:gravity="center"
+                    android:text="张木木" />
+
+                <TextView
+                    android:id="@+id/tv_last_desc1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/x4"
+                    android:gravity="center"
+                    android:text="主治医生"
+                    android:textColor="@color/base_text_red"
+                    android:textSize="@dimen/x10" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/line_lastadapter_2"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.example.ls.shoppingmall.utils.layoututils.CircleImageView
+                    android:id="@+id/iv_last_header2"
+                    android:layout_width="@dimen/x45"
+                    android:layout_height="@dimen/x45"
+                    android:layout_gravity="center"
+                    android:src="@drawable/medical_header_iv" />
+
+                <TextView
+                    android:id="@+id/tv_last_name2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/x4"
+                    android:gravity="center"
+                    android:text="张木木" />
+
+                <TextView
+                    android:id="@+id/tv_last_desc2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/x4"
+                    android:gravity="center"
+                    android:text="主治医生"
+                    android:textColor="@color/base_text_red"
+                    android:textSize="@dimen/x10" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/line_lastadapter_3"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.example.ls.shoppingmall.utils.layoututils.CircleImageView
+                    android:id="@+id/iv_last_header3"
+                    android:layout_width="@dimen/x45"
+                    android:layout_height="@dimen/x45"
+                    android:layout_gravity="center"
+                    android:src="@drawable/medical_header_iv" />
+
+                <TextView
+                    android:id="@+id/tv_last_name3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/x4"
+                    android:gravity="center"
+                    android:text="张木木" />
+
+                <TextView
+                    android:id="@+id/tv_last_desc3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/x4"
+                    android:gravity="center"
+                    android:text="主治医生"
+                    android:textColor="@color/base_text_red"
+                    android:textSize="@dimen/x10" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/line_lastadapter_4"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.example.ls.shoppingmall.utils.layoututils.CircleImageView
+                    android:id="@+id/iv_last_header4"
+                    android:layout_width="@dimen/x45"
+                    android:layout_height="@dimen/x45"
+                    android:layout_gravity="center"
+                    android:src="@drawable/medical_header_iv" />
+
+                <TextView
+                    android:id="@+id/tv_last_name4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/x4"
+                    android:gravity="center"
+                    android:text="张木木" />
+
+                <TextView
+                    android:id="@+id/tv_last_desc4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/x4"
+                    android:gravity="center"
+                    android:text="主治医生"
+                    android:textColor="@color/base_text_red"
+                    android:textSize="@dimen/x10" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x5"
+        android:layout_below="@+id/top_gone"
+        android:layout_marginTop="@dimen/x15"
+        android:background="#efefef" />
+
+    <ImageView
+        android:id="@+id/adpter_item1_iv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_gone"
+        android:layout_marginStart="@dimen/x20"
+        android:layout_marginTop="@dimen/x30"
+        android:background="@drawable/lastinforactivity_mesage"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:layout_below="@+id/adpter_item1_iv2"
+        android:id="@+id/adapter_item1_tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x5"
+        android:layout_marginTop="@dimen/x5"
+        android:layout_toRightOf="@+id/adpter_item1_iv2"
+        android:text="针对你的病症，我们有很多优质的诊断对话和案例"
+        android:textColor="#1a9ab5"
+        android:textSize="@dimen/x14" />
+
+    <TextView
+        android:id="@+id/adapter_item1_tv_sure"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x40"
+        android:layout_below="@+id/adapter_item1_tv3"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginRight="@dimen/x20"
+        android:layout_marginTop="@dimen/x25"
+        android:background="@drawable/selected_lager_red_shapter_ager"
+        android:gravity="center"
+        android:text="前去阅读"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/x16" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x5"
+        android:layout_below="@+id/adapter_item1_tv_sure"
+        android:layout_marginTop="@dimen/x15"
+        android:background="#efefef" />
+</RelativeLayout>

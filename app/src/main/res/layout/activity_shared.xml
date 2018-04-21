@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.ls.shoppingmall.user.activity.SharedActivity">
+
+    <Button
+        android:id="@+id/qq_friend"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:text="分享到QQ好友"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="174dp" />
+
+    <Button
+        android:id="@+id/qq_space"
+        android:layout_width="185dp"
+        android:layout_height="37dp"
+        android:text="分享到QQ空间"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="27dp" />
+
+    <Button
+        android:id="@+id/weibo"
+        android:layout_width="194dp"
+        android:layout_height="37dp"
+        android:text="分享到新浪微博"
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="97dp" />
+
+    <Button
+        android:id="@+id/weixing_friend"
+        android:layout_width="127dp"
+        android:layout_height="51dp"
+        android:text="分享到微信好友"
+        tools:layout_editor_absoluteX="211dp"
+        tools:layout_editor_absoluteY="409dp" />
+    <Button
+        android:id="@+id/weixing_space"
+        android:layout_width="127dp"
+        android:layout_height="51dp"
+        android:text="分享到微信空间"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="297dp" />
+
+</android.support.constraint.ConstraintLayout>

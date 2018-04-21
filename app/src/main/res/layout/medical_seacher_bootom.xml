@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.example.ls.shoppingmall.utils.layoututils.OverScrollView
+        android:id="@+id/ac_body_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/x11"
+                android:layout_marginLeft="@dimen/x20"
+                android:layout_marginTop="@dimen/x15"
+                android:paddingRight="@dimen/x8"
+                android:text="热门"
+                android:textColor="@color/base_text"
+                android:textSize="@dimen/x16" />
+
+            <View
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="4dp"
+                android:background="#66e0e1e1" />
+
+            <com.example.ls.shoppingmall.utils.layoututils.MyFlowLayout
+                android:visibility="gone"
+                android:id="@+id/select_adapter_xcflow_header"
+                android:layout_marginTop="@dimen/x14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp" />
+            <View
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/x10"
+                android:background="@color/inqurey_item_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x10"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textColor="@color/base_text"
+                        android:textSize="@dimen/x16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="历史搜索" />
+
+                    <TextView
+                        android:textColor="@color/base_text_red"
+                        android:id="@+id/search_db_delect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="40dp"
+                        android:text="清除历史记录"
+                         />
+                </RelativeLayout>
+                <View
+                    android:alpha="0.7"
+                    android:layout_marginTop="@dimen/x10"
+                    android:background="@color/inqurey_item_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x1"/>
+                <com.example.ls.shoppingmall.utils.layoututils.MyFlowLayout
+                    android:id="@+id/select_adapter_xcflow_mowei"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </com.example.ls.shoppingmall.utils.layoututils.OverScrollView>
+
+    <ListView
+        android:scrollbars="none"
+        android:id="@+id/at_bady_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"></ListView>
+</LinearLayout>

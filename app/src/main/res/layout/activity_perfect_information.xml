@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.ls.shoppingmall.home.activity.PerfectInformationActivity">
+
+
+
+    <ScrollView
+        android:layout_marginBottom="@dimen/x60"
+        android:layout_marginTop="@dimen/x45"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="完善病症能帮助我们缩小范围"
+                    android:textColor="@color/base_text_red"
+                    android:textSize="@dimen/x16" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="以下有符合你的病症吗？"
+                    android:textColor="#848080"
+                    android:textSize="@dimen/x15" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/lastinforactivity_top" />
+            </LinearLayout>
+
+            <com.example.ls.shoppingmall.utils.layoututils.MyFlowLayout
+                android:layout_marginTop="@dimen/x10"
+                android:id="@+id/perfect_flowlayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </com.example.ls.shoppingmall.utils.layoututils.MyFlowLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/activity_next_tv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/selected_red_shapter_ager"
+        android:gravity="center"
+        android:text="下一步"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+    <include
+        android:id="@+id/top_header"
+        layout="@layout/myinformation_header_include" />
+</RelativeLayout>

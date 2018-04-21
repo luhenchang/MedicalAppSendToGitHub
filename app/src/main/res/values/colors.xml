@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#227160</color>
+    <color name="colorPrimaryDark">#999999</color>
+    <color name="colorAccent">#ff5a5f</color>
+    <color name="refrushAccent">#fdaeb0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="color_b7b8bd">#b7b8bd</color>
+    <color name="transparent_black2">#20000000</color>
+    <color name="transparent_white2">#80000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="selector_choose_button_normal">#4cd237</color>
+    <color name="selector_choose_button_pressed">#9961B754</color>
+    <color name="base_text">#262626</color>
+    <color name="base_text_red">#ff5a5f</color>
+    <color name="inqurey_item_tv1">#ff5a5f</color>
+    <color name="inqurey_item_view">#dbdbdb</color>
+    <color name="inqurey_item_viewb">#efeeee</color>
+
+    <color name="item_backgroud">#f9f7f7</color>
+    <color name="ft_comm_item_nuber_color">#6dc2d4</color>
+   <!--拍照颜色-->
+    <color name="txt_green">#62b651</color>
+    <color name="takephoto_line">#bab7b7</color>
+    <!--登录界面的颜色-->
+    <color name="login_view">#d1d0d0</color>
+    <color name="login_hint_text">#a29f9f</color>
+    <color name="user_information_dialog_bg">#fb7574</color>
+    <!--个人信息-->
+    <color name="messge_right_text">#808080</color>
+    <color name="inqery_view">#f5f4f4</color>
+    <color name="new_title_bg">#1A1A1A</color>
+    <color name="new_version_green">#31C37C</color>
+    <color name="alertdialog_line">#c6c6c6</color>
+    <color name="actionsheet_blue">#037BFF</color>
+    <color name="actionsheet_gray">#8F8F8F</color>
+</resources>

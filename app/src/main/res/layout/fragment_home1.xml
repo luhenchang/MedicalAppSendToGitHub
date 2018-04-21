@@ -1,0 +1,320 @@
+<com.zhy.android.percent.support.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/activity_bg"
+    tools:context=".home.fragment.HomeFragment">
+
+    <TextView
+        android:id="@+id/tv_search_home"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="0dp"
+        android:background="@drawable/search_home_shape"
+        android:drawableLeft="@mipmap/sousuo"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:padding="5dp"
+        android:text="输入疾病找医生"
+        android:textColor="#999999"
+        android:textSize="13sp"
+        app:layout_heightPercent="5.6%"
+        app:layout_marginTopPercent="6%"
+        app:layout_widthPercent="70%"/>
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_below="@+id/tv_search_home"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        app:layout_heightPercent="80%"
+        app:layout_marginTopPercent="5%"
+        app:layout_widthPercent="55%">
+        <!--头部哦-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:id="@+id/header_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            app:layout_heightPercent="10%"
+            app:layout_marginTopPercent="8%"
+            app:layout_widthPercent="18%">
+
+            <FrameLayout
+                android:id="@+id/fl_header"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x10" />
+
+            <FrameLayout
+                android:id="@+id/fl_header_after"
+                android:layout_width="@dimen/x30"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1" />
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_bozi"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_below="@+id/header_top"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            app:layout_heightPercent="3%"
+            app:layout_widthPercent="18%"></FrameLayout>
+        <!--身体部位-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:id="@+id/fl_bottom"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_below="@+id/fl_bozi"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_heightPercent="33%"
+            app:layout_widthPercent="100%">
+            <!--肩部-->
+            <FrameLayout
+                android:id="@+id/after_jian"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                app:layout_heightPercent="17%"
+                app:layout_widthPercent="50%" />
+
+            <com.zhy.android.percent.support.PercentLinearLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                app:layout_heightPercent="58%"
+                app:layout_widthPercent="100%">
+                <!--左边手臂-->
+                <FrameLayout
+                    android:id="@+id/after_left_arlm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_heightPercent="90%"
+                    app:layout_widthPercent="33%">
+
+                </FrameLayout>
+
+                <com.zhy.android.percent.support.PercentLinearLayout
+                    android:id="@+id/ll_beibu"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_heightPercent="100%"
+                    app:layout_widthPercent="34%">
+                    <!--胸部-->
+                    <com.zhy.android.percent.support.PercentFrameLayout
+                        android:id="@+id/after_heart"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_heightPercent="40%"
+                        app:layout_widthPercent="100%">
+
+                    </com.zhy.android.percent.support.PercentFrameLayout>
+                    <!--腹部-->
+                    <com.zhy.android.percent.support.PercentFrameLayout
+                        android:id="@+id/after_duzi"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_heightPercent="60%"
+                        app:layout_widthPercent="100%">
+
+                    </com.zhy.android.percent.support.PercentFrameLayout>
+                </com.zhy.android.percent.support.PercentLinearLayout>
+                <!--手臂右边-->
+                <FrameLayout
+                    android:id="@+id/after_right_arlm"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_heightPercent="90%"
+                    app:layout_widthPercent="33%">
+
+                </FrameLayout>
+            </com.zhy.android.percent.support.PercentLinearLayout>
+
+            <com.zhy.android.percent.support.PercentLinearLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_heightPercent="25%"
+                app:layout_widthPercent="100%">
+                <!--左手-->
+                <FrameLayout
+                    android:id="@+id/after_left_hander"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_heightPercent="100%"
+                    app:layout_widthPercent="24%" />
+                <!--屁股部-->
+                <LinearLayout
+                    android:id="@+id/ll_tongbu"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    app:layout_heightPercent="100%"
+                    app:layout_widthPercent="44%">
+                    <!--腰部位-->
+                    <FrameLayout
+                        android:id="@+id/after_left_yaobu"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x10"
+                        android:layout_weight="1" />
+                    <!--宽部位-->
+                    <FrameLayout
+                        android:id="@+id/after_left_kuanbu"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x10"
+                        android:layout_weight="1" />
+                </LinearLayout>
+                <!--右手手-->
+                <FrameLayout
+                    android:id="@+id/after_right_hander"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_heightPercent="100%"
+                    app:layout_widthPercent="24%" />
+            </com.zhy.android.percent.support.PercentLinearLayout>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_below="@+id/fl_bottom"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            app:layout_heightPercent="40%"
+            app:layout_widthPercent="50%">
+
+            <com.zhy.android.percent.support.PercentLinearLayout
+                android:id="@+id/fl_foot"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_heightPercent="80%"
+
+                app:layout_widthPercent="90%">
+                <!--左腿-->
+                <FrameLayout
+                    android:id="@+id/left_lege"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_heightPercent="100%"
+                    app:layout_widthPercent="50%" />
+                <!--左腿-->
+                <FrameLayout
+                    android:id="@+id/right_lege"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_heightPercent="100%"
+                    app:layout_widthPercent="50%" />
+
+            </com.zhy.android.percent.support.PercentLinearLayout>
+
+            <FrameLayout
+                android:id="@+id/fl_jiaobu"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_heightPercent="20%"
+                app:layout_widthPercent="100%" />
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/x10"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/home_man_iv"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/male_f"
+                app:layout_heightPercent="87%"
+                app:layout_widthPercent="90%" />
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_marginBottomPercent="9%"
+        app:layout_marginLeftPercent="6%"
+        app:layout_widthPercent="26%">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/fh_cv1"
+            android:layout_weight="1"
+            app:cardElevation="@dimen/y1"
+            app:cardCornerRadius="13dp"
+            android:layout_margin="@dimen/x2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textColor="@color/white"
+                android:background="@drawable/selected_red_shapter_ager"
+                android:id="@+id/tv_man_fh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="男" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/fh_cv2"
+            app:cardElevation="@dimen/y1"
+            app:cardCornerRadius="13dp"
+            android:layout_margin="@dimen/x2"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textColor="@color/white"
+                android:background="@drawable/selected_red_shapter_ager"
+                android:id="@+id/tv_wuman_fh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="女" />
+        </android.support.v7.widget.CardView>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:id="@+id/ib_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        app:layout_marginBottomPercent="9%"
+        app:layout_marginRightPercent="11%"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/xuanzhuan" />
+
+        <TextView
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x5"
+            android:text="旋转" />
+    </com.zhy.android.percent.support.PercentLinearLayout>
+</com.zhy.android.percent.support.PercentRelativeLayout>

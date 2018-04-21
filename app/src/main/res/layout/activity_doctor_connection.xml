@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/inqery_view"
+    tools:context="com.example.ls.shoppingmall.user.activity.FamilyActivity">
+
+    <include
+        android:id="@+id/top_header"
+        layout="@layout/ac_collected_top" />
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:layout_marginTop="5dp"
+        android:id="@+id/refreshLayout"
+        android:layout_below="@+id/top_header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<!--
+        <com.scwang.smartrefresh.layout.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />-->
+
+        <ListView
+            android:divider="@null"
+            android:id="@+id/at_conne_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none" />
+<!--
+        <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />-->
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</RelativeLayout>

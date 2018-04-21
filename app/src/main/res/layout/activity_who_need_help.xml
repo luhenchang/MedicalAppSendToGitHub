@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.ls.shoppingmall.home.activity.StarUserActivity">
+
+    <include
+        android:id="@+id/top_header"
+        layout="@layout/myinformation_header_include" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x15"
+        android:gravity="center"
+        android:text="我们这里帮助谁？"
+        android:textColor="@color/base_text_red"
+        android:textSize="@dimen/x15" />
+
+    <TextView
+        android:textSize="@dimen/x15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/x20"
+        android:layout_marginLeft="@dimen/x15"
+        android:layout_marginRight="@dimen/x15"
+        android:layout_marginTop="@dimen/x5"
+        android:text="请选择你或者你的一位家庭成员，然后点击下一步。" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/lastinforactivity_top" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/ac_who_you_rl"
+            android:layout_width="80dp"
+            android:layout_height="100dp">
+
+            <TextView
+                android:id="@+id/ac_who_you_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/x5"
+                android:drawableTop="@drawable/need_you"
+                android:gravity="center"
+                android:text="你" />
+
+            <ImageView
+                android:id="@+id/ac_who_you_iv"
+                android:layout_marginRight="@dimen/x15"
+                android:layout_marginBottom="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="@dimen/x13"
+                android:layout_height="@dimen/x13"
+                android:background="@drawable/ic_checked" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="@dimen/x15"
+            android:layout_height="@dimen/x1" />
+        <RelativeLayout
+            android:id="@+id/ac_who_family_rl"
+            android:layout_width="80dp"
+            android:layout_height="100dp">
+
+            <TextView
+                android:id="@+id/ac_who_family_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/x5"
+                android:drawableTop="@drawable/need_family"
+                android:gravity="center"
+                android:text="你的家人" />
+            <ImageView
+                android:id="@+id/ac_who_family_iv"
+                android:visibility="gone"
+                android:layout_marginRight="@dimen/x15"
+                android:layout_marginBottom="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="@dimen/x13"
+                android:layout_height="@dimen/x13"
+                android:background="@drawable/ic_checked" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>
