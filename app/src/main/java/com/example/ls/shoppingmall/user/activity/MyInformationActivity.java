@@ -398,6 +398,12 @@ public class MyInformationActivity extends AppCompatActivity implements View.OnC
                 mWeight = acMyinforWeightEtss.getText().toString().trim().equals("") ? "60" : acMyinforWeightEtss.getText().toString().trim();
                 mHeight=acMyinforHeightTv.getText().toString();
                 mAge=acMyinforAgeTv.getText().toString();
+                if(acMyinforSexTv.getText().toString().equals("男")){
+                    mSex="1";
+                }else {
+                    mSex="0";
+
+                }
                 if (!mName.equals("") && !mNickname.equals("") && !mWeight.equals("") && !mAge.equals("")) {
                     if (checkNetworkInfoUtils.checkNetworkInfo()) {
                         saveUserMessageToSerVer();

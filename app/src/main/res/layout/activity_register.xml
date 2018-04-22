@@ -4,7 +4,7 @@
     style="@style/Linear_Relaty"
     tools:context="com.example.ls.shoppingmall.user.activity.LoginActivity">
 
-    <com.example.ls.shoppingmall.utils.layoututils.OverScrollView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/app_background">
@@ -157,6 +157,7 @@
                     android:text="@string/Registered" />
 
                 <View
+                    android:id="@+id/view_regist"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/x1"
                     android:layout_below="@+id/zhuce_textview"
@@ -166,6 +167,7 @@
                     android:background="#e1e1e1" />
 
                 <TextView
+                    android:layout_below="@+id/view_regist"
                     android:id="@+id/regist_to_login_tv"
                     style="@style/login_style_text"
                     android:layout_alignParentBottom="true"
@@ -173,5 +175,5 @@
                     android:text="@string/Registered_goLogin" />
             </RelativeLayout>
         </LinearLayout>
-    </com.example.ls.shoppingmall.utils.layoututils.OverScrollView>
+    </ScrollView>
 </LinearLayout>

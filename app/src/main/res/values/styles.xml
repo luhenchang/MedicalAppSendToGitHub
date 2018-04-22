@@ -77,9 +77,9 @@
     <style name="login_style_text">
         <item name="android:layout_marginRight">@dimen/x20</item>
         <item name="android:layout_marginLeft">@dimen/x20</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_height">@dimen/y27</item>
         <item name="android:layout_marginTop">@dimen/x13</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/white</item>
@@ -87,7 +87,7 @@
     <!--登录界面Linearlayout-->
     <style name="Login_sytle_lineayout">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/x36</item>
+        <item name="android:layout_height">@dimen/y25</item>
         <item name="android:layout_marginLeft">@dimen/x20</item>
         <item name="android:layout_marginRight">@dimen/x20</item>
         <item name="android:layout_marginTop">@dimen/x11</item>
@@ -124,7 +124,7 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
         <item name="android:background">@null</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">@dimen/x13</item>
         <item name="android:textColorHint">@color/login_hint_text</item>
     </style>
 
@@ -178,9 +178,9 @@
     <style name="register_style_text">
         <item name="android:layout_marginRight">@dimen/x20</item>
         <item name="android:layout_marginLeft">@dimen/x20</item>
-        <item name="android:textSize">@dimen/x16</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/x40</item>
+        <item name="android:layout_height">@dimen/y27</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/white</item>
     </style>
