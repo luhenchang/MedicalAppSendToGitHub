@@ -180,7 +180,20 @@ public class MedicalInforActivity extends AppCompatActivity {
             case R.id.ac_minfor_callmoney:
                 //先上传服务器获取商品id去支付
                 if (payBean != null && payBean.getDoctor_id() != null) {
-                    sendToServer();
+                    if (payBean.getIsYuyue()) {
+                        sendToServer();
+                    } else {
+                        new AlertDialog(MedicalInforActivity.this).builder().
+                                setTitle("提示").
+                                setMsg("预约时间已过！").
+                                setCancelable(false).
+                                setPositiveButton("确定",new View.OnClickListener(){
+                            @Override
+                            public void onClick(View v) {
+
+                            }
+                        });
+                    }
                 } else {
                     Toast.makeText(this, "请你选择预约时间段！", Toast.LENGTH_SHORT).show();
                 }
@@ -198,7 +211,7 @@ public class MedicalInforActivity extends AppCompatActivity {
             parames = new HashMap<>();
             parames.put("docId", payBean.getDoctor_id());
             parames.put("usrId", userId);
-            parames.put("appYear", payBean.year);
+            parames.put("appYear", payBean.getYear());
             parames.put("appMonth", payBean.getMonth());
             parames.put("appDay", payBean.getDate());
             parames.put("appStart", endAnStar[0]);
@@ -355,7 +368,7 @@ public class MedicalInforActivity extends AppCompatActivity {
             public void onClick(View v) {//KTXCFD2
                 UMImage umImage = new UMImage(MedicalInforActivity.this, imgUrl);
                 // umImage.compressStyle = UMImage.CompressStyle.SCALE;//大小压缩，默认为大小压缩，适合普通很大的图
-               umImage.compressStyle = UMImage.CompressStyle.QUALITY;//质量压缩，适合长图的分享
+                umImage.compressStyle = UMImage.CompressStyle.QUALITY;//质量压缩，适合长图的分享
                 UMWeb web = new UMWeb(link);
                 web.setTitle(title);//标题
                 web.setThumb(umImage);  //缩略图
@@ -543,6 +556,7 @@ public class MedicalInforActivity extends AppCompatActivity {
             Log.e("haha", vlue + "");
             //{"month":3,"date":31,"doctor_id":"20171221161048677129","money":"150.00","time":"2:00~3:00","week":"星期六"}
             //{"month":4,"date":5,"doctor_id":"20171221161048677129","money":"150.00","time":"2:00~3:00","week":"星期四"}
+            //{"month":"4","date":"28","doctor_id":"20180118160142096888","money":"0.10","time":"8:00~9:00","week":"星期六","year":"2018","isYuyue":true}
             Gson gson = new Gson();
             payBean = gson.fromJson(vlue, DoctorPayBean.class);
         }

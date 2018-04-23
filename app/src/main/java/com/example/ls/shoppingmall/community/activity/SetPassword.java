@@ -86,7 +86,7 @@ public class SetPassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_set_password);
+        setContentView(R.layout.activity_set_password1);
         MyApplication.addActivity(this);
         ButterKnife.bind(this);
     }

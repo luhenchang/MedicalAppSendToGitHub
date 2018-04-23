@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/Linear_Relaty"
+    android:background="@drawable/app_background"
     tools:context="com.example.ls.shoppingmall.user.activity.LoginActivity">
 
     <com.example.ls.shoppingmall.utils.layoututils.OverScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/app_background">
+        android:layout_height="match_parent">
 
         <com.zhy.android.percent.support.PercentLinearLayout
             android:layout_width="match_parent"

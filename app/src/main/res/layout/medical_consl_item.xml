@@ -22,7 +22,7 @@
             app:layout_widthPercent="70%w"
             android:layout_height="0dp"
             android:paddingLeft="@dimen/x11"
-            android:paddingTop="@dimen/x25"
+            android:paddingTop="17dp"
             android:layout_width="0dp">
             <TextView
                 app:layout_widthPercent="24%w"
@@ -62,7 +62,7 @@
             <TextView
                 android:singleLine="true"
                 android:id="@+id/tv_medical_time"
-                android:layout_marginTop="@dimen/x7"
+                android:layout_marginTop="21dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_medical_consalPrise"
@@ -89,7 +89,7 @@
                 android:id="@+id/tv_medical_backmoney_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/x10"
+                android:layout_marginTop="15dp"
                 android:text="2018/3/16 10:001"
                 android:textSize="12sp" />
 

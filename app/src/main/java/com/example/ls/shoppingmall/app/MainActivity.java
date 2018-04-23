@@ -53,7 +53,7 @@ import cn.jpush.android.api.BasicPushNotificationBuilder;
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.api.TagAliasCallback;
 
-public class MainActivity extends BaseActivity implements ShoppingCarFragment.MainBarVisibal {
+public class MainActivity extends BaseActivity {
     //这个用户住界面用户消息图标的
     private UpdataMessageIvLisenner mUpdataMessageListenner;
     @Bind(R.id.activity_main_message_tv)
@@ -242,9 +242,9 @@ public class MainActivity extends BaseActivity implements ShoppingCarFragment.Ma
                     Toast.LENGTH_SHORT).show();
             exitTime = System.currentTimeMillis();
         } else {
-            for (int i = 0; i < MyApplication.activityList.size(); i++) {
+           /* for (int i = 0; i < MyApplication.activityList.size(); i++) {
                 MyApplication.activityList.get(i).finish();
-            }
+            }*/
             System.exit(0);
         }
     }
@@ -261,7 +261,7 @@ public class MainActivity extends BaseActivity implements ShoppingCarFragment.Ma
     private void initFragment() {
         mFragments = new ArrayList<>();
         mFragments.add(new HomeFragment());
-        mFragments.add(new ShoppingCarFragment(this));
+        mFragments.add(new ShoppingCarFragment());
         mFragments.add(new CommunityFragment());
         userFrament = new UserFragment();
         mFragments.add(userFrament);
@@ -284,7 +284,7 @@ public class MainActivity extends BaseActivity implements ShoppingCarFragment.Ma
         //EditText aliasEdit = (EditText) findViewById(R.id.et_alias);
         String alias = mUserId;
         if (TextUtils.isEmpty(alias)) {
-           // Toast.makeText(MainActivity.this, R.string.error_alias_empty, Toast.LENGTH_SHORT).show();
+            // Toast.makeText(MainActivity.this, R.string.error_alias_empty, Toast.LENGTH_SHORT).show();
             return;
         }
        /* if (!ExampleUtil.isValidTagAndAlias(alias)) {
@@ -372,7 +372,7 @@ public class MainActivity extends BaseActivity implements ShoppingCarFragment.Ma
     }
 
 
-    @Override
+   /* @Override
     public void isVisibalBar(int isVisibal) {
         if (isVisibal == 0) {
             main_circal_visibal.setVisibility(View.VISIBLE);
@@ -383,5 +383,5 @@ public class MainActivity extends BaseActivity implements ShoppingCarFragment.Ma
             rgMain.setVisibility(View.GONE);
 
         }
-    }
+    }*/
 }

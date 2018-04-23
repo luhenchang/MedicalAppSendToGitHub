@@ -117,6 +117,7 @@
     <style name="Login_Editer">
         <item name="android:digits">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
         </item>
+        <item name="android:inputType">textPassword</item>
         <item name="android:maxLength">18</item>
         <item name="android:singleLine">true</item>
         <item name="android:textColor">#b2b2b2</item>
@@ -124,7 +125,7 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
         <item name="android:background">@null</item>
-        <item name="android:textSize">@dimen/x13</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:textColorHint">@color/login_hint_text</item>
     </style>
 
@@ -150,7 +151,7 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
         <item name="android:background">@null</item>
-        <item name="android:textSize">@dimen/x13</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textColorHint">@color/login_hint_text</item>
     </style>
 
@@ -168,7 +169,7 @@
         <item name="android:paddingTop">@dimen/x5</item>
         <item name="android:paddingBottom">@dimen/x5</item>
         <item name="android:background">@drawable/selected_red_shapter_ager</item>
-        <item name="android:textSize">@dimen/x12</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:layout_width">@dimen/x90</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
@@ -258,15 +259,22 @@
     </style>
 
     <style name="user_fragment_tv">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:drawablePadding">@dimen/x6</item>
         <item name="android:textSize">@dimen/x12</item>
         <item name="android:gravity">center</item>
         <item name="android:orientation">horizontal</item>
-        <item name="android:layout_marginStart">@dimen/x27</item>
     </style>
-
+    <style name="user_fragment_tv_setting">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">@dimen/x6</item>
+        <item name="android:textSize">@dimen/x12</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
     <style name="user_fragment_circleview">
         <item name="android:layout_width">70dp</item>
         <item name="android:layout_height">70dp</item>
@@ -432,7 +440,7 @@
         <item name="android:layout_width">@dimen/x50</item>
         <item name="android:layout_height">@dimen/x50</item>
         <item name="android:layout_marginLeft">10dp</item>
-        <item name="android:layout_marginTop">23dp</item>
+        <item name="android:layout_marginTop">20dp</item>
         <item name="android:scaleType">fitXY</item>
         <item name="android:src">@drawable/medical_header_iv</item>
     </style>
@@ -442,11 +450,12 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">@dimen/x15</item>
-        <item name="android:layout_marginTop">@dimen/x20</item>
+        <item name="android:layout_marginTop">@dimen/x23</item>
         <item name="android:layout_toRightOf">@+id/medical_header_iv</item>
         <item name="android:textColor">@color/base_text</item>
-        <item name="android:textSize">@dimen/x14</item>
+        <item name="android:textSize">13sp</item>
         <item name="android:text">张医生</item>
+        <item name="android:gravity">center_vertical</item>
     </style>
 
     <style name="inquery_medicals_item1_name1_tv">
@@ -458,7 +467,7 @@
         <item name="android:layout_marginTop">@dimen/x9</item>
         <item name="android:layout_toRightOf">@+id/medical_header_iv</item>
         <item name="android:textColor">@color/base_text_red</item>
-        <item name="android:textSize">@dimen/x12</item>
+        <item name="android:textSize">11sp</item>
         <item name="android:text">天津市第一人民医院</item>
     </style>
 

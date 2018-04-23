@@ -76,7 +76,7 @@
     <LinearLayout
         android:id="@+id/main_circal_visibal"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/x45"
+        android:layout_height="@dimen/y32"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
 

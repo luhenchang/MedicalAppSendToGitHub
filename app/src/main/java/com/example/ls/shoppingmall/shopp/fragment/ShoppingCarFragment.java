@@ -50,17 +50,17 @@ import static android.content.ContentValues.TAG;
  */
 
 public class ShoppingCarFragment extends BaseFragment {
-    private MainBarVisibal mainBarVisibal;
+//    private MainBarVisibal mainBarVisibal;
     private int flagcount;
     private int i=0;
 
-    public ShoppingCarFragment(MainBarVisibal mainActivity) {
+  /*  public ShoppingCarFragment(MainBarVisibal mainActivity) {
         this.mainBarVisibal = mainActivity;
-    }
+    }*/
 
-    public interface MainBarVisibal {
+  /*  public interface MainBarVisibal {
         void isVisibalBar(int isVisibal);
-    }
+    }*/
 
     private TextView mtv;
     WebView webvew;

@@ -68,23 +68,26 @@
                     android:paddingLeft="@dimen/x10">
 
                     <TextView
+                        android:textColor="@color/base_text"
                         android:id="@+id/tv_medical_team_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="某某医师团"
-                        android:textSize="18sp" />
+                        android:textSize="14sp" />
 
                     <TextView
+                        android:textSize="11sp"
                         android:id="@+id/tv_medical_team_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/x5"
+                        android:layout_marginTop="5dp"
                         android:text="医师团"
                         android:textColor="@color/base_text_red" />
 
                 </LinearLayout>
 
                 <TextView
+                    android:textSize="11sp"
                     android:id="@+id/ac_adapter_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

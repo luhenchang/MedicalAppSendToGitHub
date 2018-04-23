@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Linear_Relaty"
+    android:background="@drawable/app_background"
+    tools:context="com.example.ls.shoppingmall.user.activity.LoginActivity">
+
+    <!--  <com.example.ls.shoppingmall.utils.layoututils.OverScrollView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">-->
+
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_heightPercent="65%"
+            app:layout_widthPercent="100%">
+
+            <TextView
+                android:layout_width="@dimen/x55"
+                android:layout_height="@dimen/x80"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/x10"
+                android:layout_marginTop="@dimen/x18"
+                android:background="@drawable/login_iv_top"
+                android:gravity="center"
+                android:textColor="#fb7675"
+                android:textSize="@dimen/x35" />
+
+            <!--
+              <style name="Login_sytle_lineayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/y25</item>
+        <item name="android:layout_marginLeft">@dimen/x20</item>
+        <item name="android:layout_marginRight">@dimen/x20</item>
+        <item name="android:layout_marginTop">@dimen/x11</item>
+        <item name="android:background">@drawable/search_home_shape</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+            -->
+            <!--
+              style="@style/Login_sytle_lineayout"
+            -->
+            <com.zhy.android.percent.support.PercentLinearLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/search_home_shape"
+                android:gravity="center_vertical"
+                app:layout_heightPercent="10%"
+                app:layout_marginTopPercent="3%"
+                app:layout_widthPercent="87%">
+
+                <ImageView
+                    style="@style/Login_image"
+                    android:src="@drawable/user_login_phone" />
+
+                <View style="@style/Login_view" />
+
+                <EditText
+                    android:id="@+id/ac_login_phone"
+                    style="@style/Login_Editer_phone"
+                    android:hint="@string/Registered_inputphone_hint" />
+
+                <Button
+                    android:id="@+id/login_delet_phone_bt"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:layout_marginRight="@dimen/x25"
+                    android:background="@drawable/delete"
+                    android:visibility="invisible" />
+            </com.zhy.android.percent.support.PercentLinearLayout>
+
+            <!--<LinearLayout style="@style/Login_sytle_lineayout">-->
+            <com.zhy.android.percent.support.PercentLinearLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/search_home_shape"
+                android:gravity="center_vertical"
+                app:layout_heightPercent="10%"
+                app:layout_marginTopPercent="3%"
+                app:layout_widthPercent="87%">
+
+                <ImageView
+                    style="@style/Login_image"
+                    android:src="@drawable/user_login_clock" />
+
+                <View style="@style/Login_view" />
+
+                <EditText
+                    android:id="@+id/ac_login_password"
+                    style="@style/Login_Editer"
+                    android:hint="@string/Login_password_hint"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/login_delet_password_bt"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:layout_marginRight="@dimen/x25"
+                    android:background="@drawable/delete"
+                    android:visibility="invisible" />
+            </com.zhy.android.percent.support.PercentLinearLayout>
+
+            <!--
+ <style name="login_style_text">
+        <item name="android:layout_marginRight">@dimen/x20</item>
+        <item name="android:layout_marginLeft">@dimen/x20</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/y27</item>
+        <item name="android:layout_marginTop">@dimen/x13</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+            -->
+            <!--
+             style="@style/login_style_text"
+            -->
+            <TextView
+                android:id="@+id/ac_login_login"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/selected_red_shapter_ager"
+                android:gravity="center"
+                android:text="@string/Login"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_heightPercent="10%"
+                app:layout_marginTopPercent="5%"
+                app:layout_widthPercent="87%" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:layout_marginLeft="@dimen/x25"
+                android:layout_marginRight="@dimen/x25"
+                android:layout_marginTop="@dimen/x15"
+                android:background="#dcdcdc" />
+
+            <TextView
+                android:id="@+id/tv_get_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="忘记密码？"
+                android:textColor="@color/base_text_red"
+                android:textSize="14sp"
+                app:layout_marginLeftPercent="70%" />
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom|center_horizontal"
+            app:layout_heightPercent="35%"
+            app:layout_marginBottomPercent="2%"
+            app:layout_widthPercent="100%">
+            <!--
+
+                            <style name="login_style_text">
+                                <item name="android:layout_marginRight">@dimen/x20</item>
+                                <item name="android:layout_marginLeft">@dimen/x20</item>
+                                <item name="android:textSize">18sp</item>
+                                <item name="android:layout_width">match_parent</item>
+                                <item name="android:layout_height">@dimen/y27</item>
+                                <item name="android:layout_marginTop">@dimen/x13</item>
+                                <item name="android:gravity">center</item>
+                                <item name="android:textColor">@color/white</item>
+                            </style>
+
+                             android:layout_gravity="center_horizontal"
+                            android:textColor="@color/white"
+                            app:layout_heightPercent="7.8%"
+                            app:layout_marginTopPercent="3%"
+                            app:layout_widthPercent="87%"
+            -->
+            <TextView
+                android:id="@+id/ac_login_register"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/selected_blue_shapter_ager"
+                android:gravity="center"
+                android:text="@string/Registered"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_heightPercent="20%"
+                app:layout_marginLeftPercent="6%"
+                app:layout_marginRightPercent="6%"
+                app:layout_marginTopPercent="3%"
+                app:layout_widthPercent="100%" />
+            <!--
+                                style="@style/login_style_text"
+            -->
+            <TextView
+                android:id="@+id/ac_login_see"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_below="@+id/ac_login_register"
+                android:background="@drawable/selected_gray_shapter_ager"
+                android:gravity="center"
+                android:text="@string/See_ok"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_heightPercent="20%"
+                app:layout_marginLeftPercent="6%"
+                app:layout_marginRightPercent="6%"
+                app:layout_marginTopPercent="5%"
+                app:layout_widthPercent="100%" />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+    <!--</com.example.ls.shoppingmall.utils.layoututils.OverScrollView>-->
+</com.zhy.android.percent.support.PercentLinearLayout>

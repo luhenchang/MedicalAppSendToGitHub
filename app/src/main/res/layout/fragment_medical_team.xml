@@ -33,6 +33,7 @@
                     android:layout_marginTop="@dimen/x3"
                     android:gravity="center"
                     android:text="查看更多"
+                    android:textSize="@dimen/x15"
                     android:textColor="@color/messge_right_text" />
             </LinearLayout>
 
@@ -66,14 +67,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="某某医师团"
-                    android:textSize="16sp" />
+                    android:textSize="13sp" />
 
                 <TextView
-                    android:textSize="14sp"
+                    android:textSize="11sp"
                     android:id="@+id/tv_medical_team_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/x5"
+                    android:layout_marginTop="6dp"
                     android:text="医师团"
                     android:textColor="@color/base_text_red" />
 

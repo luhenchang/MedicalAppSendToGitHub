@@ -15,8 +15,8 @@
         android:topRightRadius="200px" />
     <!-- 设置一下边距,让空间大一点 -->
     <padding
-        android:bottom="11dp"
+        android:bottom="3dp"
         android:left="21dp"
         android:right="21dp"
-        android:top="12dp" />
+        android:top="3dp" />
 </shape>

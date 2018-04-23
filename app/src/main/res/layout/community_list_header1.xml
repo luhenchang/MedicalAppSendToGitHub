@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/x100"
+        android:layout_height="110dp"
         android:background="#9cf0f0f0"
         android:orientation="horizontal">
 
@@ -24,9 +24,10 @@
             <RelativeLayout
                 android:id="@+id/rl_family_team"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/x90">
+                android:layout_height="100dp">
 
                 <ImageView
+                    android:scaleType="fitCenter"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/family_team" />
@@ -46,9 +47,10 @@
             <RelativeLayout
                 android:id="@+id/rl_medical_team"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/x90">
+                android:layout_height="100dp">
 
                 <ImageView
+                    android:scaleType="fitCenter"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/medical_team" />

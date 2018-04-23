@@ -81,32 +81,40 @@
             <TextView
                 android:id="@+id/ft_mine_circle_tv"
                 style="@style/user_fragment_tv"
-                android:layout_marginStart="@dimen/x40"
                 android:drawableTop="@drawable/user_book"
                 android:text="文章" />
 
             <TextView
                 android:id="@+id/ft_mine_family_tv"
                 style="@style/user_fragment_tv"
-                android:layout_marginStart="@dimen/x40"
                 android:drawableTop="@drawable/user_famaly"
                 android:text="家人" />
 
             <TextView
                 android:id="@+id/ft_mine_collection_tv"
                 style="@style/user_fragment_tv"
-                android:layout_marginStart="@dimen/x40"
                 android:drawableTop="@drawable/user_collection"
                 android:text="收藏" />
         </LinearLayout>
         <!--第4个模块-->
-        <LinearLayout style="@style/user_fragment_lin">
+        <com.zhy.android.percent.support.PercentLinearLayout
+            style="@style/user_fragment_lin">
 
             <TextView
+                android:layout_gravity="center_vertical"
+                app:layout_widthPercent="25%"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                app:layout_heightPercent="70%"
+                android:gravity="center"
                 android:id="@+id/ft_mine_setting_tv"
-                style="@style/user_fragment_tv"
+                style="@style/user_fragment_tv_setting"
                 android:drawableTop="@drawable/user_setting"
                 android:text="设置" />
-        </LinearLayout>
+            <TextView
+                app:layout_widthPercent="75%"
+                android:layout_height="match_parent"
+                android:layout_width="0dp" />
+        </com.zhy.android.percent.support.PercentLinearLayout>
     </LinearLayout>
 </com.example.ls.shoppingmall.utils.layoututils.OverScrollView>

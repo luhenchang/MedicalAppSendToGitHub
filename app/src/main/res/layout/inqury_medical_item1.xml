@@ -25,12 +25,14 @@
                 android:layout_marginTop="@dimen/x3"
                 android:gravity="center"
                 android:text="查看更多"
+                android:textSize="@dimen/x15"
                 android:textColor="@color/messge_right_text" />
         </LinearLayout>
         <View style="@style/inquery_medicals_item_view" />
     </LinearLayout>
 
     <RelativeLayout
+        android:gravity="center_vertical"
         android:id="@+id/ad_medical_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

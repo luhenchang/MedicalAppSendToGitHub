@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
@@ -66,7 +67,7 @@ public class AddFamelyActivity extends AppCompatActivity {
     @Bind(R.id.myscroll_myslf_os)
     OverScrollView myscrollMyslfOs;
     @Bind(R.id.ac_family_tv)
-    TextView acFamilyTv;
+    Button acFamilyTv;
     private String mFamilyRelation, mFamilyName, mFamilySex="1", mFamilyAge="25", mFamilyDiaseHestory="无病史";
     /*病历史*/
     HashMap<String, Object> userHash;
@@ -149,7 +150,7 @@ public class AddFamelyActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (flag.equals("age")) {
                     mAge = picker.getCenterItem().toString();
-                    acAddfamilyAge.setText(mAge + " 岁");
+                    acAddfamilyAge.setText(mAge);
                     mFamilyAge = mAge;
                 } else if (flag.equals("sex")) {
                     if (picker.getCenterItem().toString().equals("男")) {
@@ -199,6 +200,7 @@ public class AddFamelyActivity extends AppCompatActivity {
     private void sendMessageToServers() {
         mFamilyRelation = acAddfamilyFamily.getText().toString().trim();
         mFamilyName = acAddfamilyName.getText().toString().trim();
+        mFamilyAge=acAddfamilyAge.getText().toString()+"";
         if (TextUtils.isEmpty(mFamilyRelation)) {
             Toast.makeText(this, "家庭关系不能为空！", Toast.LENGTH_SHORT).show();
 

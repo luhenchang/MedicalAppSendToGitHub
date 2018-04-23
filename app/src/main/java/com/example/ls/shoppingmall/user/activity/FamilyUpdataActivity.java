@@ -118,6 +118,7 @@ public class FamilyUpdataActivity extends AppCompatActivity {
         mFamilyName = acAddfamilyName.getText().toString().trim();
         mFamilySex = acAddfamilySex.getText().toString().trim().equals("女") ? "0" : "1";
         mFamilyDiaseHestory = familyDiseasHostoryEt.getText().toString().trim();
+        mFamilyAge=acAddfamilyAge.getText().toString();
         if (TextUtils.isEmpty(mFamilyRelation)) {
             Toast.makeText(this, "家庭关系不能为空！", Toast.LENGTH_SHORT).show();
 
@@ -192,7 +193,7 @@ public class FamilyUpdataActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (flag.equals("age")) {
                     mAge = picker.getCenterItem().toString();
-                    acAddfamilyAge.setText(mAge + " 岁");
+                    acAddfamilyAge.setText(mAge);
                     mFamilyAge = mAge;
                 } else if (flag.equals("sex")) {
                     if (picker.getCenterItem().toString().equals("男")) {

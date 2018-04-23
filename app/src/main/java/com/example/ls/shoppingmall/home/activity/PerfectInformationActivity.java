@@ -78,12 +78,12 @@ public class PerfectInformationActivity extends AppCompatActivity {
         viewList = new HashMap<>();
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        params.setMargins(20, 15, 20, 5);
+        params.setMargins(18, 13, 19, 7);
         final int[] count = {0};
         for (int i = 0; i < strData.size(); i++) {
             final TextView view = new TextView(this);
             view.setText(strData.get(i).Name);
-            view.setTextSize(15);
+            view.setTextSize(13);
             view.setTag(false);
             view.setTag(R.id.tv_item1, i);
             final int finalI = i;

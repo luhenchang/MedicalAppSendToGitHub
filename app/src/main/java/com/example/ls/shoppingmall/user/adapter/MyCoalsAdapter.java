@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.DatabaseUtils;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
@@ -132,13 +133,13 @@ public class MyCoalsAdapter extends BaseAdapter {
                         FrameHttpHelper.getInstance().get(NetConfig.BACK_MONEY_URLW + mData.get(position).getOrderNo() + "&accrual=" + strs[0], parames, new FrameHttpCallback<BackMoneyBean>() {
                             @Override
                             public void onSuccess(BackMoneyBean myCoalsBean) {
-                                Log.e("myCoalsBean",myCoalsBean.toString());
+                                Log.e("myCoalsBean", myCoalsBean.toString());
                                 if (myCoalsBean.getRESCOD().equals("000000")) {
                                     mData.remove(mData.get(position));
                                     notifyDataSetChanged();
                                     Toast.makeText(context, myCoalsBean.getRESMSG() + "", Toast.LENGTH_SHORT).show();
-                                }else{
-                                    Toast.makeText(context, myCoalsBean.getRESMSG()+"", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(context, myCoalsBean.getRESMSG() + "", Toast.LENGTH_SHORT).show();
                                 }
                             }
 
@@ -158,7 +159,7 @@ public class MyCoalsAdapter extends BaseAdapter {
                                     notifyDataSetChanged();
                                     Toast.makeText(context, myCoalsBean.getRESMSG() + "", Toast.LENGTH_SHORT).show();
 
-                                }else{
+                                } else {
                                     Toast.makeText(context, myCoalsBean.getRESMSG(), Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -184,21 +185,30 @@ public class MyCoalsAdapter extends BaseAdapter {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                                Bitmap bitmap = downloadBitmap(NetConfig.GLIDE_USRE + mData.get(position).getImgPath());
-                                if (bitmap != null) {
-                                    Message message = Message.obtain();
-                                    message.what = 1000;
-                                    message.obj = bitmap;
-                                    handler.sendMessage(message);
-                                }
+                            Bitmap bitmap = downloadBitmap(NetConfig.GLIDE_USRE + mData.get(position).getImgPath());
+                            if (bitmap != null) {
+                                Message message = Message.obtain();
+                                message.what = 1000;
+                                message.obj = bitmap;
+                                handler.sendMessage(message);
+                            }
                         }
                     }).start();
                 }
             });
+            if (flag == 1) {
+                vh.tvBackMoney.setBackgroundResource(R.drawable.text_shapter_consal_gray);
+                vh.tvBackMoney.setTextColor(Color.GRAY);
+
+            }
 
         } else {
             vh.tvErm.setBackgroundResource(R.drawable.text_shapter_consal_gray);
+            if (flag == 1) {
+                vh.tvBackMoney.setBackgroundResource(R.drawable.text_shaper_red);
+                vh.tvBackMoney.setTextColor(Color.parseColor("#ff5a5f"));
 
+            }
         }
 
         return convertView;
@@ -282,11 +292,11 @@ public class MyCoalsAdapter extends BaseAdapter {
     //分享部分
     private void showBootomDialog(final Bitmap bitmap) {
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context);
-        View inflate = View.inflate(context, R.layout.activity_botomshow_dialog, null);
+        View inflate = View.inflate(context, R.layout.activity_botomshow_dialog1, null);
         View qq = inflate.findViewById(R.id.ac_botom_qqfrends);
         View qq_place = inflate.findViewById(R.id.ac_botom_qqkj);
-        View wx = inflate.findViewById(R.id.ac_botom_wxfrends);
-        View wx_place = inflate.findViewById(R.id.ac_botom_xinkj);
+        View wx = inflate.findViewById(R.id.wx_friends);
+        View wx_place = inflate.findViewById(R.id.wx_friends_place);
 
         View sina = inflate.findViewById(R.id.ac_botom_xinlang);
         qq.setOnClickListener(new View.OnClickListener() {

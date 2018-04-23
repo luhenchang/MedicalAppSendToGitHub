@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login1);
         MyApplication.addActivity(this);
         sharedUtils = new SharedUtils(this);
         uservice = new UserDB(this);

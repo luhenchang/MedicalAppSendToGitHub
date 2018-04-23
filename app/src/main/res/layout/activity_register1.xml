@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Linear_Relaty"
+    android:background="@drawable/app_background"
+    tools:context="com.example.ls.shoppingmall.user.activity.LoginActivity">
+
+    <!-- <ScrollView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         >-->
+    <!--
+            <com.zhy.android.percent.support.PercentLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">-->
+
+    <TextView
+        android:layout_width="@dimen/x55"
+        android:layout_height="@dimen/x80"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/x10"
+        android:layout_marginTop="@dimen/x18"
+        android:background="@drawable/login_iv_top"
+        android:gravity="center"
+        android:textColor="#fb7675"
+        android:textSize="@dimen/x35" />
+    <!--
+
+<style name="Login_sytle_lineayout">
+<item name="android:layout_width">match_parent</item>
+<item name="android:layout_height">@dimen/y25</item>
+<item name="android:layout_marginLeft">@dimen/x20</item>
+<item name="android:layout_marginRight">@dimen/x20</item>
+<item name="android:layout_marginTop">@dimen/x11</item>
+<item name="android:background">@drawable/search_home_shape</item>
+<item name="android:gravity">center_vertical</item>
+<item name="android:orientation">horizontal</item>
+</style>
+        style="@style/Login_sytle_lineayout"
+
+    -->
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/search_home_shape"
+        android:gravity="center_vertical"
+        app:layout_heightPercent="6%"
+        app:layout_widthPercent="86%">
+
+        <ImageView
+            style="@style/Login_image"
+            android:src="@drawable/user_login_phone" />
+
+        <View style="@style/Login_view" />
+
+        <EditText
+            android:id="@+id/regist_phone_et"
+            style="@style/Register_Editer"
+            android:layout_width="wrap_content"
+            android:hint="@string/Registered_inputphone_hint" />
+
+        <Button
+            android:id="@+id/regest_delet_phone_bt"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginRight="@dimen/x25"
+            android:background="@drawable/delete"
+            android:visibility="invisible" />
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/search_home_shape"
+        android:gravity="center_vertical"
+        app:layout_heightPercent="6%"
+        app:layout_marginTopPercent="2%"
+        app:layout_widthPercent="86%">
+
+        <ImageView
+            style="@style/Login_image"
+            android:src="@drawable/login_yanzma" />
+
+        <View style="@style/Login_view" />
+
+        <EditText
+            android:id="@+id/regist_messge_et"
+            style="@style/Register_Editer"
+            android:layout_width="wrap_content"
+            android:hint="请输入验证码" />
+
+        <!--
+           <style name="register_style_text_time">
+        <item name="android:layout_marginRight">@dimen/x7</item>
+        <item name="android:text">获取验证码</item>
+        <item name="android:paddingRight">@dimen/x8</item>
+        <item name="android:paddingLeft">@dimen/x8</item>
+        <item name="android:paddingTop">@dimen/x5</item>
+        <item name="android:paddingBottom">@dimen/x5</item>
+        <item name="android:background">@drawable/selected_red_shapter_ager</item>
+        <item name="android:textSize">@dimen/x12</item>
+        <item name="android:layout_width">@dimen/x90</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#f7f6f6</item>
+    </style>
+
+        style="@style/register_style_text_time"
+        -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_widthPercent="30%"
+            app:layout_heightPercent="70%"
+            android:background="@drawable/selected_red_shapter_ager"
+            android:text="获取验证码"
+            app:layout_marginRightPercent="3%"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:id="@+id/regist_send_messge_tv"
+             />
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/search_home_shape"
+        android:gravity="center_vertical"
+        app:layout_heightPercent="6%"
+        app:layout_marginTopPercent="2%"
+        app:layout_widthPercent="86%">
+
+        <ImageView
+            style="@style/Login_image"
+            android:src="@drawable/user_login_clock" />
+
+        <View style="@style/Login_view" />
+
+        <EditText
+            android:id="@+id/regist_input_password_et"
+            style="@style/Login_Editer"
+            android:layout_width="wrap_content"
+            android:hint="@string/Login_password_hint" />
+
+        <Button
+            android:id="@+id/regest_delet_password_bt"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginRight="@dimen/x25"
+            android:background="@drawable/delete"
+            android:visibility="invisible" />
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/search_home_shape"
+        android:gravity="center_vertical"
+        app:layout_heightPercent="6%"
+        app:layout_marginTopPercent="2%"
+        app:layout_widthPercent="86%">
+
+        <ImageView
+            style="@style/Login_image"
+            android:src="@drawable/user_login_message" />
+
+        <View style="@style/Login_view" />
+
+        <EditText
+            android:id="@+id/regist_invit_et"
+            style="@style/Login_Editer"
+            android:layout_width="wrap_content"
+            android:hint="@string/Registered_ma" />
+
+        <Button
+            android:id="@+id/regest_delet_invite_bt"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginRight="@dimen/x25"
+            android:background="@drawable/delete"
+            android:visibility="invisible" />
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_vertical"
+        app:layout_marginTopPercent="3%"
+        app:layout_widthPercent="86%">
+
+        <CheckBox
+            android:id="@+id/regist_allowed_cb"
+            android:layout_width="@dimen/x13"
+            android:layout_height="@dimen/x13"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/register_checkbox"
+            android:button="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/x10"
+            android:text="@string/Registered_allow"
+            android:textColor="#595959"
+            android:textSize="@dimen/x12" />
+
+        <TextView
+            android:id="@+id/tv_user_rigist_need"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Registered_agreedment"
+            android:textColor="#fb7574"
+            android:textSize="@dimen/x12"
+            android:textStyle="bold" />
+    </com.zhy.android.percent.support.PercentLinearLayout>
+    <!--
+
+     <style name="Linear_Relaty">
+            <item name="android:layout_width">match_parent</item>
+            <item name="android:layout_height">match_parent</item>
+            <item name="android:orientation">vertical</item>
+        </style>
+
+                style="@style/Linear_Relaty"
+
+    -->
+    <!--    <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:layout_widthPercent="100%">-->
+
+    <!--
+     <style name="register_style_text">
+        <item name="android:layout_marginRight">@dimen/x20</item>
+        <item name="android:layout_marginLeft">@dimen/x20</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/y27</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    -->
+    <TextView
+        android:id="@+id/zhuce_textview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/selected_red_shapter_ager"
+        android:gravity="center"
+        android:text="@string/Registered"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_heightPercent="6.4%"
+        app:layout_marginTopPercent="10%"
+        app:layout_widthPercent="86%" />
+
+    <View
+        android:id="@+id/view_regist"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x1"
+        android:layout_below="@+id/zhuce_textview"
+        android:layout_marginLeft="@dimen/x25"
+        android:layout_marginRight="@dimen/x25"
+        android:layout_marginTop="@dimen/x10"
+        android:background="#e1e1e1" />
+<!--
+    <TextView
+
+        style="@style/login_style_text"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/view_regist"
+
+        />-->
+
+    <TextView
+        app:layout_marginTopPercent="4%"
+        android:id="@+id/regist_to_login_tv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/selected_blue_shapter_ager"
+        android:gravity="center"
+        android:text="@string/Registered_goLogin"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_heightPercent="6.4%"
+        app:layout_widthPercent="86%" />
+    <!--  </com.zhy.android.percent.support.PercentRelativeLayout>-->
+    <!--       </com.zhy.android.percent.support.PercentLinearLayout>--><!--  </ScrollView>-->
+</com.zhy.android.percent.support.PercentLinearLayout>

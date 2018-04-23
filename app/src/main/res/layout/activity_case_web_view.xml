@@ -6,9 +6,10 @@
     android:layout_height="match_parent"
     tools:context="com.example.ls.shoppingmall.home.activity.TalkAndCaseWebActivity">
         <RelativeLayout
+            android:background="@color/white"
             android:id="@+id/header"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/y38"
+            android:layout_height="48dp"
             android:gravity="center_vertical">
 
             <ImageView
@@ -57,6 +58,13 @@
                     android:background="@drawable/top_connect" />
             </RelativeLayout>
         </RelativeLayout>
+    <View
+        android:id="@+id/view_bo"
+        android:layout_below="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/inqurey_item_view"
+        />
     <ProgressBar
         android:layout_below="@+id/header"
         android:id="@+id/progressBar1"
@@ -67,8 +75,9 @@
         android:visibility="gone"
 
         />
+
     <WebView
-        android:layout_below="@+id/header"
+        android:layout_below="@+id/view_bo"
         android:id="@+id/web_case"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
