@@ -220,7 +220,7 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
                 tvPopUp.getLocationOnScreen(location);//获取点击item的左上角的坐标
                 popupWindow.setContentView(popview);
                 TextView disc=popview.findViewById(R.id.tv_medical_hostory);
-                disc.setText(mDatas.get(position).getArticle()==null?"":mDatas.get(position).getArticle());
+                disc.setText(mDatas.get(position).getExperience()==null?"":mDatas.get(position).getExperience());
                 //显示在上方
                 popupWindow.showAsDropDown(tvPopUp);
             }
