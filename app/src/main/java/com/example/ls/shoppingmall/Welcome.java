@@ -104,12 +104,13 @@ public class Welcome extends AppCompatActivity implements ViewPager.OnPageChange
 
     private void initView() {
         mButton = (Button) findViewById(R.id.bt_guide);
-        mImgIds = new int[]{R.drawable.welcom1, R.drawable.welcom2, R.drawable.welcom3};
+        mImgIds = new int[]{R.drawable.wellcom1, R.drawable.wellcom2, R.drawable.wellcom3, R.drawable.wellcom4};
         mViewPager = (MyViewPager) findViewById(R.id.myvp_guide);
-        mPoints = new ImageView[3];
+        mPoints = new ImageView[4];
         mPoints[0] = (ImageView) findViewById(R.id.iv_guide_point_1);
         mPoints[1] = (ImageView) findViewById(R.id.iv_guide_point_2);
         mPoints[2] = (ImageView) findViewById(R.id.iv_guide_point_3);
+        mPoints[3] = (ImageView) findViewById(R.id.iv_guide_point_4);
         mPoints[0].setSelected(true);
     }
 
@@ -159,7 +160,7 @@ public class Welcome extends AppCompatActivity implements ViewPager.OnPageChange
         for (int i = 0; i < mPoints.length; i++) {
             mPoints[i].setSelected(i == position);
         }
-        if (position == 2) {
+        if (position == 3) {
             mButton.setVisibility(View.VISIBLE);
         } else {
             mButton.setVisibility(View.GONE);

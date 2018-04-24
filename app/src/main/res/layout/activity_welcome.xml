@@ -17,11 +17,10 @@
 
 
     <Button
-        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:onClick="jump"
         android:text="开始体验"
         android:textColor="@color/white"
@@ -60,6 +59,14 @@
             android:layout_marginLeft="10dp"
             android:background="@drawable/guide_point_selector"
             android:id="@+id/iv_guide_point_3"
+            />
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/guide_point_selector"
+            android:id="@+id/iv_guide_point_4"
             />
     </LinearLayout>
 </RelativeLayout>
