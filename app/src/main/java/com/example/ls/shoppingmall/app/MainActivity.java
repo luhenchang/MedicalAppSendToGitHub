@@ -176,58 +176,35 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initListener() {
-
         rgMain.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                final FragmentTransaction transation = getSupportFragmentManager().beginTransaction();
+
                 switch (checkedId) {
                     case R.id.rb_home://主页
                         position = 0;
-                        if (homeFragment != null) {
-                            transation.replace(R.id.frameLayout, homeFragment);
-                        }
                         break;
                     case R.id.rb_community://发现
                         position = 2;
-                        if (communityFragment != null) {
-                            transation.replace(R.id.frameLayout, communityFragment);
-                        }
                         break;
                     case R.id.rb_cart://购物车
                         position = 1;
-                        if (shoppingCarFragment != null) {
-                            transation.replace(R.id.frameLayout, shoppingCarFragment);
-                        }
                         break;
                     case R.id.rb_user://用户中心
                         position = 3;
-                        if (userFrament != null) {
-                            transation.replace(R.id.frameLayout, userFrament);
-                        }
                         break;
                     default:
                         position = 0;
                         break;
                 }
-                transation.commit();
                 //根据位置的区不同的Fragment
-                // BaseFragment baseFragment = getFragment(position);
+                BaseFragment baseFragment = getFragment(position);
                 //第一个参数是上一次显示的
                 //第二个参数是当前正要显示的
-                // switchFragment(tempFragment, baseFragment);
-                //switchFragmentReplace(baseFragment);
+                switchFragment(tempFragment, baseFragment);
             }
         });
         rgMain.check(R.id.rb_home);
-
-    }
-
-    private void switchFragmentReplace(BaseFragment baseFragment) {
-        if (baseFragment == null) {
-            // baseFragment
-        }
     }
 
 
@@ -286,20 +263,16 @@ public class MainActivity extends BaseActivity {
 
 
     private void initFragment() {
-       /* mFragments = new ArrayList<>();
+        mFragments = new ArrayList<>();
         mFragments.add(new HomeFragment());
         mFragments.add(new ShoppingCarFragment());
-        mFragments.add(new CommunityFragment());*/
-        homeFragment = new HomeFragment();
-        shoppingCarFragment = new ShoppingCarFragment();
-        communityFragment = new CommunityFragment();
+        mFragments.add(new CommunityFragment());
         userFrament = new UserFragment();
-        // mFragments.add(userFrament);
+        mFragments.add(userFrament);
         mUpdataMessageListenner = userFrament;
 
 
     }
-
 
     // 这是来自 JPush Example 的设置别名的 Activity 里的代码。一般 App 的设置的调用入口，在任何方便的地方调用都可以。
     private void setAlias() {

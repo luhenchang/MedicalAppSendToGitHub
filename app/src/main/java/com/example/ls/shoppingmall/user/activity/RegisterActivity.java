@@ -1,6 +1,7 @@
 package com.example.ls.shoppingmall.user.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -12,9 +13,11 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -73,8 +76,10 @@ public class RegisterActivity extends AppCompatActivity {
     Button regestDeletInviteBt;
     @Bind(R.id.tv_user_rigist_need)
     TextView tvUserRigistNeed;
+    @Bind(R.id.soft_onclick)
+    LinearLayout softOnclick;
     //点击记时短信时间
-    private CountDownTimer tirmer = new CountDownTimer(5*60000, 1000) {
+    private CountDownTimer tirmer = new CountDownTimer(5 * 60000, 1000) {
         @Override
         public void onTick(long millisUntilFinished) {
             registSendMessgeTv.setEnabled(false);
@@ -110,6 +115,23 @@ public class RegisterActivity extends AppCompatActivity {
 
     /*初始化用户名和密码以及邀请码（里面的delete小图标判断出现）*/
     private void initViewAndListnner() {
+        //点击其他地方会隐藏这个软键盘的哦
+        softOnclick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                // 隐藏软键盘
+                imm.hideSoftInputFromWindow(
+
+                        getWindow().
+
+                                getDecorView().
+
+                                getWindowToken(), 0);
+            }
+        });
+
+
         registPhoneEt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -254,9 +276,9 @@ public class RegisterActivity extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(user_passwordr)) {
                     Toast.makeText(this, "请输入密码", Toast.LENGTH_SHORT).show();
 
-                } else if(user_passwordr.toString().length()<6){
+                } else if (user_passwordr.toString().length() < 6) {
                     Toast.makeText(this, "密码不能小于6位", Toast.LENGTH_SHORT).show();
-                }else if (TextUtils.isEmpty(userMessage)) {
+                } else if (TextUtils.isEmpty(userMessage)) {
                     Toast.makeText(this, "请输入验证码", Toast.LENGTH_SHORT).show();
 
                 } else if (TextUtils.isEmpty(user_passwordr)) {
@@ -291,17 +313,18 @@ public class RegisterActivity extends AppCompatActivity {
                 registInvitEt.setText(null);
                 break;
             case R.id.tv_user_rigist_need:
-                Intent intent=new Intent(this, WebViewActivity.class);
-                intent.putExtra("adapters","RegisterActivity");
-                intent.putExtra("URL_ONE","http://47.94.165.113:8081/h5hunhekaifa/clause.html");
+                Intent intent = new Intent(this, WebViewActivity.class);
+                intent.putExtra("adapters", "RegisterActivity");
+                intent.putExtra("URL_ONE", "http://47.94.165.113:8081/h5hunhekaifa/clause.html");
                 startActivity(intent);
                 break;
         }
     }
-   //15379139115
+
+    //15379139115
     private void registerSentServer(final String user_phoner, final String user_passwordr, String userMessage, final String user_uhma) {
         //http://47.94.165.113:8080/USR000010001?telNo=13512219573&pwd=123456&verification=619667
-        String Strurl = "https://qy.healthinfochina.com:8080/USR900010001?telNo=" + user_phoner + "&pwd=" + user_passwordr + "&verification=" + userMessage + "&invcode=" + user_uhma+"&platform=0";
+        String Strurl = "https://qy.healthinfochina.com:8080/USR900010001?telNo=" + user_phoner + "&pwd=" + user_passwordr + "&verification=" + userMessage + "&invcode=" + user_uhma + "&platform=0";
         try {
             URL url = new URL(Strurl);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -468,7 +491,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     //这里如果注册成功那么就保持用户的user_phoner和user_password以及userID
     private void savaUserInforToData(String userid, String user_phoner, String user_passwordr) {
-       //(ID,UserID,UserNickName,UserName,UserHeadImg,UserPhone,UserPassword,UserToken,UserSex,UserWeight,UserHeight,UserAge
+        //(ID,UserID,UserNickName,UserName,UserHeadImg,UserPhone,UserPassword,UserToken,UserSex,UserWeight,UserHeight,UserAge
 
         Object[] obj = {"1", userid, "", "", "", user_phoner, "", "", "", "", "", ""};
       /*

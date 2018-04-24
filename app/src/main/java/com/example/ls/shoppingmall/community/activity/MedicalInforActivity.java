@@ -192,7 +192,7 @@ public class MedicalInforActivity extends AppCompatActivity {
                             public void onClick(View v) {
 
                             }
-                        });
+                        }).show();
                     }
                 } else {
                     Toast.makeText(this, "请你选择预约时间段！", Toast.LENGTH_SHORT).show();

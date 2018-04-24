@@ -1,6 +1,7 @@
 package com.example.ls.shoppingmall.user.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -27,6 +29,7 @@ import com.example.ls.shoppingmall.utils.dbutils.UserDB;
 import com.example.ls.shoppingmall.utils.dbutils.UserServiceInterface;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpCallback;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpHelper;
+import com.zhy.android.percent.support.PercentLinearLayout;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -54,6 +57,8 @@ public class LoginActivity extends AppCompatActivity {
     Button loginDeletPasswordBt;
     @Bind(R.id.tv_get_password)
     TextView tvGetPassword;
+    @Bind(R.id.soft_onclick)
+    PercentLinearLayout softOnclick;
     private String userPhone = "", userPassword = "";
     private Map<String, Object> userMessageMap;
     private UserDB uservice;
@@ -81,6 +86,23 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void initListener() {
+        //点击其他地方会隐藏这个软键盘的哦
+        softOnclick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                // 隐藏软键盘
+                imm.hideSoftInputFromWindow(
+
+                        getWindow().
+
+                                getDecorView().
+
+                                getWindowToken(), 0);
+            }
+        });
+
+
         /*这里当点击其他输入框时候隐藏点delect按钮
         * 而且如果输入了内容返回来之后右焦点需要显示delect按钮
         * */

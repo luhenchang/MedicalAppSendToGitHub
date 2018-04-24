@@ -1,5 +1,6 @@
 package com.example.ls.shoppingmall.home.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -60,6 +62,7 @@ public class SymptomSelectActivity extends AppCompatActivity implements AbsListV
     private EditText et_search;
     private TextView tv_search;
     private String sex="0";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -197,6 +200,16 @@ public class SymptomSelectActivity extends AppCompatActivity implements AbsListV
                         Toast.makeText(SymptomSelectActivity.this, "没有对应的搜索!", Toast.LENGTH_SHORT).show();
                     }
                 }
+                //点击搜索时候关闭软键盘哦
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                // 隐藏软键盘
+                imm.hideSoftInputFromWindow(
+
+                        getWindow().
+
+                                getDecorView().
+
+                                getWindowToken(), 0);
             }
         });
 

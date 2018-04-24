@@ -16,6 +16,7 @@
         android:orientation="vertical">
 
         <com.zhy.android.percent.support.PercentLinearLayout
+            android:id="@+id/soft_onclick"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="vertical"
