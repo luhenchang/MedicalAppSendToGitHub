@@ -23,10 +23,14 @@
         android:right="11dp"
         android:top="7dp" />
     -->
-<padding
+<!--<padding
     android:bottom="6dp"
     android:left="11dp"
     android:right="11dp"
-    android:top="7dp" />
-
+    android:top="7dp" />-->
+    <padding
+        android:bottom="11dp"
+        android:left="21dp"
+        android:right="21dp"
+        android:top="12dp" />
 </shape>

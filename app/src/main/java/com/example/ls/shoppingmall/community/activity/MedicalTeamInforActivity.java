@@ -381,13 +381,13 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
             public void onClick(View v) {//KTXCFD2
                 //shareWeb(final Activity activity, String WebUrl, String title, String description, String imageUrl, int imageID, SHARE_MEDIA platform) {
 
-                ShareUtils.shareWeb(MedicalTeamInforActivity.this, link, title, disc, "", imgUrl, SHARE_MEDIA.QQ);
-               /* UMImage umImage = new UMImage(MedicalTeamInforActivity.this, imgUrl);
+               // ShareUtils.shareWeb(MedicalTeamInforActivity.this, link, title, disc, "", imgUrl, SHARE_MEDIA.QQ);
+                UMImage umImage = new UMImage(MedicalTeamInforActivity.this, imgUrl);
                 UMWeb web = new UMWeb(link);
                 web.setTitle(title);//标题
                 web.setThumb(umImage);  //缩略图
                 web.setDescription(disc);//描述
-                new ShareAction((Activity) MedicalTeamInforActivity.this).setPlatform(SHARE_MEDIA.QQ).withMedia(web).share();*/
+                new ShareAction((Activity) MedicalTeamInforActivity.this).setPlatform(SHARE_MEDIA.QQ).withMedia(web).share();
                 bottomSheetDialog.dismiss();
             }
         });

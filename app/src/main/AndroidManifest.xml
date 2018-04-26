@@ -287,7 +287,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <!-- 这里的scheme是qq分享要用的，100424468为自己申请的appid，真实项目中需要替换 -->
-                <data android:scheme="100424468" />
+                <data android:scheme="1106698640" />
             </intent-filter>
         </activity>
         <activity

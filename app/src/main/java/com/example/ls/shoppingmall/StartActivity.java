@@ -26,5 +26,6 @@ public class StartActivity extends Activity {
 
             }
         }, 2000); // 启动动画持续3秒钟
+
     }
 }

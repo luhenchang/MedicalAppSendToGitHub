@@ -181,7 +181,20 @@ public class MedicalInforActivity extends AppCompatActivity {
                 //先上传服务器获取商品id去支付
                 if (payBean != null && payBean.getDoctor_id() != null) {
                     if (payBean.getIsYuyue()) {
-                        sendToServer();
+                        if(payBean.isNum){
+                            sendToServer();
+                        }else{
+                            new AlertDialog(MedicalInforActivity.this).builder().
+                                    setTitle("提示").
+                                    setMsg("当前时间段预约人数已满！").
+                                    setCancelable(false).
+                                    setPositiveButton("确定",new View.OnClickListener(){
+                                        @Override
+                                        public void onClick(View v) {
+
+                                        }
+                                    }).show();
+                        }
                     } else {
                         new AlertDialog(MedicalInforActivity.this).builder().
                                 setTitle("提示").

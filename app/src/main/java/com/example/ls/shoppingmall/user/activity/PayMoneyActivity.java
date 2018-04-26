@@ -18,6 +18,7 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -134,7 +135,7 @@ public class PayMoneyActivity extends AppCompatActivity {
 
 
     @Bind(R.id.pay_button)
-    TextView payButton;
+    Button payButton;
     //------------------------------微信支付需要的东西开始------------------------------------------------
     private IWXAPI msgApi;
     //IWXAPI 是第三方app和微信通信的openapi接口
@@ -267,7 +268,6 @@ public class PayMoneyActivity extends AppCompatActivity {
     private String goodsOrderstring;
     private String note1 = "";
     private String traType = "";
-    private boolean runpayFlag = false;
     private String shopPay = "";//支付类型
 
     @Override
@@ -340,12 +340,13 @@ public class PayMoneyActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        /*InputFilter[] filters = {new MoneyEditTextInputFilter()};
-        acRechargMoneyEt.setFilters(filters);*/
         diaLog = new ProgressDialog(this);
         diaLog.setTitle("提示");
         diaLog.setMessage("正在加载,请等待...");
         diaLog.setCancelable(false);
+        /*InputFilter[] filters = {new MoneyEditTextInputFilter()};
+        acRechargMoneyEt.setFilters(filters);*/
+
         // diaLog.show();
     }
 
@@ -433,16 +434,14 @@ public class PayMoneyActivity extends AppCompatActivity {
             case R.id.ac_recharg_money_taobao_lin:
                 break;
             case R.id.pay_button:
+                diaLog.show();
                 //TODO 1 点击开始支付：
                 //判断金额输入框是整数还是
                 mtotal_amount = ((acRechargMoneyEt.getText().toString() == null) || (acRechargMoneyEt.getText().toString().equals(""))) == true ? "" : acRechargMoneyEt.getText().toString();
-                if (!mtotal_amount.equals("") && !runpayFlag) {
-                    runpayFlag = true;
+                if (!mtotal_amount.equals("")) {
                 /*    String[] strs = mtotal_amount.split("[.]");
                     mtotal_amount = strs[0];*/
                     paySwitch();
-                } else if (runpayFlag) {
-                    Toast.makeText(this, "正在调起支付", Toast.LENGTH_SHORT).show();
                 }
                 break;
         }
@@ -460,10 +459,10 @@ public class PayMoneyActivity extends AppCompatActivity {
         //TODO 2 生成订单号
         PayOrderNo = getOutTradeNo();
         Constants.order_no = PayOrderNo;
-        diaLog = new ProgressDialog(this);
+     /*   diaLog = new ProgressDialog(this);
         diaLog.setTitle("提示");
         diaLog.setMessage("正在生成订单,请等待...");
-        diaLog.setCancelable(false);
+        diaLog.setCancelable(false);*/
         // diaLog.show();
         //TODO 3 生成订单
         new Thread(new PayMoneyActivity.MyThreadPay()).start();

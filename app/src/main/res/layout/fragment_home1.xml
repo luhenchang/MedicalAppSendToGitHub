@@ -28,7 +28,7 @@
             android:textSize="13sp"
             app:layout_heightPercent="5.6%"
             app:layout_marginTopPercent="6%"
-            app:layout_widthPercent="70%" />
+            app:layout_widthPercent="90%" />
 
         <com.zhy.android.percent.support.PercentRelativeLayout
             android:layout_width="0dp"
@@ -122,7 +122,6 @@
                             android:layout_height="0dp"
                             app:layout_heightPercent="40%"
                             app:layout_widthPercent="100%">
-
                         </com.zhy.android.percent.support.PercentFrameLayout>
                         <!--腹部-->
                         <com.zhy.android.percent.support.PercentFrameLayout
@@ -131,7 +130,6 @@
                             android:layout_height="0dp"
                             app:layout_heightPercent="60%"
                             app:layout_widthPercent="100%">
-
                         </com.zhy.android.percent.support.PercentFrameLayout>
                     </com.zhy.android.percent.support.PercentLinearLayout>
                     <!--手臂右边-->
@@ -261,43 +259,48 @@
             app:layout_marginLeftPercent="6%"
             app:layout_widthPercent="26%">
 
-            <android.support.v7.widget.CardView
+          <!--  <android.support.v7.widget.CardView
                 android:id="@+id/fh_cv1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="@dimen/x2"
                 android:layout_weight="1"
                 app:cardCornerRadius="13dp"
-                app:cardElevation="@dimen/y1">
+              >-->
 
                 <TextView
+                    android:layout_weight="1"
+                    android:textSize="12sp"
                     android:id="@+id/tv_man_fh"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/selected_red_shapter_ager"
+                    android:background="@drawable/home_red_man_wman"
                     android:gravity="center"
                     android:text="男"
                     android:textColor="@color/white" />
-            </android.support.v7.widget.CardView>
+         <!--   </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
+                android:layout_marginLeft="3dp"
                 android:id="@+id/fh_cv2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="@dimen/x2"
                 android:layout_weight="1"
                 app:cardCornerRadius="13dp"
-                app:cardElevation="@dimen/y1">
+
+                >-->
 
                 <TextView
+                    android:layout_marginLeft="3dp"
+                    android:layout_weight="1"
+                    android:textSize="12sp"
                     android:id="@+id/tv_wuman_fh"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/selected_red_shapter_ager"
+                    android:background="@drawable/home_red_man_wman"
                     android:gravity="center"
                     android:text="女"
                     android:textColor="@color/white" />
-            </android.support.v7.widget.CardView>
+           <!-- </android.support.v7.widget.CardView>-->
         </com.zhy.android.percent.support.PercentLinearLayout>
 
         <com.zhy.android.percent.support.PercentLinearLayout

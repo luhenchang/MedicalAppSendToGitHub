@@ -16,6 +16,8 @@ public class DoctorPayBean {
      * week : 星期六
      * year : 2018
      * isYuyue : true
+     * {"month":"5","date":"1","doctor_id":"20180118160142096888","money":"0.10","time":"8:00~9:00","week":"星期二","year":"2018","isYuyue":true,"isNum":true}
+
      */
 
     private String month;
@@ -26,7 +28,7 @@ public class DoctorPayBean {
     private String week;
     private String year;
     private boolean isYuyue;
-
+    public boolean isNum;
     public void setMonth(String month) {
         this.month = month;
     }

@@ -147,7 +147,7 @@ public class MyApplication extends Application {
             //新浪微博(第三个参数为回调地址)
             PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad","http://sns.whalecloud.com/sina2/callback");
             //QQ
-            PlatformConfig.setQQZone("1106668336", "RkxJ9npOWKyyKdSm");
+            PlatformConfig.setQQZone("1106698640", "ET037K7P7TXpf1wO");
 
 
         }

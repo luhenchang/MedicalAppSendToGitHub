@@ -80,7 +80,7 @@ dependencies {
     compile files('libs/jcore-android_v1.0.0.jar')
     compile files('libs/jpush-android_v3.0.0.jar')
     compile 'com.zhy:percent-support-extends:1.0.1'
-
+    compile 'commons-codec:commons-codec:1.10'
 //1.0.5 当1.1.0出现问题可以回退到1.0.5.1
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
     compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'//没有使用特殊Header，可以不加这行

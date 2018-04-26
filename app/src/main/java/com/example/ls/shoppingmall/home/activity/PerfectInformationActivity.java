@@ -83,7 +83,7 @@ public class PerfectInformationActivity extends AppCompatActivity {
         for (int i = 0; i < strData.size(); i++) {
             final TextView view = new TextView(this);
             view.setText(strData.get(i).Name);
-            view.setTextSize(13);
+            view.setTextSize(14);
             view.setTag(false);
             view.setTag(R.id.tv_item1, i);
             final int finalI = i;
