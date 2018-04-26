@@ -242,14 +242,18 @@ public class CommunityFragment extends BaseFragment implements View.OnClickListe
         mDataTeam = new ArrayList<>();
         mDataTeam.clear();
         Map<String, Object> map = new HashedMap();
-        map.put("isHot", "1");//1热门,0不是热门
+        map.put("ishot", "1");//1热门,0不是热门
         map.put("pageSize", 10);
         map.put("currentPage", 1);
         FrameHttpHelper.getInstance().post(NetConfig.COMMUNITY_MEDICAL_TEAM, map, new FrameHttpCallback<CommuniMedicalTeam>() {
             @Override
             public void onSuccess(CommuniMedicalTeam cmt) {
-                if (cmt.getRESCOD().equals("000000")) {
+                if (cmt.getRESCOD().equals("000000")){
                     mDataTeam.addAll(cmt.getRESOBJ());
+                    medicalTeamAdapter = new CommunityMedicalAdapter(getActivity(), mDataTeam);
+                    mFt_comm_ry.setAdapter(medicalTeamAdapter);
+                    medicalTeamAdapter.notifyDataSetChanged();
+                }else {
                     medicalTeamAdapter = new CommunityMedicalAdapter(getActivity(), mDataTeam);
                     mFt_comm_ry.setAdapter(medicalTeamAdapter);
                     medicalTeamAdapter.notifyDataSetChanged();

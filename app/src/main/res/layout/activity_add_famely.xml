@@ -10,21 +10,23 @@
     <include
         android:id="@+id/top_header"
         layout="@layout/myinformation_header_include" />
+
     <com.example.ls.shoppingmall.utils.layoututils.OverScrollView
-        android:layout_marginTop="@dimen/x10"
-        android:layout_below="@+id/top_header"
         android:id="@+id/myscroll_myslf_os"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/top_header"
+        android:layout_marginTop="@dimen/x10"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <RelativeLayout
                 style="@style/adduserinformation_relativelayout"
                 android:layout_marginTop="@dimen/x1">
@@ -32,41 +34,42 @@
                 <TextView
                     style="@style/adduserinformation_text"
                     android:text="家庭关系" />
+
                 <EditText
-                    android:paddingRight="@dimen/x25"
                     android:id="@+id/ac_addfamily_family"
-                    android:gravity="right|center_vertical"
-                    android:background="@null"
-                    android:layout_alignParentBottom="true"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="@dimen/x125"
                     style="?android:attr/textViewStyle"
+                    android:layout_width="@dimen/x125"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:gravity="right|center_vertical"
                     android:hint="请输入关系"
+                    android:paddingRight="@dimen/x25"
                     android:textColorHint="#a6a5a5"
                     android:textSize="13sp" />
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_marginTop="@dimen/x1"
                 android:id="@+id/ac_infor_username"
-                style="@style/adduserinformation_relativelayout">
+                style="@style/adduserinformation_relativelayout"
+                android:layout_marginTop="@dimen/x1">
 
                 <TextView
                     style="@style/userinformation_text"
                     android:text="姓名" />
 
                 <EditText
-                    android:paddingRight="@dimen/x25"
                     android:id="@+id/ac_addfamily_name"
-                    android:gravity="right|center_vertical"
-                    android:background="@null"
-                    android:layout_alignParentBottom="true"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="@dimen/x125"
                     style="?android:attr/textViewStyle"
+                    android:layout_width="@dimen/x125"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:gravity="right|center_vertical"
                     android:hint="请输入姓名"
+                    android:paddingRight="@dimen/x25"
                     android:textColorHint="#a6a5a5"
                     android:textSize="13sp" />
             </RelativeLayout>
@@ -78,22 +81,22 @@
 
                 <TextView
                     style="@style/adduserinformation_text"
-                    android:text="性别"
-                    android:layout_alignParentTop="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
                     android:layout_marginLeft="17dp"
-                    android:layout_marginStart="17dp" />
+                    android:layout_marginStart="17dp"
+                    android:text="性别" />
 
                 <TextView
-                    android:paddingRight="@dimen/x25"
                     android:id="@+id/ac_addfamily_sex"
-                    android:gravity="right|center_vertical"
-                    android:text="男"
-                    android:layout_alignParentBottom="true"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
                     android:layout_width="@dimen/x125"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="right|center_vertical"
+                    android:paddingRight="@dimen/x25"
+                    android:text="男"
                     android:textSize="13sp" />
             </RelativeLayout>
 
@@ -106,16 +109,29 @@
                     style="@style/adduserinformation_text"
                     android:text="年龄" />
 
-                <TextView
-                    android:paddingRight="@dimen/x25"
-                    android:id="@+id/ac_addfamily_age"
-                    android:gravity="right|center_vertical"
-                    android:layout_alignParentBottom="true"
+                <LinearLayout
+                    android:layout_width="@dimen/x125"
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"
-                    android:layout_width="@dimen/x125"
-                    android:text="25 岁"
-                    android:textSize="13sp" />
+                    >
+
+                    <TextView
+                        android:gravity="center|right"
+                        android:layout_weight="1"
+                        android:id="@+id/ac_addfamily_age"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="25"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:paddingRight="@dimen/x25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/ac_addfamily_age"
+                        android:gravity="center"
+                        android:text=" 岁" />
+                </LinearLayout>
             </RelativeLayout>
 
             <!--病历史-->

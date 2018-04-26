@@ -177,6 +177,9 @@
                     android:text="病例史" />
 
                 <TextView
+                    android:singleLine="true"
+                    android:maxLength="15"
+                    android:id="@+id/bingzhen"
                     style="@style/userinformation_text_right"
                     android:text="" />
             </RelativeLayout>

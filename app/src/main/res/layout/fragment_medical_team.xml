@@ -9,7 +9,6 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <LinearLayout
             android:id="@+id/inquery_medical_item1_lin"
             android:layout_width="match_parent"

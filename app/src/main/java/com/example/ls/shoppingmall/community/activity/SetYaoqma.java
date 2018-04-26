@@ -58,6 +58,7 @@ public class SetYaoqma extends AppCompatActivity {
         userInter = new UserDB(this).getUserMessage(new String[]{"1"});
         userId = userInter.get("UserID").toString();
         isGray();
+        titleTop.setText("填写邀请码");
     }
     //这里初始化数据
     private void isGray() {

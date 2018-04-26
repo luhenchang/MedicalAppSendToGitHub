@@ -178,7 +178,7 @@ public class MyInformationActivity extends AppCompatActivity implements View.OnC
     private CheckNetworkInfoUtils checkNetworkInfoUtils;
     private String db_nickname, db_name, db_sex, db_age, db_height, db_weight;
     private String caseHistory = "没有病症";
-
+    private TextView mBinzhen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -195,6 +195,7 @@ public class MyInformationActivity extends AppCompatActivity implements View.OnC
     // UserWeight varchar(64),UserHeight varchar(64))";*/
         userMessageMap = new UserDB(this).getUserMessage(new String[]{"1"});
         mUserId = (String) userMessageMap.get("UserID");
+        mBinzhen= (TextView) findViewById(R.id.bingzhen);
         setView();
         setImage();
         setLisenner();
@@ -332,12 +333,15 @@ public class MyInformationActivity extends AppCompatActivity implements View.OnC
                         }
                     }
                     if (us.getRESOBJ().getImgID() != null) {
+                        Glide.with(MyInformationActivity.this).load(NetConfig.GLIDE_USRE + us.getRESOBJ().getImgID().getUrl()).listener(new GlideRequestListner()).centerCrop().into(ivMineLogo);
+
                         // Glide.with(MyInformationActivity.this).load(NetConfig.GLIDE_USRE + us.getRESOBJ().getImgID().getUrl()).into(ivMineLogo);
-                        myBitmapUtils.display(NetConfig.GLIDE_USRE + us.getRESOBJ().getImgID().getUrl(), ivMineLogo);
+                        //myBitmapUtils.display(NetConfig.GLIDE_USRE + us.getRESOBJ().getImgID().getUrl(), ivMineLogo);
                         sharedUtils.writeString("my_header_choose", NetConfig.GLIDE_USRE + us.getRESOBJ().getImgID().getUrl());
                     }
                     if (us.getRESOBJ().getCaseHistory() != null) {
                         caseHistory = us.getRESOBJ().getCaseHistory();
+                        mBinzhen.setText(caseHistory);
                     }
                 } else {
                 }
