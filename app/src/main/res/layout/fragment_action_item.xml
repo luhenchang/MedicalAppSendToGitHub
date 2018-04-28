@@ -2,11 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:id="@+id/ft_message_term_li">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/x80">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/ft_action_item_tv_title"
@@ -37,8 +38,7 @@
             android:layout_marginStart="@dimen/x20"
             android:layout_marginTop="@dimen/x8"
             android:ellipsize="end"
-            android:maxEms="16"
-            android:maxLines="1"
+            android:paddingRight="@dimen/x25"
             android:text="文字内容文字能呢问完了完了了我熟练度冯老师"
             android:textColor="#808080"
             android:textSize="@dimen/x13" />
@@ -58,5 +58,10 @@
             android:visibility="visible" />
 
     </RelativeLayout>
+    <View
+        android:layout_marginTop="10dp"
+        android:background="@color/inqurey_item_view"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"/>
 
 </LinearLayout>

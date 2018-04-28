@@ -89,7 +89,7 @@ public class SetPassword extends AppCompatActivity {
         setContentView(R.layout.activity_set_password1);
         MyApplication.addActivity(this);
         ButterKnife.bind(this);
-        titleTop.setText("修改密码");
+        titleTop.setText("忘记密码");
     }
 
     @OnClick({R.id.back_to_after, R.id.title_top,R.id.regest_delet_phone_bt, R.id.regist_send_messge_tv, R.id.regest_delet_password_bt, R.id.zhuce_textview})

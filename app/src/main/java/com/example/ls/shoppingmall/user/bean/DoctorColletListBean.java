@@ -8,9 +8,10 @@ import java.util.List;
 
 public class DoctorColletListBean {
 
+
     /**
      * RESMSG : 查询成功
-     * RESOBJ : [{"docId":"20180111105911139852","pwd":null,"cnName":"张文斌","imgID":null,"idCard":"120111198809304016","sex":"","age":"","tel":"13642153391","mail":"","lincence":"111111111111111","level":"10","hospital":{"hospInfNo":"0000040021","hospLevel":null,"hospName":"天津河西华一中医门诊部","hospAddr":null,"hospType":null,"hospArea":null,"hospTel":null},"offices":{"offiInfNo":"005001","offilEVEL1":null,"offiName1":null,"offilEVEL2":null,"offiName2":null},"positional":{"postInfNo":"004","postInfName":"主任医师"},"article":"1221","pwdTimes":null,"status":"00011000","invcode":"966528","lastTime":null,"inquiryTime":"00001000000000010000000010010000100000000000010000000000","imgTxt":null,"longitude":"","latitude":"","lastLogin":null,"adviceAuth":"111","adviceScope":null,"loginHost":null,"alipayAccount":null,"feeStandar":null,"wechatNo":null,"recipients":null,"contactNum":null,"deliveryAdd":null,"feeWechat":null,"balance":null,"wdFlag":null,"signupTime":null,"experience":null,"isCheck":null,"totalAdvice":null,"monthAdvice":null,"o2oOrder":null,"user":null},{"docId":"20171221161048677129","pwd":null,"cnName":"张翠山","imgID":null,"idCard":"123456678888","sex":"","age":"","tel":"17694969215","mail":"","lincence":"12323213","level":"10","hospital":{"hospInfNo":"0000010001","hospLevel":null,"hospName":"天津市胸科医院","hospAddr":null,"hospType":null,"hospArea":null,"hospTel":null},"offices":{"offiInfNo":"002006","offilEVEL1":null,"offiName1":null,"offilEVEL2":null,"offiName2":null},"positional":{"postInfNo":"001","postInfName":"医师"},"article":"","pwdTimes":null,"status":"00011100","invcode":"375536","lastTime":null,"inquiryTime":"01010000000000000100101001000000000000101000000000000010","imgTxt":null,"longitude":"","latitude":"","lastLogin":null,"adviceAuth":"110","adviceScope":null,"loginHost":null,"alipayAccount":null,"feeStandar":null,"wechatNo":null,"recipients":null,"contactNum":null,"deliveryAdd":null,"feeWechat":null,"balance":null,"wdFlag":null,"signupTime":null,"experience":null,"isCheck":null,"totalAdvice":null,"monthAdvice":null,"o2oOrder":null,"user":null},{"docId":"20180115183006679592","pwd":null,"cnName":"王磊","imgID":null,"idCard":"120105198404094818","sex":"","age":"","tel":"13512219574","mail":"","lincence":"fdsa","level":"10","hospital":{"hospInfNo":"0000050004","hospLevel":null,"hospName":"天津市南开医院","hospAddr":null,"hospType":null,"hospArea":null,"hospTel":null},"offices":{"offiInfNo":"001001","offilEVEL1":null,"offiName1":null,"offilEVEL2":null,"offiName2":null},"positional":{"postInfNo":"001","postInfName":"医师"},"article":"fdsafdsa","pwdTimes":null,"status":"00011100","invcode":"778322","lastTime":null,"inquiryTime":"","imgTxt":null,"longitude":"117.09569","latitude":"39.124576","lastLogin":null,"adviceAuth":"100","adviceScope":null,"loginHost":null,"alipayAccount":null,"feeStandar":null,"wechatNo":null,"recipients":null,"contactNum":null,"deliveryAdd":null,"feeWechat":null,"balance":null,"wdFlag":null,"signupTime":null,"experience":null,"isCheck":null,"totalAdvice":null,"monthAdvice":null,"o2oOrder":null,"user":null}]
+     * RESOBJ : [{"docId":"7d5d4ec62d8b5140fbe28e89b26c8bf1","pwd":null,"cnName":"李四","imgID":{"headId":null,"docId":null,"usrId":null,"title":null,"url":"images/upload/2018-04-26/1524743733189.jpg","addTime":null,"lastTime":null},"idCard":"110110110110","sex":"1","age":"36","tel":"13642153391","mail":"","lincence":"","level":null,"hospital":{"hospInfNo":"0000010001","hospLevel":null,"hospName":"天津市胸科医院","hospAddr":null,"hospType":null,"hospArea":null,"hospTel":null},"offices":{"offiInfNo":"001001","offilEVEL1":"001","offiName1":"内科","offilEVEL2":"001","offiName2":"心血管内科"},"positional":{"postInfNo":"005","postInfName":"主任专家"},"article":null,"pwdTimes":null,"status":"00011100","invcode":"","lastTime":null,"inquiryTime":"00000000011010000101101110000111011011100001010110101000","imgTxt":null,"longitude":"","latitude":"","lastLogin":null,"adviceAuth":"","adviceScope":[{"asNo":"0014","asName":"口腔溃疡"},{"asNo":"0017","asName":"带状疱疹"},{"asNo":"0018","asName":"鼻窦炎"},{"asNo":"0019","asName":"近视眼"},{"asNo":"0022","asName":"乳腺增生"}],"loginHost":null,"alipayAccount":null,"feeStandar":null,"wechatNo":null,"recipients":null,"contactNum":null,"deliveryAdd":null,"feeWechat":null,"balance":null,"wdFlag":null,"signupTime":null,"experience":null,"isCheck":null,"totalAdvice":null,"monthAdvice":null,"isHot":null,"o2oOrder":null,"user":null}]
      * RESCOD : 000000
      */
 
@@ -44,32 +45,32 @@ public class DoctorColletListBean {
 
     public static class RESOBJEntity {
         /**
-         * docId : 20180111105911139852
+         * docId : 7d5d4ec62d8b5140fbe28e89b26c8bf1
          * pwd : null
-         * cnName : 张文斌
-         * imgID : null
-         * idCard : 120111198809304016
-         * sex : 
-         * age : 
+         * cnName : 李四
+         * imgID : {"headId":null,"docId":null,"usrId":null,"title":null,"url":"images/upload/2018-04-26/1524743733189.jpg","addTime":null,"lastTime":null}
+         * idCard : 110110110110
+         * sex : 1
+         * age : 36
          * tel : 13642153391
          * mail : 
-         * lincence : 111111111111111
-         * level : 10
-         * hospital : {"hospInfNo":"0000040021","hospLevel":null,"hospName":"天津河西华一中医门诊部","hospAddr":null,"hospType":null,"hospArea":null,"hospTel":null}
-         * offices : {"offiInfNo":"005001","offilEVEL1":null,"offiName1":null,"offilEVEL2":null,"offiName2":null}
-         * positional : {"postInfNo":"004","postInfName":"主任医师"}
-         * article : 1221
+         * lincence : 
+         * level : null
+         * hospital : {"hospInfNo":"0000010001","hospLevel":null,"hospName":"天津市胸科医院","hospAddr":null,"hospType":null,"hospArea":null,"hospTel":null}
+         * offices : {"offiInfNo":"001001","offilEVEL1":"001","offiName1":"内科","offilEVEL2":"001","offiName2":"心血管内科"}
+         * positional : {"postInfNo":"005","postInfName":"主任专家"}
+         * article : null
          * pwdTimes : null
-         * status : 00011000
-         * invcode : 966528
+         * status : 00011100
+         * invcode : 
          * lastTime : null
-         * inquiryTime : 00001000000000010000000010010000100000000000010000000000
+         * inquiryTime : 00000000011010000101101110000111011011100001010110101000
          * imgTxt : null
          * longitude : 
          * latitude : 
          * lastLogin : null
-         * adviceAuth : 111
-         * adviceScope : null
+         * adviceAuth : 
+         * adviceScope : [{"asNo":"0014","asName":"口腔溃疡"},{"asNo":"0017","asName":"带状疱疹"},{"asNo":"0018","asName":"鼻窦炎"},{"asNo":"0019","asName":"近视眼"},{"asNo":"0022","asName":"乳腺增生"}]
          * loginHost : null
          * alipayAccount : null
          * feeStandar : null
@@ -85,6 +86,7 @@ public class DoctorColletListBean {
          * isCheck : null
          * totalAdvice : null
          * monthAdvice : null
+         * isHot : null
          * o2oOrder : null
          * user : null
          */
@@ -92,7 +94,7 @@ public class DoctorColletListBean {
         private String docId;
         private String pwd;
         private String cnName;
-        private String imgID;
+        private ImgIDEntity imgID;
         private String idCard;
         private String sex;
         private String age;
@@ -114,7 +116,6 @@ public class DoctorColletListBean {
         private String latitude;
         private String lastLogin;
         private String adviceAuth;
-        private String adviceScope;
         private String loginHost;
         private String alipayAccount;
         private String feeStandar;
@@ -130,8 +131,10 @@ public class DoctorColletListBean {
         private String isCheck;
         private String totalAdvice;
         private String monthAdvice;
+        private String isHot;
         private String o2oOrder;
         private String user;
+        private List<AdviceScopeEntity> adviceScope;
 
         public void setDocId(String docId) {
             this.docId = docId;
@@ -145,7 +148,7 @@ public class DoctorColletListBean {
             this.cnName = cnName;
         }
 
-        public void setImgID(String imgID) {
+        public void setImgID(ImgIDEntity imgID) {
             this.imgID = imgID;
         }
 
@@ -233,10 +236,6 @@ public class DoctorColletListBean {
             this.adviceAuth = adviceAuth;
         }
 
-        public void setAdviceScope(String adviceScope) {
-            this.adviceScope = adviceScope;
-        }
-
         public void setLoginHost(String loginHost) {
             this.loginHost = loginHost;
         }
@@ -297,12 +296,20 @@ public class DoctorColletListBean {
             this.monthAdvice = monthAdvice;
         }
 
+        public void setIsHot(String isHot) {
+            this.isHot = isHot;
+        }
+
         public void setO2oOrder(String o2oOrder) {
             this.o2oOrder = o2oOrder;
         }
 
         public void setUser(String user) {
             this.user = user;
+        }
+
+        public void setAdviceScope(List<AdviceScopeEntity> adviceScope) {
+            this.adviceScope = adviceScope;
         }
 
         public String getDocId() {
@@ -317,7 +324,7 @@ public class DoctorColletListBean {
             return cnName;
         }
 
-        public String getImgID() {
+        public ImgIDEntity getImgID() {
             return imgID;
         }
 
@@ -405,10 +412,6 @@ public class DoctorColletListBean {
             return adviceAuth;
         }
 
-        public String getAdviceScope() {
-            return adviceScope;
-        }
-
         public String getLoginHost() {
             return loginHost;
         }
@@ -469,6 +472,10 @@ public class DoctorColletListBean {
             return monthAdvice;
         }
 
+        public String getIsHot() {
+            return isHot;
+        }
+
         public String getO2oOrder() {
             return o2oOrder;
         }
@@ -477,11 +484,91 @@ public class DoctorColletListBean {
             return user;
         }
 
+        public List<AdviceScopeEntity> getAdviceScope() {
+            return adviceScope;
+        }
+
+        public static class ImgIDEntity {
+            /**
+             * headId : null
+             * docId : null
+             * usrId : null
+             * title : null
+             * url : images/upload/2018-04-26/1524743733189.jpg
+             * addTime : null
+             * lastTime : null
+             */
+
+            private String headId;
+            private String docId;
+            private String usrId;
+            private String title;
+            private String url;
+            private String addTime;
+            private String lastTime;
+
+            public void setHeadId(String headId) {
+                this.headId = headId;
+            }
+
+            public void setDocId(String docId) {
+                this.docId = docId;
+            }
+
+            public void setUsrId(String usrId) {
+                this.usrId = usrId;
+            }
+
+            public void setTitle(String title) {
+                this.title = title;
+            }
+
+            public void setUrl(String url) {
+                this.url = url;
+            }
+
+            public void setAddTime(String addTime) {
+                this.addTime = addTime;
+            }
+
+            public void setLastTime(String lastTime) {
+                this.lastTime = lastTime;
+            }
+
+            public String getHeadId() {
+                return headId;
+            }
+
+            public String getDocId() {
+                return docId;
+            }
+
+            public String getUsrId() {
+                return usrId;
+            }
+
+            public String getTitle() {
+                return title;
+            }
+
+            public String getUrl() {
+                return url;
+            }
+
+            public String getAddTime() {
+                return addTime;
+            }
+
+            public String getLastTime() {
+                return lastTime;
+            }
+        }
+
         public static class HospitalEntity {
             /**
-             * hospInfNo : 0000040021
+             * hospInfNo : 0000010001
              * hospLevel : null
-             * hospName : 天津河西华一中医门诊部
+             * hospName : 天津市胸科医院
              * hospAddr : null
              * hospType : null
              * hospArea : null
@@ -555,11 +642,11 @@ public class DoctorColletListBean {
 
         public static class OfficesEntity {
             /**
-             * offiInfNo : 005001
-             * offilEVEL1 : null
-             * offiName1 : null
-             * offilEVEL2 : null
-             * offiName2 : null
+             * offiInfNo : 001001
+             * offilEVEL1 : 001
+             * offiName1 : 内科
+             * offilEVEL2 : 001
+             * offiName2 : 心血管内科
              */
 
             private String offiInfNo;
@@ -611,8 +698,8 @@ public class DoctorColletListBean {
 
         public static class PositionalEntity {
             /**
-             * postInfNo : 004
-             * postInfName : 主任医师
+             * postInfNo : 005
+             * postInfName : 主任专家
              */
 
             private String postInfNo;
@@ -632,6 +719,32 @@ public class DoctorColletListBean {
 
             public String getPostInfName() {
                 return postInfName;
+            }
+        }
+
+        public static class AdviceScopeEntity {
+            /**
+             * asNo : 0014
+             * asName : 口腔溃疡
+             */
+
+            private String asNo;
+            private String asName;
+
+            public void setAsNo(String asNo) {
+                this.asNo = asNo;
+            }
+
+            public void setAsName(String asName) {
+                this.asName = asName;
+            }
+
+            public String getAsNo() {
+                return asNo;
+            }
+
+            public String getAsName() {
+                return asName;
             }
         }
     }

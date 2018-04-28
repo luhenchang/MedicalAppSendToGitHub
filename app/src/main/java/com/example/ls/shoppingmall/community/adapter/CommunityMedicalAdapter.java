@@ -3,6 +3,7 @@ package com.example.ls.shoppingmall.community.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -17,7 +18,9 @@ import com.example.ls.shoppingmall.community.activity.MedicalTeamInforActivity;
 import com.example.ls.shoppingmall.community.activity.MedicalTeamListActivity;
 import com.example.ls.shoppingmall.community.bean.CommuniMedicalTeam;
 import com.example.ls.shoppingmall.user.activity.LoginActivity;
+import com.example.ls.shoppingmall.user.activity.MyInformationActivity;
 import com.example.ls.shoppingmall.utils.dbutils.UserDB;
+import com.example.ls.shoppingmall.utils.glideutils.GlideRequestListner;
 import com.example.ls.shoppingmall.utils.layoututils.CircleImageView;
 import com.umeng.socialize.media.Base;
 
@@ -67,7 +70,9 @@ public class CommunityMedicalAdapter extends BaseAdapter {
             vh = (ViewHolder) convertView.getTag();
         }
         if(mDataTeam.get(position).getPic()!=null&&!mDataTeam.get(position).getPic().equals("")) {
-            Glide.with(mcontext).load(NetConfig.GLIDE_USRE +mDataTeam.get(position).getPic()).into(vh.cv);
+            Log.e("urlimg",NetConfig.GLIDE_USRE +mDataTeam.get(position).getPic());
+            Glide.with(mcontext).load(NetConfig.GLIDE_USRE +mDataTeam.get(position).getPic()).error(R.drawable.medical_header_iv).listener(new GlideRequestListner()).centerCrop().into(vh.cv);
+
         }
         vh.title.setText((mDataTeam.get(position).getDtmName() == null || mDataTeam.get(position).getDtmName().equals(0)) ? "" : mDataTeam.get(position).getDtmName());
         vh.name.setText((mDataTeam.get(position).getDtmName() == null || mDataTeam.get(position).getDtmName().equals(0)) ? "" : mDataTeam.get(position).getDtmName());

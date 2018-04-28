@@ -35,6 +35,7 @@ import com.example.ls.shoppingmall.home.activity.ShoppingActivity;
 import com.example.ls.shoppingmall.user.activity.IntruducActivity;
 import com.example.ls.shoppingmall.utils.ShareUtils;
 import com.example.ls.shoppingmall.utils.dbutils.UserDB;
+import com.example.ls.shoppingmall.utils.glideutils.GlideRequestListner;
 import com.example.ls.shoppingmall.utils.httputils.HttpCallBacks;
 import com.example.ls.shoppingmall.utils.httputils.HttpHelper;
 import com.example.ls.shoppingmall.utils.layoututils.CircleImageView;
@@ -151,7 +152,10 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
                     tvMedicalTeamAlwaysNumber.setText(o.getRESOBJ().get(0).getTotalAdvice()==null?"120":o.getRESOBJ().get(0).getTotalAdvice());
                     tvMedicalTeamNumber.setText(o.getRESOBJ().get(0).getMonthAdvice()==null?"20":o.getRESOBJ().get(0).getMonthAdvice());
                     tvMedicalTeamName.setText(o.getRESOBJ().get(0).getDtmName() == null ? "医师团名称" : o.getRESOBJ().get(0).getDtmName());
-                    if (o.getRESOBJ().get(0).getDtmType().equals("1")) {
+                    Glide.with(MedicalTeamInforActivity.this).load(NetConfig.GLIDE_USRE +o.getRESOBJ().get(0).getPic()).error(R.drawable.family_team_iv).listener(new GlideRequestListner()).centerCrop().into(circleIv);
+
+
+                  /*  if (o.getRESOBJ().get(0).getDtmType().equals("1")) {
                         tvMedicalTeamType.setText("老人团");
                         r_drawble_iv = R.drawable.family_team_iv;
                         circleIv.setImageResource(R.drawable.family_team_iv);
@@ -170,7 +174,7 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
                         circleIv.setImageResource(R.drawable.family_team_iv);
 
                     }
-                    tvBottomIntroduce.setText(o.getRESOBJ().get(0).getDtmDisc() == null ? "医师团名称" : o.getRESOBJ().get(0).getDtmDisc());
+                  */  tvBottomIntroduce.setText(o.getRESOBJ().get(0).getDtmDisc() == null ? "医师团名称" : o.getRESOBJ().get(0).getDtmDisc());
                     mDatas.addAll(o.getRESOBJ().get(0).getMembers());
                     mAdapter = new MedicalTeamInfroAdapter(MedicalTeamInforActivity.this, mDatas);
                     hlMedicalTeam.setAdapter(mAdapter);

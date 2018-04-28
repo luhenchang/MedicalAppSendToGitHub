@@ -352,6 +352,7 @@ public class RegisterActivity extends AppCompatActivity {
                     try {
                         Gson gsonr = new Gson();
                         RegisterResultBean registerResultBean = gsonr.fromJson(res, RegisterResultBean.class);
+                        Log.e("mssssjs",registerResultBean.toString());
                         if (registerResultBean.getRESCOD().equals("000000")) {
                             Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
                             //如果注册成功那么这里储存到数据库

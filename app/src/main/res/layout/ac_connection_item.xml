@@ -21,7 +21,7 @@
             android:background="@color/white"
             android:gravity="center_vertical">
 
-            <ImageView style="@style/ac_connet_image" />
+            <com.example.ls.shoppingmall.utils.layoututils.CircleImageView style="@style/ac_connet_image" />
 
             <TextView style="@style/ac_connet_name_tv" />
 

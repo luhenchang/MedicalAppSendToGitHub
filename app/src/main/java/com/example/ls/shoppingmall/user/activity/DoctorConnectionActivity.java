@@ -97,6 +97,7 @@ public class DoctorConnectionActivity extends AppCompatActivity implements Adapt
         map.put("userId", userId);
         Log.e("userId", userId + "");
         Log.e("uuseidsss", userId + "");
+        Log.e("haha",map.toString());
         FrameHttpHelper.getInstance().get(NetConfig.SELECTOR_DOCTOR, map, new FrameHttpCallback<DoctorColletListBean>() {
             @Override
             public void onSuccess(DoctorColletListBean medicalFirstBean) {

@@ -307,7 +307,6 @@ public class MedicalSearchActivity extends AppCompatActivity implements View.OnC
             e.printStackTrace();
         }
     }
-
     private void initDataForAdapter(String string) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("keyWord", string);

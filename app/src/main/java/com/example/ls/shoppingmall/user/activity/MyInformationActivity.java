@@ -252,7 +252,7 @@ public class MyInformationActivity extends AppCompatActivity implements View.OnC
 //        sharedUtils.writeString("my_header_choose", NetConfig.GLIDE_USRE + us.getRESOBJ().getImgID().getUrl());
         String header_iv_choose = sharedUtils.readString("my_header_choose");
         if (header_iv_choose != null) {
-            Glide.with(this).load(header_iv_choose).listener(new GlideRequestListner()).centerCrop().into(ivMineLogo);
+            Glide.with(this).load(header_iv_choose).error(R.drawable.user_header).listener(new GlideRequestListner()).centerCrop().into(ivMineLogo);
         }
 
     }
@@ -333,7 +333,7 @@ public class MyInformationActivity extends AppCompatActivity implements View.OnC
                         }
                     }
                     if (us.getRESOBJ().getImgID() != null) {
-                        Glide.with(MyInformationActivity.this).load(NetConfig.GLIDE_USRE + us.getRESOBJ().getImgID().getUrl()).listener(new GlideRequestListner()).centerCrop().into(ivMineLogo);
+                        Glide.with(MyInformationActivity.this).load(NetConfig.GLIDE_USRE + us.getRESOBJ().getImgID().getUrl()).error(R.drawable.user_header).listener(new GlideRequestListner()).centerCrop().into(ivMineLogo);
 
                         // Glide.with(MyInformationActivity.this).load(NetConfig.GLIDE_USRE + us.getRESOBJ().getImgID().getUrl()).into(ivMineLogo);
                         //myBitmapUtils.display(NetConfig.GLIDE_USRE + us.getRESOBJ().getImgID().getUrl(), ivMineLogo);

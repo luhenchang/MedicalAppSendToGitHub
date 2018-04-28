@@ -156,15 +156,26 @@
                 <TextView
                     style="@style/userinformation_text"
                     android:text="体重" />
-
-                <EditText
-                    android:maxLength="4"
-                    android:inputType="number"
-                    android:textColor="@color/messge_right_text"
-                    android:id="@+id/ac_myinfor_weight_etss"
-                    style="@style/userinformation_editor_right"
-                    android:hint="请输入体重kg"
-                    android:text="" />
+                <LinearLayout
+                    android:layout_alignParentRight="true"
+                    style="@style/userinformation_text_right">
+                    <EditText
+                        android:layout_weight="1"
+                        android:maxLength="4"
+                        android:inputType="number"
+                        android:textColor="@color/messge_right_text"
+                        android:id="@+id/ac_myinfor_weight_etss"
+                        style="@style/userinformation_editor_right1"
+                        android:hint="请输入体重"
+                        android:text="" />
+                    <TextView
+                        android:paddingLeft="3dp"
+                        android:textSize="@dimen/x13"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:text="kg"/>
+                </LinearLayout>
             </RelativeLayout>
             <!--病历史-->
             <RelativeLayout

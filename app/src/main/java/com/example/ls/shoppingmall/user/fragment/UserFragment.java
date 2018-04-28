@@ -143,7 +143,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener, 
 //        sharedUtils.writeString("my_header_choose", NetConfig.GLIDE_USRE + us.getRESOBJ().getImgID().getUrl());
         String header_iv_choose = sharedUtils.readString("my_header_choose");
         if (mUserId != null&&header_iv_choose!=null) {
-            Glide.with(this).load(header_iv_choose).listener(new GlideRequestListner()).centerCrop().into(mFt_user_header_iv);
+            Glide.with(this).load(header_iv_choose).error(R.drawable.user_header).listener(new GlideRequestListner()).centerCrop().into(mFt_user_header_iv);
         }
         if (db_nickname != null) {
             mFt_user_name_tv.setText(db_nickname);
@@ -163,7 +163,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener, 
                     }
                     if (us.getRESCOD().equals("000000")) {
                         if (us.getRESOBJ().getImgID() != null&&mUserId!=null) {
-                            Glide.with(mContext).load(NetConfig.GLIDE_USRE + us.getRESOBJ().getImgID().getUrl()).listener(new GlideRequestListner()).centerCrop().into(mFt_user_header_iv);
+                            Glide.with(mContext).load(NetConfig.GLIDE_USRE + us.getRESOBJ().getImgID().getUrl()).error(R.drawable.user_header).listener(new GlideRequestListner()).centerCrop().into(mFt_user_header_iv);
                             //   Glide.with(mContext).load(NetConfig.GLIDE_USRE + us.getRESOBJ().getImgID().getUrl()).into(mFt_user_header_iv);
                             // myBitmapUtils.display(NetConfig.GLIDE_USRE + us.getRESOBJ().getImgID().getUrl(), mFt_user_header_iv);
                             Log.e("imgss", NetConfig.GLIDE_USRE + us.getRESOBJ().getImgID().getUrl());
@@ -217,7 +217,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener, 
         super.onResume();
         String header_iv_choose = sharedUtils.readString("my_header_choose");
         if (header_iv_choose != null&&mFt_user_header_iv!=null&&mUserId!=null) {
-            Glide.with(this).load(header_iv_choose).listener(new GlideRequestListner()).centerCrop().into(mFt_user_header_iv);
+            Glide.with(this).load(header_iv_choose).error(R.drawable.user_header).listener(new GlideRequestListner()).centerCrop().into(mFt_user_header_iv);
         }
 
     }

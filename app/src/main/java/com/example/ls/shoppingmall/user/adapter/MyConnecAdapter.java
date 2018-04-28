@@ -7,8 +7,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.ls.shoppingmall.R;
+import com.example.ls.shoppingmall.app.config.NetConfig;
 import com.example.ls.shoppingmall.user.bean.DoctorColletListBean;
+import com.example.ls.shoppingmall.utils.glideutils.GlideRequestListner;
+import com.example.ls.shoppingmall.utils.layoututils.CircleImageView;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpCallback;
 
 import java.util.List;
@@ -65,6 +69,8 @@ public class MyConnecAdapter extends BaseAdapter {
         }
         vh.tv_name.setText(mData.get(position).getCnName()== null ? "" : mData.get(position).getCnName());
         vh.hosptalname.setText(mData.get(position).getHospital().getHospName()==null ? "" : mData.get(position).getHospital().getHospName());
+        Glide.with(context).load(NetConfig.GLIDE_USRE +mData.get(position).getImgID().getUrl()).error(R.drawable.medical_header_iv).listener(new GlideRequestListner()).centerCrop().into(vh.imageView);
+
         return convertView;
     }
 
@@ -72,10 +78,12 @@ public class MyConnecAdapter extends BaseAdapter {
         TextView tv_name;
         TextView hosptalname;
         private TextView mcircle;
+        private CircleImageView imageView;
         public ViewHolder(View view) {
             tv_name = view.findViewById(R.id.medical_name_tv);
             hosptalname = view.findViewById(R.id.medical_tager_one);
             mcircle=view.findViewById(R.id.ac_adapter_tv);
+            imageView=view.findViewById(R.id.medical_header_iv);
         }
     }
 

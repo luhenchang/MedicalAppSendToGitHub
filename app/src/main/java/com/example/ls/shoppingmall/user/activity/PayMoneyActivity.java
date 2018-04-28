@@ -434,7 +434,7 @@ public class PayMoneyActivity extends AppCompatActivity {
             case R.id.ac_recharg_money_taobao_lin:
                 break;
             case R.id.pay_button:
-                diaLog.show();
+              //  diaLog.show();
                 //TODO 1 点击开始支付：
                 //判断金额输入框是整数还是
                 mtotal_amount = ((acRechargMoneyEt.getText().toString() == null) || (acRechargMoneyEt.getText().toString().equals(""))) == true ? "" : acRechargMoneyEt.getText().toString();
@@ -664,7 +664,7 @@ public class PayMoneyActivity extends AppCompatActivity {
     // TODO 6 判断是否订单成功 成功时候用来判断支付方式进行各自的支付
     private Handler hand = new Handler() {
         public void handleMessage(Message msg) {
-            diaLog.dismiss();
+          //  diaLog.dismiss();
             String result = (String) msg.obj;
 
             if (result.equals("000000")) {

@@ -114,7 +114,11 @@ public class SetYaoqma extends AppCompatActivity {
             @Override
             public void onSuccess(RegisterResultBean o) {
                 if(o.getRESCOD().equals("000000")){
+                    medicalSearchTv.setBackgroundResource(R.drawable.search_home_shape_gray);
+                    medicalSearchTv.setTextColor(Color.GRAY);
                     Toast.makeText(SetYaoqma.this,o.getRESMSG()+"", Toast.LENGTH_SHORT).show();
+                    tvSearchHome.setCursorVisible(false);
+                    tvSearchHome.setEnabled(false);
                 }else{
                     Toast.makeText(SetYaoqma.this,o.getRESMSG()+"", Toast.LENGTH_SHORT).show();
 

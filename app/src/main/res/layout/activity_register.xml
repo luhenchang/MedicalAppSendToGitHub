@@ -100,7 +100,7 @@
 
                 <EditText
                     android:id="@+id/regist_invit_et"
-                    style="@style/Login_Editer"
+                    style="@style/Login_yaoqinma"
                     android:layout_width="wrap_content"
                     android:hint="@string/Registered_ma" />
                 <Button

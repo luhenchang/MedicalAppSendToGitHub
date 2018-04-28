@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -32,6 +33,7 @@ import com.example.ls.shoppingmall.community.utis.HorizontalListView;
 import com.example.ls.shoppingmall.user.activity.LoginActivity;
 import com.example.ls.shoppingmall.user.adapter.MessageFragmentAdapter;
 import com.example.ls.shoppingmall.utils.dbutils.UserDB;
+import com.example.ls.shoppingmall.utils.glideutils.GlideRequestListner;
 import com.example.ls.shoppingmall.utils.imgutils.MyBitmaputils;
 import com.example.ls.shoppingmall.utils.layoututils.CircleImageView;
 
@@ -368,8 +370,10 @@ public class CommunityAdapter extends BaseAdapter {
                 }
                 Log.e("sizeid", mFirstList.size() + "");
             }
+            Log.e("aiaiaii",mFirstList.get(position).getImgID().getUrl());
+            Glide.with(mcontext).load(NetConfig.GLIDE_USRE +( mFirstList.get(position).getImgID()==null?"":mFirstList.get(position).getImgID().getUrl())).error(R.drawable.medical_header_iv).listener(new GlideRequestListner()).centerCrop().into(vh.mCirclerView);
 
-            Glide.with(mcontext).load(NetConfig.GLIDE_USRE +( mFirstList.get(position).getImgID()==null?"":mFirstList.get(position).getImgID().getUrl())).override(80, 80).skipMemoryCache(false).error(R.drawable.medical_header_iv).diskCacheStrategy(DiskCacheStrategy.ALL).into(vh.mCirclerView);
+//            Glide.with(mcontext).load(NetConfig.GLIDE_USRE +( mFirstList.get(position).getImgID()==null?"":mFirstList.get(position).getImgID().getUrl())).override(80, 80).skipMemoryCache(false).error(R.drawable.medical_header_iv).diskCacheStrategy(DiskCacheStrategy.ALL).into(vh.mCirclerView);
             vh.mFirstItemLin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -419,7 +423,7 @@ public class CommunityAdapter extends BaseAdapter {
         private RelativeLayout ad_medical_item;
         private TextView medical_name_tv;
         private TextView com_adapter_item1_more_tv,medical_tager_one,medical_informations;
-
+        private CircleImageView mheader;
         public CommunityViewHolderSeconde(View itemView, Context mcontext) {
             mLine = itemView.findViewById(R.id.inquery_medical_item1_lin);
             ad_medical_item = itemView.findViewById(R.id.ad_medical_item);
@@ -427,9 +431,14 @@ public class CommunityAdapter extends BaseAdapter {
             medical_tager_one=itemView.findViewById(R.id.medical_tager_one);
             medical_informations=itemView.findViewById(R.id.medical_informations);
             com_adapter_item1_more_tv = itemView.findViewById(R.id.com_adapter_item1_more_tv);
+            mheader=itemView.findViewById(R.id.medical_header_iv);
         }
 
         public void setData(final int position) {
+
+            Log.e("aiaiaii",mSeconder.get(position).getImgID().getUrl());
+            Glide.with(mcontext).load(NetConfig.GLIDE_USRE +( mSeconder.get(position).getImgID()==null?"":mSeconder.get(position).getImgID().getUrl())).error(R.drawable.medical_header_iv).listener(new GlideRequestListner()).centerCrop().into(mheader);
+
             if (mSeconder.get(position).getCnName() != null) {
                 medical_name_tv.setText(mSeconder.get(position).getCnName() + "");
                 medical_tager_one.setText(mSeconder.get(position).getHospital().getHospName());
