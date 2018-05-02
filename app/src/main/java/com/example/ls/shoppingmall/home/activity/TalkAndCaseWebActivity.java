@@ -72,6 +72,7 @@ public class TalkAndCaseWebActivity extends AppCompatActivity {
             intent.putExtra("money", money);
             intent.putExtra("artno",dialogue_id);
             startActivity(intent);
+            finish();
         }
     };
     private Map<String, Object> userInter;
@@ -146,6 +147,7 @@ public class TalkAndCaseWebActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
     }
 
     @Override

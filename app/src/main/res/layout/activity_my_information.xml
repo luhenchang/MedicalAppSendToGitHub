@@ -166,7 +166,7 @@
                         android:textColor="@color/messge_right_text"
                         android:id="@+id/ac_myinfor_weight_etss"
                         style="@style/userinformation_editor_right1"
-                        android:hint="请输入体重"
+                        android:hint="60"
                         android:text="" />
                     <TextView
                         android:paddingLeft="3dp"

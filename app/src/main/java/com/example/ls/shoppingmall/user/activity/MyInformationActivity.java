@@ -234,7 +234,7 @@ public class MyInformationActivity extends AppCompatActivity implements View.OnC
         if (db_weight != null) {
             acMyinforWeightEtss.setText(db_weight);
         }
-        mDiseasHistory=SharedPrefsUtil.getValue(this,"diseasHistory","diseasHistory");
+        //mDiseasHistory=SharedPrefsUtil.getValue(this,"diseasHistory","diseasHistory");
         /* map.key=UserWeight  :map.value=55kg
  map.key=UserPassword  :map.value=123456
  map.key=UserID  :map.value=20180105164359157430
@@ -402,6 +402,7 @@ public class MyInformationActivity extends AppCompatActivity implements View.OnC
                 mWeight = acMyinforWeightEtss.getText().toString().trim().equals("") ? "60" : acMyinforWeightEtss.getText().toString().trim();
                 mHeight=acMyinforHeightTv.getText().toString();
                 mAge=acMyinforAgeTv.getText().toString();
+                mDiseasHistory=mBinzhen.getText().toString();
                 if(acMyinforSexTv.getText().toString().equals("男")){
                     mSex="1";
                 }else {

@@ -205,7 +205,9 @@ public class LoginActivity extends AppCompatActivity {
                 acLoginPassword.setText(null);
                 break;
             case R.id.tv_get_password:
-                startActivity(new Intent(LoginActivity.this, SetPassword.class));
+                Intent intentlogin=new Intent(LoginActivity.this, SetPassword.class);
+                intentlogin.putExtra("intentName","login"); //intentsetting.putExtra("intentName","setting");
+                startActivity(intentlogin);
                 break;
 
         }

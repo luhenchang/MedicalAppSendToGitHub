@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView style="@style/inquery_medicals_item1_top_image" />
+        <com.example.ls.shoppingmall.utils.layoututils.CircleImageView style="@style/inquery_medicals_item1_top_image" />
 
         <TextView style="@style/inquery_medicals_item1_name_tv" />
 

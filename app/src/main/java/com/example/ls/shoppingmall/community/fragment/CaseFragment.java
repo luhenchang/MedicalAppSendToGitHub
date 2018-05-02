@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.ls.shoppingmall.R;
+import com.example.ls.shoppingmall.app.MyApplication;
 import com.example.ls.shoppingmall.app.config.NetConfig;
 import com.example.ls.shoppingmall.base.BaseFragment;
 import com.example.ls.shoppingmall.community.adapter.CommunicationAdapter;
@@ -35,7 +36,7 @@ public class CaseFragment extends BaseFragment {
     private CommunicationAdapter communiAdapter;
     List<ArticalBean.RESOBJEntity> mData;
     private int currentPage=1;
-    private int pageSize=2;
+    private int pageSize=10;
     private Map<String, Object> userMessageMap;
     private String mUserId;
     @Override
@@ -92,7 +93,7 @@ public class CaseFragment extends BaseFragment {
         hashMap.put("currentPage", currentPage);
         hashMap.put("pageSize", pageSize);
         hashMap.put("artType","00");
-        hashMap.put("artSick",  /*MyApplication.artSick*/"0001");
+        hashMap.put("artSick", MyApplication.artSick);
         FrameHttpHelper.getInstance().post(url, hashMap, new FrameHttpCallback<ArticalBean>() {
             @Override
             public void onSuccess(ArticalBean o) {

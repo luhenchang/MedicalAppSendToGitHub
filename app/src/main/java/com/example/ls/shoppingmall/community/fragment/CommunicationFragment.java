@@ -35,7 +35,7 @@ public class CommunicationFragment extends BaseFragment {
     private CommunicationAdapter communiAdapter;
     private List<ArticalBean.RESOBJEntity> mData;
     private int currentPage=1;
-    private int pageSize=2;
+    private int pageSize=10;
     private Map<String, Object> userMessageMap;
     private String mUserId;
     private String artSick;
@@ -90,7 +90,8 @@ public class CommunicationFragment extends BaseFragment {
         hashMap.put("currentPage", currentPage);
         hashMap.put("pageSize", pageSize);
         hashMap.put("artType","01");
-        hashMap.put("artSick",  /*MyApplication.artSick*/"0001");
+        hashMap.put("artSick", MyApplication.artSick);
+
         FrameHttpHelper.getInstance().post(url, hashMap, new FrameHttpCallback<ArticalBean>() {
             @Override
             public void onSuccess(ArticalBean o) {

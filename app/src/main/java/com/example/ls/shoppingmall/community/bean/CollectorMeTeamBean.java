@@ -29,4 +29,12 @@ public class CollectorMeTeamBean {
     public String getRESCOD() {
         return RESCOD;
     }
+
+    @Override
+    public String toString() {
+        return "CollectorMeTeamBean{" +
+                "RESMSG='" + RESMSG + '\'' +
+                ", RESCOD='" + RESCOD + '\'' +
+                '}';
+    }
 }

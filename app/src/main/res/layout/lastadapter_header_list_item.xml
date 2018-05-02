@@ -12,14 +12,15 @@
             android:id="@+id/ad_lastinfor_inview"
             android:layout_width="@dimen/x50"
             android:layout_height="@dimen/x50" />
-
         <TextView
+            android:maxEms="5"
+            android:maxLines="3"
             android:id="@+id/ad_lastinfor_name"
             android:textColor="@color/base_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="支气管" />
+            android:text="" />
     </LinearLayout>
 <!--
     <LinearLayout

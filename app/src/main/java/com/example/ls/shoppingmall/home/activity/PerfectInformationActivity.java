@@ -119,7 +119,7 @@ public class PerfectInformationActivity extends AppCompatActivity {
         FrameHttpHelper.getInstance().post(NetConfig.HOME_SYMPTOMSEND_SERVER, hashMaps, new FrameHttpCallback<PerfectInforBean>() {
             @Override
             public void onSuccess(PerfectInforBean perforbean) {
-                if(perforbean!=null){
+                if(perforbean!=null&&perforbean.getRESOBJ()!=null){
                     for (int i = 0; i <perforbean.getRESOBJ().size() ; i++) {
                         strData.add(new PerfectBean(perforbean.getRESOBJ().get(i).getSypNo()==null?"":perforbean.getRESOBJ().get(i).getSypNo(),perforbean.getRESOBJ().get(i).getSypName(), false));
 

@@ -251,7 +251,7 @@
         <item name="android:singleLine">true</item>
         <item name="android:textSize">13sp</item>
 
-        <item name="android:cursorVisible">false</item>
+        <item name="android:cursorVisible">true</item>
     </style>
     <style name="userinformation_editor_right1">
         <item name="android:gravity">right|center_vertical</item>
@@ -266,7 +266,7 @@
         <item name="android:singleLine">true</item>
         <item name="android:textSize">13sp</item>
 
-        <item name="android:cursorVisible">false</item>
+        <item name="android:cursorVisible">true</item>
     </style>
 
     <style name="userinformation_text_right">

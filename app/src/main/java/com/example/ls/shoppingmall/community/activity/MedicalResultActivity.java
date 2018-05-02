@@ -1,5 +1,6 @@
 package com.example.ls.shoppingmall.community.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -40,6 +41,7 @@ public class MedicalResultActivity extends AppCompatActivity {
     private BaseFragment communicationFragment, caseFragment;
     private boolean isFist = true;
     private TextView mTitle_Top;
+    private String mSickNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,11 @@ public class MedicalResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_connection);
         MyApplication.addActivity(this);
         ButterKnife.bind(this);
+        /*Intent intent=getIntent();
+
+        if(intent.getStringExtra("sicno")!=null){
+            mSickNo=intent.getStringExtra("sicno");
+        }*/
         initView();
         initData();
         setData();

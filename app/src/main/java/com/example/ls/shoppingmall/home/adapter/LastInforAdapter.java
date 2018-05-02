@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -169,7 +171,10 @@ public class LastInforAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             }
             if (mData.mlist5.size() > 0) {
                 mName1.setText(mData.mlist5.get(0).getCnName());
-                Glide.with(mContext).load(NetConfig.GLIDE_USRE + mData.mlist5.get(0).getImgID().getUrl() + "").override(80, 80).skipMemoryCache(false).error(R.drawable.medical_header_iv).diskCacheStrategy(DiskCacheStrategy.ALL).into(mIv1);
+                if (mData.mlist5.get(0).getImgID() != null) {
+                    Glide.with(mContext).load(NetConfig.GLIDE_USRE + mData.mlist5.get(0).getImgID().getUrl() + "").override(80, 80).skipMemoryCache(false).error(R.drawable.medical_header_iv).diskCacheStrategy(DiskCacheStrategy.ALL).into(mIv1);
+
+                }
                 mTitle1.setText(mData.mlist5.get(0).getPositional().getPostInfName());
 
 
@@ -246,8 +251,10 @@ public class LastInforAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             mTv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    MyApplication.artSick = mData.mList1.get(0).getSick().toString();
-                    mContex.startActivity(new Intent(mContext, MedicalResultActivity.class));
+                    MyApplication.artSick = mData.mList1.get(0).getSick().getSicNo();
+                    Intent intents = new Intent(mContext, MedicalResultActivity.class);
+                    // intents.putExtra("sicno",mData.mList1.get(0).getSick().getSicNo());
+                    mContex.startActivity(intents);
                 }
             });
         }
@@ -263,6 +270,25 @@ public class LastInforAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         public void setData() {
             myItemFirstAdapter = new MyItemFirstAdapter(mContext, mData.mList1);
             mHoriztalList.setAdapter(myItemFirstAdapter);
+
+            ListAdapter listAdapter = mHoriztalList.getAdapter();
+            if (listAdapter == null) return;
+            int height = 0;
+            for (int i = 0; i < listAdapter.getCount(); i++) {
+                //拿到Item
+                View listViewItem = listAdapter.getView(i, null, mHoriztalList);
+                //计算宽高
+                listViewItem.measure(0, 0);
+                //叠加没一个子项的宽高
+                if (height < listViewItem.getMeasuredHeight()) {
+                    height = listViewItem.getMeasuredHeight();
+                }
+            }
+            //设置高度
+            ViewGroup.LayoutParams params = mHoriztalList.getLayoutParams();
+            //Item的高度乘以分割线的高度
+            params.height = height;
+            mHoriztalList.setLayoutParams(params);
             myItemFirstAdapter.notifyDataSetChanged();
 
         }

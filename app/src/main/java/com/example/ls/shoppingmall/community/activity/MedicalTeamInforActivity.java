@@ -103,6 +103,7 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
     private String mDtmIdtoNext;
     private int r_drawble_iv;
     private ComMeTeamInforBean getBean;
+    private String UmImageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,28 +154,26 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
                     tvMedicalTeamNumber.setText(o.getRESOBJ().get(0).getMonthAdvice()==null?"20":o.getRESOBJ().get(0).getMonthAdvice());
                     tvMedicalTeamName.setText(o.getRESOBJ().get(0).getDtmName() == null ? "医师团名称" : o.getRESOBJ().get(0).getDtmName());
                     Glide.with(MedicalTeamInforActivity.this).load(NetConfig.GLIDE_USRE +o.getRESOBJ().get(0).getPic()).error(R.drawable.family_team_iv).listener(new GlideRequestListner()).centerCrop().into(circleIv);
+                    UmImageUrl=NetConfig.GLIDE_USRE +o.getRESOBJ().get(0).getPic();
 
-
-                  /*  if (o.getRESOBJ().get(0).getDtmType().equals("1")) {
-                        tvMedicalTeamType.setText("老人团");
-                        r_drawble_iv = R.drawable.family_team_iv;
-                        circleIv.setImageResource(R.drawable.family_team_iv);
+                    if (o.getRESOBJ().get(0).getDtmType().equals("1")) {
+                        tvMedicalTeamType.setText("老人医师团");
+                      /*  r_drawble_iv = R.drawable.family_team_iv;
+                        circleIv.setImageResource(R.drawable.family_team_iv);*/
                     } else if (o.getRESOBJ().get(0).getDtmType().equals("2")) {
-                        tvMedicalTeamType.setText("妇女团");
-                        circleIv.setImageResource(R.drawable.wuman_team_iv);
-                        r_drawble_iv = R.drawable.wuman_team_iv;
+                        tvMedicalTeamType.setText("妇女医师团");
+                       /* circleIv.setImageResource(R.drawable.wuman_team_iv);
+                        r_drawble_iv = R.drawable.wuman_team_iv;*/
 
                     } else if (o.getRESOBJ().get(0).getDtmType().equals("3")) {
-                        tvMedicalTeamType.setText("儿童团");
-                        circleIv.setImageResource(R.drawable.children_team_iv);
-                        r_drawble_iv = R.drawable.children_team_iv;
-
-
+                        tvMedicalTeamType.setText("儿童医师团");
+                       /* circleIv.setImageResource(R.drawable.children_team_iv);
+                        r_drawble_iv = R.drawable.children_team_iv;*/
                     } else {
-                        circleIv.setImageResource(R.drawable.family_team_iv);
+                       // circleIv.setImageResource(R.drawable.family_team_iv);
 
                     }
-                  */  tvBottomIntroduce.setText(o.getRESOBJ().get(0).getDtmDisc() == null ? "医师团名称" : o.getRESOBJ().get(0).getDtmDisc());
+                    tvBottomIntroduce.setText(o.getRESOBJ().get(0).getDtmDisc() == null ? "医师团名称" : o.getRESOBJ().get(0).getDtmDisc());
                     mDatas.addAll(o.getRESOBJ().get(0).getMembers());
                     mAdapter = new MedicalTeamInfroAdapter(MedicalTeamInforActivity.this, mDatas);
                     hlMedicalTeam.setAdapter(mAdapter);
@@ -247,7 +246,7 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
                 break;
             case R.id.ac_minfor_shared:
                 if (mDatas.size() > 0) {
-                    showBootomDialog(tvMedicalTeamType.getText().toString(), mDatas.get(0).getHospital().getHospName() == null ? "**医师团" : mDatas.get(0).getHospital().getHospName(), "http://qy.healthinfochina.com:8081/h5hunhekaifa/team.html?" + "dtmNo=" + getBean.getRESOBJ().get(0).getDtmNo(), r_drawble_iv);
+                    showBootomDialog(tvMedicalTeamType.getText().toString(), mDatas.get(0).getHospital().getHospName() == null ? "**医师团" : mDatas.get(0).getHospital().getHospName(), "http://qy.healthinfochina.com:8081/h5hunhekaifa/team.html?" + "dtmNo=" + getBean.getRESOBJ().get(0).getDtmNo(), UmImageUrl);
                     Log.e("urllll", "http://qy.healthinfochina.com:8081/h5hunhekaifa/team.html?" + "dtmNo=" + getBean.getRESOBJ().get(0).getDtmNo());
                 }
                 break;
@@ -296,6 +295,7 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
         HttpHelper.obtain().get(NetConfig.MEDICAL_TEAM_COLLECT, parames, new HttpCallBacks<CollectorMeTeamBean>() {
             @Override
             public void onSuccess(CollectorMeTeamBean result) {
+                Log.e("hahahsss",result.toString());
                 if (result.getRESMSG().equals("收藏取消")) {
                     acMinforCollectionIv.setBackgroundResource(R.drawable.medical_information_connect);
 
@@ -365,7 +365,7 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
     }
 
     //分享部分
-    private void showBootomDialog(final String title, final String disc, final String link, final int imgUrl) {
+    private void showBootomDialog(final String title, final String disc, final String link, final String imgUrl) {
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
         View inflate = View.inflate(this, R.layout.activity_botomshow_dialog1, null);
         View qq = inflate.findViewById(R.id.ac_botom_qqfrends);

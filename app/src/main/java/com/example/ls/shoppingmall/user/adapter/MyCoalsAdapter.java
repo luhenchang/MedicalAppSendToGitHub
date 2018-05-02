@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.MediaStore;
 import android.support.design.widget.BottomSheetDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -63,8 +64,8 @@ public class MyCoalsAdapter extends BaseAdapter {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (msg.what == 1000) {
-                Toast.makeText(context, "二维码已经保存到了相册", Toast.LENGTH_SHORT).show();
-                imageView.setImageBitmap((Bitmap) msg.obj);
+                //Toast.makeText(context, "二维码已经保存到了相册", Toast.LENGTH_SHORT).show();
+                // imageView.setImageBitmap((Bitmap) msg.obj);
                 //这里去分享哦：
                 showBootomDialog((Bitmap) msg.obj);
             }
@@ -257,7 +258,7 @@ public class MyCoalsAdapter extends BaseAdapter {
                 Bitmap bitmap = BitmapFactory.decodeStream(is, null, options); // 将流数据转成Bitmap对象
                 //保存到本地
                 String sdCardDir = Environment.getExternalStorageDirectory().getPath();
-                File appDir = new File(sdCardDir, "picture");
+                File appDir = new File(sdCardDir, "pictures");
                 if (!appDir.exists()) {
                     appDir.mkdir();
                 }
@@ -271,6 +272,15 @@ public class MyCoalsAdapter extends BaseAdapter {
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+                //TODO 其次把文件插入到系统图库
+                try {
+                    MediaStore.Images.Media.insertImage(context.getContentResolver(),
+                            f.getAbsolutePath(), fileName, null);
+                } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
                 return bitmap;

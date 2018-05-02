@@ -131,7 +131,7 @@ public class SettingActivity extends AppCompatActivity {
         });
     }
 
-    @OnClick({R.id.back_to_after, R.id.ac_setting_cacher, R.id.log_out, R.id.ac_set_message,
+    @OnClick({R.id.back_to_after, R.id.log_out, R.id.ac_set_message,
             R.id.ac_set_serve, R.id.ac_set_clearlurch, R.id.ac_set_getLocation, R.id.ac_infor_weight,R.id.ac_set_password,R.id.ac_set_yaoqma})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -186,7 +186,9 @@ public class SettingActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.ac_set_password:
-                startActivity(new Intent(SettingActivity.this, SetPassword.class));
+                Intent intentsetting=new Intent(SettingActivity.this, SetPassword.class);
+                intentsetting.putExtra("intentName","setting");
+                startActivity(intentsetting);
                 break;
             case R.id.ac_set_yaoqma:
                 startActivity(new Intent(SettingActivity.this, SetYaoqma.class));

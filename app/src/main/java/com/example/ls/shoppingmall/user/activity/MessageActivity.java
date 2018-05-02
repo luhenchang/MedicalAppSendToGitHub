@@ -33,8 +33,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MessageActivity extends AppCompatActivity implements UpdateTextResult ,MessageInterface{
-
-
     @Bind(R.id.message_back_iv)
     ImageView messageBackIv;
     @Bind(R.id.at_message_tb)

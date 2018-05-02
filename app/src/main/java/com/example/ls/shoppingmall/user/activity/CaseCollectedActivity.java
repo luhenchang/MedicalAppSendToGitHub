@@ -173,7 +173,7 @@ public class CaseCollectedActivity extends AppCompatActivity implements AdapterV
     private void initData() {
         mData = new ArrayList<>();
         mData. clear();
-        Map<String, Object> parames = new HashedMap();
+        Map<String, Object> parames = new HashedMap();//https://qy.healthinfochina.com:8080/DOC000020005?userId=4bc4d36b86f1a747a3c48b7b66e70c18
         HttpHelper.obtain().get(NetConfig.CASE_LIST_URL + userId, parames, new HttpCallBacks<ArticalCollectedBean>() {
             @Override
             public void onSuccess(ArticalCollectedBean result) {

@@ -5,13 +5,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.ls.shoppingmall.R;
+import com.example.ls.shoppingmall.app.config.NetConfig;
 import com.example.ls.shoppingmall.community.bean.MedicalListSearcherBean;
 import com.example.ls.shoppingmall.home.adapter.BodySearchListAdapter;
 import com.example.ls.shoppingmall.home.bean.SearcherMedicalBean;
+import com.example.ls.shoppingmall.utils.layoututils.CircleImageView;
 
 import java.util.List;
 
@@ -55,6 +60,8 @@ public class BodySearcherListAdapter extends BaseAdapter {
         }
         vh.doctorName.setText(mList.get(position).getSearchName1()==null?"":mList.get(position).getSearchName1());
         vh.doctorDesc.setText(mList.get(position).getSearchName2()==null?"":mList.get(position).getSearchName2());
+        Glide.with(mContext).load(NetConfig.GLIDE_USRE + mList.get(position).getImgPath() + "").override(80, 80).skipMemoryCache(false).error(R.drawable.medical_header_iv).diskCacheStrategy(DiskCacheStrategy.ALL).into(vh.mImageView);
+
 
         return convertView;
     }
@@ -63,10 +70,12 @@ public class BodySearcherListAdapter extends BaseAdapter {
 
         private TextView doctorName,doctorDesc;
         private RelativeLayout ac_search_list_rl;
+        private CircleImageView mImageView;
         public ViewHolder(View convertView) {
             doctorName=convertView.findViewById(R.id.medical_name_tv);
             doctorDesc=convertView.findViewById(R.id.medical_tager_one);
             ac_search_list_rl=convertView.findViewById(R.id.ac_search_list_rl);
+            mImageView=convertView.findViewById(R.id.medical_header_iv);
 
         }
     }

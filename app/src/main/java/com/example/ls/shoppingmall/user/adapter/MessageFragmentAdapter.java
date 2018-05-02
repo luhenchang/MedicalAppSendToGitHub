@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.ls.shoppingmall.R;
 import com.example.ls.shoppingmall.app.MyApplication;
 import com.example.ls.shoppingmall.app.WebViewActivity;
+import com.example.ls.shoppingmall.user.activity.MedicalConsultation;
 import com.example.ls.shoppingmall.user.bean.MessageBean;
 import com.example.ls.shoppingmall.user.bean.MessageInforBean;
 import com.example.ls.shoppingmall.user.bean.MyLiveList;
@@ -120,6 +121,8 @@ public class MessageFragmentAdapter extends RecyclerView.Adapter<MessageFragment
                     mOnItemClickListener.onItemClickListener(holder.getAdapterPosition(), mMyLiveList);
 
                 }
+                //点击之后跳转到咨询里面。
+                context.startActivity(new Intent(context, MedicalConsultation.class));
             }
         });
         if(mMyLiveList.get(position).getIsRead().equals("0")){//没有读

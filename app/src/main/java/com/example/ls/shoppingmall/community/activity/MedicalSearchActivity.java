@@ -371,6 +371,7 @@ public class MedicalSearchActivity extends AppCompatActivity implements View.OnC
 
     }
 
+
     //完善perfect
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
