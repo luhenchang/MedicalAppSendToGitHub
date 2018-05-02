@@ -104,7 +104,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler{
             switch (res) {
                 case 0:
                     Toast.makeText(getApplicationContext(), "支付成功", Toast.LENGTH_SHORT).show();
-                    Log.e("支付成功准备修改订单", "支付成功准备修改订单");
+                    /*Log.e("支付成功准备修改订单", "支付成功准备修改订单");
                     new Thread(new MyThreadPayState()).start();
                     handPayJb = new Handler() {
                         @Override
@@ -129,7 +129,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler{
 
                         }
 
-                    };
+                    };*/
                     EventBus.getDefault().post(new EventPayBean(000000));
                     WXPayEntryActivity.this.finish();
                    /* Intent intent = new Intent(WXPayEntryActivity.this, RechargMoneyActivity.class);

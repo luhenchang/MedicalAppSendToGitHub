@@ -189,6 +189,14 @@ public class PayMoneyActivity extends AppCompatActivity {
                     if (TextUtils.equals(resultStatus, "9000")) {
                         Toast.makeText(PayMoneyActivity.this, "支付成功", Toast.LENGTH_SHORT).show();
                         MyApplication.payment_talk = "000000";
+                        if (MyApplication.PayPager.equals("ydy") || MyApplication.PayPager.equals("yst")) {
+                            Intent intent = new Intent(PayMoneyActivity.this, MedicalConsultation.class);
+                            PayMoneyActivity.this.startActivity(intent);
+                            finish();
+                        }else{
+                            MyApplication.PayPager="";
+                            finish();
+                        }
                       /*new com.example.ls.shoppingmall.utils.layoututils.AlertDialog(PayMoneyActivity.this).builder()
                                 .setTitle("提示")
                                 .setMsg("支付成功进行阅读！")
@@ -282,7 +290,7 @@ public class PayMoneyActivity extends AppCompatActivity {
         UserID = (String) userMessageMap.get("UserID");
         mRequestQueue = Volley.newRequestQueue(this);
         // 将app注册到微信
-        msgApi= WXAPIFactory.createWXAPI(this, Constants.APP_ID);
+        msgApi = WXAPIFactory.createWXAPI(this, Constants.APP_ID);
         msgApi.registerApp("wxb1021cbd0975214a");
         Intent intent = getIntent();
      /*
@@ -434,7 +442,7 @@ public class PayMoneyActivity extends AppCompatActivity {
             case R.id.ac_recharg_money_taobao_lin:
                 break;
             case R.id.pay_button:
-              //  diaLog.show();
+                //  diaLog.show();
                 //TODO 1 点击开始支付：
                 //判断金额输入框是整数还是
                 mtotal_amount = ((acRechargMoneyEt.getText().toString() == null) || (acRechargMoneyEt.getText().toString().equals(""))) == true ? "" : acRechargMoneyEt.getText().toString();
@@ -664,7 +672,7 @@ public class PayMoneyActivity extends AppCompatActivity {
     // TODO 6 判断是否订单成功 成功时候用来判断支付方式进行各自的支付
     private Handler hand = new Handler() {
         public void handleMessage(Message msg) {
-          //  diaLog.dismiss();
+            //  diaLog.dismiss();
             String result = (String) msg.obj;
 
             if (result.equals("000000")) {
@@ -823,7 +831,7 @@ public class PayMoneyActivity extends AppCompatActivity {
             params.put("subject", "商品价格");
             params.put("traType", traType);//支付商品类型 0-提现/1-佣金/N-注册佣金/D-医师团卡/d-医师一对一/Z-商城支付
             params.put("payee", articalid);//TODO 收款方
-            Log.e("paraes",params.toString());
+            Log.e("paraes", params.toString());
             FrameHttpHelper.getInstance().post("https://qy.healthinfochina.com:8080/DOC800010002", params, new FrameHttpCallback<WxPayBean>() {
                 @Override
                 public void onSuccess(WxPayBean wxPayBean) {
@@ -835,7 +843,7 @@ public class PayMoneyActivity extends AppCompatActivity {
                         req.nonceStr = wxPayBean.getNoncestr();
                         req.timeStamp = wxPayBean.getTimestamp() + "";
                         req.packageValue = wxPayBean.getPackageX();
-                        req.sign =wxPayBean.getSign();
+                        req.sign = wxPayBean.getSign();
                         Toast.makeText(PayMoneyActivity.this, "正常调起支付", Toast.LENGTH_SHORT).show();
                         // 在支付之前，如果应用没有注册到微信，应该先调用IWXMsg.registerApp将应用注册到微信
                         try {
@@ -856,8 +864,6 @@ public class PayMoneyActivity extends AppCompatActivity {
                 }
             });
         }
-
-
 
 
     }
@@ -930,7 +936,14 @@ public class PayMoneyActivity extends AppCompatActivity {
             try {
                 MyApplication.payment_talk = "000000";
                 new Thread().sleep(1000);
-                finish();
+                if (MyApplication.PayPager.equals("ydy") || MyApplication.PayPager.equals("yst")) {
+                    Intent intent = new Intent(PayMoneyActivity.this, MedicalConsultation.class);
+                    PayMoneyActivity.this.startActivity(intent);
+                    finish();
+                }else{
+                    MyApplication.PayPager="";
+                    finish();
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -938,8 +951,6 @@ public class PayMoneyActivity extends AppCompatActivity {
         }
     }
     //下面是老版本的支付
-
-
 
 
     // 随机字符串
@@ -954,16 +965,13 @@ public class PayMoneyActivity extends AppCompatActivity {
     }
 
 
-
-
-
-/**
- * 微信支付签名算法sign
- *
- * @param characterEncoding
- * @param parameters
- * @return
- */
+    /**
+     * 微信支付签名算法sign
+     *
+     * @param characterEncoding
+     * @param parameters
+     * @return
+     */
     public static String createSign(String characterEncoding,
                                     SortedMap<Object, Object> parameters) {
 
@@ -986,9 +994,6 @@ public class PayMoneyActivity extends AppCompatActivity {
         return sign; // D3A5D13E7838E1D453F4F2EA526C4766
         // D3A5D13E7838E1D453F4F2EA526C4766
     }
-
-
-
 
 
     // 微信生成签名

@@ -58,7 +58,7 @@ public class MyCoalsBean {
          * note2 : null
          * note3 : null
          */
-
+        public boolean clickable=true;
         private String usrId;
         private String orderNo;
         private String money;

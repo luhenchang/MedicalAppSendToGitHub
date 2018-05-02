@@ -51,6 +51,7 @@ public class MedicalConsultation extends AppCompatActivity{
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_medical_consultation);
         ButterKnife.bind(this);
+        MyApplication.PayPager="";
         MyApplication.addActivity(this);
         titleTops.setText("咨询");
         initView();

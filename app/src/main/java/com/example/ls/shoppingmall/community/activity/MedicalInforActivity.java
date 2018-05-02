@@ -128,6 +128,7 @@ public class MedicalInforActivity extends AppCompatActivity {
         setContentView(R.layout.activity_medical_infor);
         ButterKnife.bind(this);
         MyApplication.addActivity(this);
+        MyApplication.PayPager="ydy";
 
         titleTop.setText("医生详情");
         userInter = new UserDB(this).getUserMessage(new String[]{"1"});

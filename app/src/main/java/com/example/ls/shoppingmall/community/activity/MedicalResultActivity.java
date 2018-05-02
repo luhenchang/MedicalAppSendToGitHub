@@ -50,6 +50,8 @@ public class MedicalResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_connection);
         MyApplication.addActivity(this);
         ButterKnife.bind(this);
+        MyApplication.PayPager="zdjg";
+
         /*Intent intent=getIntent();
 
         if(intent.getStringExtra("sicno")!=null){

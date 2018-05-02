@@ -2,10 +2,12 @@ package com.example.ls.shoppingmall.user.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.DatabaseUtils;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
@@ -124,9 +126,18 @@ public class MyCoalsAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 if (mData.get(position).getOrderNo() != null) {
-                    if (mData.get(position).getNote2().equals("0")) {//微信退款接口
+                    if(mData.get(position).clickable){
+                        Intent intent = new Intent(Intent.ACTION_DIAL);
+                        Uri data = Uri.parse("tel:" + "4006502680");
+                        intent.setData(data);
+                        context.startActivity(intent);
+                    }else {
+                        Toast.makeText(context, "你已经预约成功！不能退款", Toast.LENGTH_SHORT).show();
+                    }
+
+                    /*if (mData.get(position).getNote2().equals("0")) {//微信退款接口
                         parames = new HashMap<>();
-                               /*// TODO 6.0.1 微信订单金额，单位是：分 mtotal_amount*/
+                             // TODO 6.0.1 微信订单金额，单位是：分 mtotal_amount
                         String str = String.valueOf(Double.valueOf(mData.get(position).getMoney()) * 100);
                         String[] strs = str.split("[.]");
                         //wx_CoinPrice = strs[0];
@@ -170,7 +181,7 @@ public class MyCoalsAdapter extends BaseAdapter {
 
                             }
                         });
-                    }
+                    }*/
 
                 }
 
@@ -198,6 +209,7 @@ public class MyCoalsAdapter extends BaseAdapter {
                 }
             });
             if (flag == 1) {
+                mData.get(position).clickable=false;
                 vh.tvBackMoney.setBackgroundResource(R.drawable.text_shapter_consal_gray);
                 vh.tvBackMoney.setTextColor(Color.GRAY);
 
@@ -206,6 +218,7 @@ public class MyCoalsAdapter extends BaseAdapter {
         } else {
             vh.tvErm.setBackgroundResource(R.drawable.text_shapter_consal_gray);
             if (flag == 1) {
+                mData.get(position).clickable=true;
                 vh.tvBackMoney.setBackgroundResource(R.drawable.text_shaper_red);
                 vh.tvBackMoney.setTextColor(Color.parseColor("#ff5a5f"));
 

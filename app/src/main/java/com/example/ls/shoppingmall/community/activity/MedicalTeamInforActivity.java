@@ -112,6 +112,7 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
         setContentView(R.layout.activity_medical_iteminfor);
         MyApplication.addActivity(this);
         ButterKnife.bind(this);
+        MyApplication.PayPager="yst";
         userInter = new UserDB(this).getUserMessage(new String[]{"1"});
         userId = userInter.get("UserID");
         if (getIntent().getStringExtra("docNo") != null) {

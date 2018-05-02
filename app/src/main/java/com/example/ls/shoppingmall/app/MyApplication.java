@@ -50,6 +50,7 @@ import okhttp3.OkHttpClient;
  * Created by ls on 2017/11/8.
  */
 public class MyApplication extends Application {
+    public static  String PayPager="";
     //定义一个对话是否支付的参数：
     public static String payment_talk="999999";
     public static String artSick="0003";
