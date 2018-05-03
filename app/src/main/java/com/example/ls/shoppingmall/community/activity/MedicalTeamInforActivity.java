@@ -104,6 +104,7 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
     private int r_drawble_iv;
     private ComMeTeamInforBean getBean;
     private String UmImageUrl;
+    private String discNo="医师团介绍";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,6 +149,7 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
             @Override
             public void onSuccess(ComMeTeamInforBean o) {
                 if (o.getRESCOD().equals("000000")) {
+                    discNo=o.getRESOBJ().get(0).getDtmDisc();
                     getBean = o;
                     mDtmId = o.getRESOBJ().get(0).getId();
                     mDtmIdtoNext = o.getRESOBJ().get(0).getDtmNo();
@@ -247,7 +249,7 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
                 break;
             case R.id.ac_minfor_shared:
                 if (mDatas.size() > 0) {
-                    showBootomDialog(tvMedicalTeamType.getText().toString(), mDatas.get(0).getHospital().getHospName() == null ? "**医师团" : mDatas.get(0).getHospital().getHospName(), "http://qy.healthinfochina.com:8081/h5hunhekaifa/team.html?" + "dtmNo=" + getBean.getRESOBJ().get(0).getDtmNo(), UmImageUrl);
+                    showBootomDialog(tvMedicalTeamName.getText().toString(),discNo, "https://qy.healthinfochina.com/h5hunhekaifa/team.html?" + "dtmNo=" + getBean.getRESOBJ().get(0).getDtmNo(), R.drawable.app_logo);
                     Log.e("urllll", "http://qy.healthinfochina.com:8081/h5hunhekaifa/team.html?" + "dtmNo=" + getBean.getRESOBJ().get(0).getDtmNo());
                 }
                 break;
@@ -366,7 +368,7 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
     }
 
     //分享部分
-    private void showBootomDialog(final String title, final String disc, final String link, final String imgUrl) {
+    private void showBootomDialog(final String title, final String disc, final String link, final int imgUrl) {
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
         View inflate = View.inflate(this, R.layout.activity_botomshow_dialog1, null);
         View qq = inflate.findViewById(R.id.ac_botom_qqfrends);

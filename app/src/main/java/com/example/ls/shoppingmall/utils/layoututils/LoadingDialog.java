@@ -27,9 +27,10 @@ public class LoadingDialog extends AlertDialog {
 	 * @param layoutResId
 	 *            要传入的dialog布局文件的id
 	 */
-	public LoadingDialog(Context context, int layoutResId) {
-		super(context);
+	public LoadingDialog(Context context, int layoutResId,String message) {
+		super(context,R.style.AlertDialogStyle);
 		this.layoutResId = layoutResId;
+		this.message=message;
 		message = context.getResources().getString(R.string.loading);
 	}
 
@@ -38,7 +39,7 @@ public class LoadingDialog extends AlertDialog {
 		super.onCreate(savedInstanceState);
 		this.setContentView(layoutResId);
 		tips_loading_msg = (TextView) findViewById(R.id.tips_loading_msg);
-	//	tips_loading_msg.setText(this.message);
+	    tips_loading_msg.setText(this.message);
 	}
 
 }

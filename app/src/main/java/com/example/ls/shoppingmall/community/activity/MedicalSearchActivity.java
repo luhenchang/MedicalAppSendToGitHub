@@ -60,7 +60,7 @@ public class MedicalSearchActivity extends AppCompatActivity implements View.OnC
     private DbManager db;
     private View search_et;
     private boolean fist_String = true;
-    private ImageView mIv_back;
+    private LinearLayout mIv_back;
     //科室
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -189,7 +189,7 @@ public class MedicalSearchActivity extends AppCompatActivity implements View.OnC
     }
 
     private void initView() {
-        mIv_back = (ImageView) findViewById(R.id.back_to_after);
+        mIv_back = (LinearLayout) findViewById(R.id.back_to_after);
         mIv_back.setOnClickListener(this);
         search_et = findViewById(R.id.medical_search_tv);
         search_et.setOnClickListener(this);

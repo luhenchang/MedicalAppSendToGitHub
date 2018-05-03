@@ -76,7 +76,7 @@ public class MedicalInforActivity extends AppCompatActivity {
     @Bind(R.id.ac_minfor_collection_iv)
     ImageView acMinforCollectionIv;
     @Bind(R.id.back_to_after)
-    ImageView backToAfter;
+    LinearLayout backToAfter;
     @Bind(R.id.title_top)
     TextView titleTop;
 
@@ -119,6 +119,7 @@ public class MedicalInforActivity extends AppCompatActivity {
     private ProgressBar mProgressbar;
     private DoctorPayBean payBean;
     private HashMap<String, Object> parames;
+    private String name;
 
 
     @Override
@@ -137,6 +138,7 @@ public class MedicalInforActivity extends AppCompatActivity {
         if (intent != null) {
             doctoId = intent.getStringExtra("id");
             imgend = intent.getStringExtra("imgend");
+            name=intent.getStringExtra("name");
             Log.e("doctoId", doctoId + "");
         }
         collectionImgIsVisible();
@@ -171,7 +173,7 @@ public class MedicalInforActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.ac_minfor_shared:
                 if (doctoId != null) {
-                    showBootomDialog(Defaultcontent.title, Defaultcontent.text, "http://47.94.165.113:8081/extension.html?id=" + doctoId, R.drawable.medical_header_iv);
+                    showBootomDialog("你好,我是"+name+"医师", Defaultcontent.text, "https://qy.healthinfochina.com/extension.html?id=" + doctoId, R.drawable.app_logo);
 
                 }
                 break;

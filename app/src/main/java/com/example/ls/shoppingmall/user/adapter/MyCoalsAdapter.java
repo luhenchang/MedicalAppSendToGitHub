@@ -126,14 +126,15 @@ public class MyCoalsAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 if (mData.get(position).getOrderNo() != null) {
-                    if(mData.get(position).clickable){
+                    //这里判断5月3日不需要了。都可以拨打客服电话
+                    //if(mData.get(position).clickable){
                         Intent intent = new Intent(Intent.ACTION_DIAL);
                         Uri data = Uri.parse("tel:" + "4006502680");
                         intent.setData(data);
                         context.startActivity(intent);
-                    }else {
+                   /* }else {
                         Toast.makeText(context, "你已经预约成功！不能退款", Toast.LENGTH_SHORT).show();
-                    }
+                    }*/
 
                     /*if (mData.get(position).getNote2().equals("0")) {//微信退款接口
                         parames = new HashMap<>();
@@ -210,8 +211,9 @@ public class MyCoalsAdapter extends BaseAdapter {
             });
             if (flag == 1) {
                 mData.get(position).clickable=false;
-                vh.tvBackMoney.setBackgroundResource(R.drawable.text_shapter_consal_gray);
-                vh.tvBackMoney.setTextColor(Color.GRAY);
+                //5.3号只会取消
+               /* vh.tvBackMoney.setBackgroundResource(R.drawable.text_shapter_consal_gray);
+                vh.tvBackMoney.setTextColor(Color.GRAY);*/
 
             }
 

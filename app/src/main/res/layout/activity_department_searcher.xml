@@ -24,15 +24,21 @@
                 android:layout_height="@dimen/x54"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
-                <ImageView
+                <LinearLayout
                     android:id="@+id/back_to_after"
+                    android:gravity="center"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/x13"
-                    android:layout_marginRight="@dimen/x16"
-                    android:background="@drawable/back_img" />
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/x13"
+                        android:layout_marginRight="@dimen/x16"
+                        android:background="@drawable/back_img" />
+
+                </LinearLayout>
+
 
 
                 <EditText

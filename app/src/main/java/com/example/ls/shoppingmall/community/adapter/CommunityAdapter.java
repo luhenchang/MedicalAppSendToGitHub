@@ -471,6 +471,7 @@ public class CommunityAdapter extends BaseAdapter {
                             Intent intent = new Intent(mcontext, MedicalInforActivity.class);
                             intent.putExtra("id", mSeconder.get(position).getDocId());
                             intent.putExtra("imgend",mSeconder.get(position).getImgID().getUrl()==null?"":mSeconder.get(position).getImgID().getUrl());
+                            intent.putExtra("name",mSeconder.get(position).getCnName());
                             mcontext.startActivity(intent);
 
                         } else {

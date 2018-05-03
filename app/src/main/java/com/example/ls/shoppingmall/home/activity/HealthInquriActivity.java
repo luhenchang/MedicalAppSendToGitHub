@@ -60,7 +60,7 @@ public class HealthInquriActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         MyApplication.addActivity(this);
-        dialog = new LoadingDialog(this, R.layout.login_load_layout);
+        dialog = new LoadingDialog(this, R.layout.login_load_layout,"加载中...");
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
         initView();

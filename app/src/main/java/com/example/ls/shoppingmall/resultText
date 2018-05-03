@@ -21,8 +21,32 @@
 4.解决了：支付之后收藏里面也可以看见。
 5.解决了：默认字体修改空。体重默认60.
 6.解决了：添加光标。
+7.解决了：案例收藏没问题了
 8.解决了：点击全部整个Item就可以清除。
 9.解决了：推送问题。现在能推送成功。但是激光没有百分百推送成功的。付费优先。
 10.解决了：不同地方进入上面的提示不一样。
 12.全部显示最后疾病名称。设置一行最多5个字体。如果多了下行显示。测量控件的最高一个然后设置就行。
 13.解决了：退款按钮功能隐藏。变为电话。
+14.为首页医师问诊最后一个界面和登录添加了一个加载进度框。这样显的不会让用户等着反感。
+15.解决了：消息界面跳转到咨询界面。
+16.解决了：支付之后（医师团和医生）完成之后用户自动跳转到咨询里面可以查看自己的购买状态。
+17.添加了：登录和ai问诊最后一个界面添加了进度加载框。这样会好点。
+18：分享这里：统一了和ios.
+
+ InputFilter inputFilter = new InputFilter() {
+
+            Pattern pattern = Pattern.compile("[^a-zA-Z0-9\\.\\。\\，\\？\\,\\!\\“\\”\\/\\@\\`\\~\\(\\)\\*\\&\\%\\#\\^\\-\\+\\[\\]\\?\\u4E00-\\u9FA5_]");
+
+            @Override
+            public CharSequence filter(CharSequence charSequence, int i, int i1, Spanned spanned, int i2, int i3) {
+                Matcher matcher = pattern.matcher(charSequence);
+                if (!matcher.find()) {
+                    return null;
+                } else {
+                    Toast.makeText(DiseasHistoryActivity.this, "只能输入汉子和字母数字", Toast.LENGTH_SHORT).show();
+                    return "";
+                }
+
+            }
+        };
+        editSms.setFilters(new InputFilter[]{inputFilter, new InputFilter.LengthFilter(220)});

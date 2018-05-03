@@ -131,7 +131,7 @@ public class CaseActivityWebView extends AppCompatActivity {
 
     private void initView() {
         String str = NetConfig.MEDICAL_CASE + "user_id=" + userId + "&feed_id=" + dialogue_id + "&be_from=android";
-
+        Log.e("hahhasssss0000",str);
         WebSettings websettings = webCase.getSettings();
         websettings.setJavaScriptEnabled(true);
         websettings.setUseWideViewPort(true);//设置此属性，可任意比例缩放

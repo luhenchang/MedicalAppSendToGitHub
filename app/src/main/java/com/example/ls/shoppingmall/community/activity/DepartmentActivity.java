@@ -38,7 +38,7 @@ public class DepartmentActivity extends AppCompatActivity {
     private String[] mHoritorData;
 
     @Bind(R.id.back_to_after)
-    ImageView backToAfter;
+    LinearLayout backToAfter;
     @Bind(R.id.tv_search_home)
     EditText tvSearchHome;
     @Bind(R.id.medical_search_tv)

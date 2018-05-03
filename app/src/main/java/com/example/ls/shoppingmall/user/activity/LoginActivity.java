@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -27,6 +29,7 @@ import com.example.ls.shoppingmall.user.bean.LoginResultBean;
 import com.example.ls.shoppingmall.utils.SharedUtils;
 import com.example.ls.shoppingmall.utils.dbutils.UserDB;
 import com.example.ls.shoppingmall.utils.dbutils.UserServiceInterface;
+import com.example.ls.shoppingmall.utils.layoututils.LoadingDialog;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpCallback;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpHelper;
 import com.zhy.android.percent.support.PercentLinearLayout;
@@ -64,12 +67,28 @@ public class LoginActivity extends AppCompatActivity {
     private UserDB uservice;
     private String mUserId;
     private SharedUtils sharedUtils;
+    private LoadingDialog dialog;
+    private Handler mhandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 10001:
+                    dialog.dismiss();
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login1);
+        dialog = new LoadingDialog(this, R.layout.login_load_layout, "正在登录");
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
         MyApplication.addActivity(this);
         sharedUtils = new SharedUtils(this);
         uservice = new UserDB(this);
@@ -205,8 +224,8 @@ public class LoginActivity extends AppCompatActivity {
                 acLoginPassword.setText(null);
                 break;
             case R.id.tv_get_password:
-                Intent intentlogin=new Intent(LoginActivity.this, SetPassword.class);
-                intentlogin.putExtra("intentName","login"); //intentsetting.putExtra("intentName","setting");
+                Intent intentlogin = new Intent(LoginActivity.this, SetPassword.class);
+                intentlogin.putExtra("intentName", "login"); //intentsetting.putExtra("intentName","setting");
                 startActivity(intentlogin);
                 break;
 
@@ -267,7 +286,7 @@ public class LoginActivity extends AppCompatActivity {
          * imgTXT : null
          */
 
-
+        dialog.show();
         HashMap<String, Object> paremer = new HashMap<>();
         paremer.put("telNo", userPhone);
         paremer.put("pwd", userPassworld);
@@ -283,7 +302,7 @@ public class LoginActivity extends AppCompatActivity {
                 Log.e("erro", o.toString() + "");
 
                 if (o.getRESCOD().equals("000000")) {
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
                     //这里将用户的数据储存到数据库里哦。下次登录时候一不需要进入登录页面了
                     /**
                      * id : 20180102143153410808
@@ -312,6 +331,9 @@ public class LoginActivity extends AppCompatActivity {
                     savaUserInforToData("1", o.getRESOBJ().getId(), o.getRESOBJ().getNiName() == null ? "" : o.getRESOBJ().getNiName(), o.getRESOBJ().getCnName() == null ? "" : o.getRESOBJ().getCnName(),
                             o.getRESOBJ().getImgID() == null ? "" : o.getRESOBJ().getImgID().getUrl() == null ? "" : o.getRESOBJ().getImgID().getUrl(), userPhone, o.getRESOBJ().getPwd() == null ? "" : o.getRESOBJ().getPwd(), "", o.getRESOBJ().getSex() == null ? "" : o.getRESOBJ().getSex(), o.getRESOBJ().getWeight() == null ? "" : o.getRESOBJ().getWeight(),
                             o.getRESOBJ().getHeight() == null ? "" : o.getRESOBJ().getHeight(), o.getRESOBJ().getAge() == null ? "" : o.getRESOBJ().getAge());
+                    Message message = Message.obtain();
+                    message.what = 10001;
+                    mhandler.sendMessageDelayed(message, 1000);
 
                 } else {
                     Toast.makeText(LoginActivity.this, o.getRESMSG(), Toast.LENGTH_SHORT).show();

@@ -463,7 +463,7 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
     private void showPopwindow(int number) {
         // if (userId != null && !userId.equals("")) {
         if (alertDialog != null) {
-            alertDialog.cancel();
+            alertDialog.dismiss();
         }
         if (mData.size() > 0) {
             //获取身体每部分数据
@@ -511,6 +511,7 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
         listView.setAdapter(madapter);
         builder.setView(viewcontent);
         alertDialog = builder.show();
+
 
     }
 

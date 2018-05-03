@@ -79,10 +79,10 @@ public class LastInformationActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         MyApplication.addActivity(this);
         titleTop.setText("病症完善");
-        dialog = new LoadingDialog(this, R.layout.login_load_layout);
+        dialog = new LoadingDialog(this, R.layout.login_load_layout,"加载中...");
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
-        //dialog.show();
+        dialog.show();
 
         Intent intent = getIntent();
         hashMap = new HashMap<>();
@@ -112,7 +112,7 @@ public class LastInformationActivity extends AppCompatActivity {
     private void setDatas() {
         Message message = Message.obtain();
         message.what = 10001;
-        mHandler.sendMessageDelayed(message, 1500);
+        mHandler.sendMessageDelayed(message, 500);
 
     }
 
@@ -138,6 +138,7 @@ public class LastInformationActivity extends AppCompatActivity {
         mRecylerViwe.setAdapter(lastAdapter);
         lastAdapter.notifyDataSetChanged();
         mRecylerViwe.setNestedScrollingEnabled(false);
+        dialog.dismiss();
     }
 
     //对应的商品哦

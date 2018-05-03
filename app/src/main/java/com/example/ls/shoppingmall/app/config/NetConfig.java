@@ -74,8 +74,8 @@ public interface NetConfig {
     String USER_HEADER_URL = "https://qy.healthinfochina.com:8080/USR000010020";
     //对话web地址
     //http://47.94.165.113:8081/h5hunhekaifa/doctor.html?
-    String MEDICAL_TALK = "http://47.94.165.113:8081/h5hunhekaifa/dialogue.html?";
-    String MEDICAL_ARTICAL = "http://47.94.165.113:8081/h5hunhekaifa/article.html?";
+    String MEDICAL_TALK = "https://qy.healthinfochina.com/h5hunhekaifa/dialogue.html?";
+    String MEDICAL_ARTICAL = "https://qy.healthinfochina.com/h5hunhekaifa/article.html?";
     String MEDICAL_CASE = "http://47.94.165.113:8081/h5hunhekaifa/case.html?";
 
     //用户

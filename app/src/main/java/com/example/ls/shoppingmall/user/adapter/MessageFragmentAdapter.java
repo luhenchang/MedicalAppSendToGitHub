@@ -111,18 +111,14 @@ public class MessageFragmentAdapter extends RecyclerView.Adapter<MessageFragment
                         mMyLiveList.get(position).setIsRead("1");
                         notifyDataSetChanged();
                     }
-                    alrideReaderToServer(mMyLiveList.get(position).getMesId());
-                    Intent intent=new Intent(context,WebViewActivity.class);
-                    intent.putExtra("URL_ONE","http://www.baidu.com");
-                    intent.putExtra("adapters","ActionFragmentAdapter");
-                    intent.putExtra("mesid",mMyLiveList.get(position).getMesId());
+                    //点击之后跳转到咨询里面。
+                    context.startActivity(new Intent(context, MedicalConsultation.class));
                    // context.startActivity(intent);
                 }else{
                     mOnItemClickListener.onItemClickListener(holder.getAdapterPosition(), mMyLiveList);
 
                 }
-                //点击之后跳转到咨询里面。
-                context.startActivity(new Intent(context, MedicalConsultation.class));
+
             }
         });
         if(mMyLiveList.get(position).getIsRead().equals("0")){//没有读

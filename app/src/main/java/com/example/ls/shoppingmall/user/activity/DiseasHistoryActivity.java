@@ -58,7 +58,7 @@ public class DiseasHistoryActivity extends AppCompatActivity {
     private void setLisenner() {
         InputFilter inputFilter = new InputFilter() {
 
-            Pattern pattern = Pattern.compile("[^a-zA-Z0-9\\.\\,\\!\\“\\”\\/\\@\\`\\~\\(\\)\\*\\&\\%\\#\\^\\-\\+\\[\\]\\?\\u4E00-\\u9FA5_]");
+            Pattern pattern = Pattern.compile("[^a-zA-Z0-9\\.\\。\\，\\？\\,\\!\\“\\”\\/\\@\\`\\~\\(\\)\\*\\&\\%\\#\\^\\-\\+\\[\\]\\?\\u4E00-\\u9FA5_]");
 
             @Override
             public CharSequence filter(CharSequence charSequence, int i, int i1, Spanned spanned, int i2, int i3) {

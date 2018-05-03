@@ -804,6 +804,7 @@ USR000010005*/
                 break;
             case 1000:
                 mDiseasHistory = data.getStringExtra("result");
+                mBinzhen.setText(mDiseasHistory);
                 Log.e("nick", mDiseasHistory);
                 break;
             default:
