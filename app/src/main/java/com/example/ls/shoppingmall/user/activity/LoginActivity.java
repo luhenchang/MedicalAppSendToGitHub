@@ -74,7 +74,9 @@ public class LoginActivity extends AppCompatActivity {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 10001:
-                    dialog.dismiss();
+                    if (dialog != null) {
+                        dialog.dismiss();
+                    }
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     break;
             }
@@ -94,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
         uservice = new UserDB(this);
         userMessageMap = new UserDB(this).getUserMessage(new String[]{"1"});
         /*  String sql = "insert into user(ID,UserID,UserNickName,UserHeadImg,UserPhone,UserPassword,UserToken) values(?,?,?,?,?,?,?)";
-*/
+         */
         mUserId = (String) userMessageMap.get("UserID");
         Log.e("mUserId", mUserId + "");
 
@@ -123,8 +125,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
         /*这里当点击其他输入框时候隐藏点delect按钮
-        * 而且如果输入了内容返回来之后右焦点需要显示delect按钮
-        * */
+         * 而且如果输入了内容返回来之后右焦点需要显示delect按钮
+         * */
         acLoginPhone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -234,9 +236,9 @@ public class LoginActivity extends AppCompatActivity {
 
     /*提交密码和手机号判读是否用户存在可登陆*/
     private void sendToSeviceCheck(final String userPhone, final String userPassworld) {
-       /* UserServiceInterface userservice = new UserDB(LoginActivity.this);
-        *//*String sql = "insert into user(ID,UserID,UserNickName,UserHeadImg,UserPhone,UserPassword,UserToken)";*//*
-        *//*增加:*//*
+        /* UserServiceInterface userservice = new UserDB(LoginActivity.this);
+         *//*String sql = "insert into user(ID,UserID,UserNickName,UserHeadImg,UserPhone,UserPassword,UserToken)";*//*
+         *//*增加:*//*
         Object[] obj_parames = new Object[]{"1", "123456", "路很长", "http://com.image.2.png", userPhone, userPassword, "Tokens"};
         boolean flag = userservice.addUser(obj_parames);
         if (flag) {
@@ -261,8 +263,8 @@ public class LoginActivity extends AppCompatActivity {
         }
 */
         /*
-        *
-        *   /**
+         *
+         *   /**
          * id : 20180102143153410808
          * pwd : null
          * cnName : 呵呵嘿嘿
@@ -336,12 +338,18 @@ public class LoginActivity extends AppCompatActivity {
                     mhandler.sendMessageDelayed(message, 1000);
 
                 } else {
+                    if (dialog != null) {
+                        dialog.dismiss();
+                    }
                     Toast.makeText(LoginActivity.this, o.getRESMSG(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFail(String s) {
+                if (dialog != null) {
+                    dialog.dismiss();
+                }
 
             }
         });
@@ -372,7 +380,7 @@ public class LoginActivity extends AppCompatActivity {
     private void savaUserInforToData(String userid, String user_phoner, String user_passwordr) {
         /*           Object[] obj = {"1", userid, "", "","",user_phoner, user_passwordr, "", "","",""};
 
-*/
+         */
         Object[] obj = {"1", userid, "", "", "", user_phoner, user_passwordr, "", "", "", "", ""};
         /*(ID,UserID,UserNickName,UserHeadImg,UserPhone,UserPassword,UserToken)*/
         UserServiceInterface uservice = new UserDB(this);

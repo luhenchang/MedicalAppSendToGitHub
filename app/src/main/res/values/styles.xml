@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -362,16 +362,16 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/x15</item>
         <item name="android:layout_marginTop">@dimen/x20</item>
-        <item name="android:layout_toEndOf">@+id/adpter_item1_iv1</item>
+        <item name="android:layout_toEndOf" tools:ignore="NewApi">@+id/adpter_item1_iv1</item>
         <item name="android:layout_marginLeft">@dimen/x15</item>
         <item name="android:paddingRight">@dimen/x20</item>
-        <item name="android:paddingStart">@dimen/x1</item>
+        <item name="android:paddingStart" tools:ignore="NewApi">@dimen/x1</item>
         <item name="android:textColor">@color/base_text</item>
         <item name="android:text">专家医生</item>
     </style>
 
     <style name="inquery_medicals_item_view">
-        <item name="android:id">@+id/adapter_item1_view</item>
+        <item name="android:id" tools:ignore="AaptCrash">@+id/adapter_item1_view</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/x1</item>
         <item name="android:layout_below">@+id/adapter_item1_tv1</item>
@@ -391,7 +391,7 @@
         <item name="android:background">@color/inqurey_item_viewb</item>
     </style>
     <style name="inquery_medicals_item_lin0">
-        <item name="android:id">@+id/adapter_item1_linlayout</item>
+        <item name="android:id" tools:ignore="AaptCrash">@+id/adapter_item1_linlayout</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_below">@+id/adapter_item1_view</item>
@@ -445,7 +445,7 @@
         <item name="android:layout_marginTop">@dimen/x10</item>
         <item name="android:layout_marginLeft">@dimen/x15</item>
         <item name="android:paddingRight">@dimen/x20</item>
-        <item name="android:paddingStart">@dimen/x1</item>
+        <item name="android:paddingStart" tools:ignore="NewApi">@dimen/x1</item>
         <item name="android:textColor">@color/base_text</item>
         <item name="android:text">热门专家</item>
     </style>
@@ -457,14 +457,14 @@
         <item name="android:layout_marginTop">@dimen/x10</item>
         <item name="android:layout_marginLeft">@dimen/x15</item>
         <item name="android:paddingRight">@dimen/x20</item>
-        <item name="android:paddingStart">@dimen/x1</item>
+        <item name="android:paddingStart" tools:ignore="NewApi">@dimen/x1</item>
         <item name="android:textColor">@color/base_text</item>
         <item name="android:text">热门医师团</item>
     </style>
 
     <style name="inquery_medicals_item1_top_image">
         <item name="android:contentDescription">@string/app_name</item>
-        <item name="android:id">@+id/medical_header_iv</item>
+        <item name="android:id" tools:ignore="AaptCrash">@+id/medical_header_iv</item>
         <item name="android:layout_width">@dimen/x50</item>
         <item name="android:layout_height">@dimen/x50</item>
         <item name="android:layout_marginLeft">10dp</item>
@@ -473,7 +473,7 @@
     </style>
 
     <style name="inquery_medicals_item1_name_tv">
-        <item name="android:id">@+id/medical_name_tv</item>
+        <item name="android:id" tools:ignore="AaptCrash">@+id/medical_name_tv</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">@dimen/x15</item>
@@ -486,7 +486,7 @@
     </style>
 
     <style name="inquery_medicals_item1_name1_tv">
-        <item name="android:id">@+id/medical_tager_one</item>
+        <item name="android:id" tools:ignore="AaptCrash">@+id/medical_tager_one</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_below">@+id/medical_name_tv</item>
@@ -500,7 +500,7 @@
 
     <style name="inquery_medicals_item1_name2_tv">
         <item name="android:visibility">gone</item>
-        <item name="android:id">@+id/medical_tager_two</item>
+        <item name="android:id" tools:ignore="AaptCrash">@+id/medical_tager_two</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_below">@+id/medical_name_tv</item>
@@ -514,7 +514,7 @@
 
     <style name="inquery_medicals_item1_name3_tv">
         <item name="android:visibility">gone</item>
-        <item name="android:id">@+id/medical_informations</item>
+        <item name="android:id" tools:ignore="AaptCrash">@+id/medical_informations</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_below">@+id/medical_tager_one</item>
@@ -608,7 +608,7 @@
     </style>
 
     <style name="ac_connet_name_tv">
-        <item name="android:id">@+id/medical_name_tv</item>
+        <item name="android:id" tools:ignore="AaptCrash">@+id/medical_name_tv</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">@dimen/x15</item>
@@ -622,7 +622,7 @@
         <item name="android:ellipsize">end</item>
         <item name="android:singleLine">true</item>
         <item name="android:maxLength">12</item>
-        <item name="android:id">@+id/medical_tager_one</item>
+        <item name="android:id" tools:ignore="AaptCrash">@+id/medical_tager_one</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_below">@+id/medical_name_tv</item>
@@ -636,7 +636,7 @@
 
     <style name="ac_connet_name2_tv">
         <item name="android:visibility">gone</item>
-        <item name="android:id">@+id/medical_tager_two</item>
+        <item name="android:id" tools:ignore="AaptCrash">@+id/medical_tager_two</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_below">@+id/medical_name_tv</item>
@@ -649,7 +649,7 @@
     </style>
 
     <style name="ac_connet_name3_tv">
-        <item name="android:id">@+id/medical_informations</item>
+        <item name="android:id" tools:ignore="AaptCrash">@+id/medical_informations</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_below">@+id/medical_tager_one</item>

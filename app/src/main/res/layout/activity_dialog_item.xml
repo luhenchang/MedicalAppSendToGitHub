@@ -10,7 +10,6 @@
         android:layout_height="50dp"
         android:background="@drawable/search_home_shepte_juxin"
         android:orientation="horizontal">
-
         <TextView
             android:id="@+id/left"
             android:layout_width="match_parent"

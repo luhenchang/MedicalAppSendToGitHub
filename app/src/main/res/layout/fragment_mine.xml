@@ -31,7 +31,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_margin="20dp"
-                    android:background="@drawable/user_message_no" />
+                    android:background="@drawable/user_message_no"
+                    android:layout_alignParentRight="true" />
 
                 <com.example.ls.shoppingmall.utils.layoututils.CircleImageView
                     android:id="@+id/ft_user_header_iv"
@@ -61,7 +62,8 @@
                 android:layout_marginStart="@dimen/x40"
                 android:drawableTop="@drawable/user_goods"
                 android:text="订单"
-                android:visibility="gone" />
+                android:visibility="gone"
+                tools:ignore="RtlCompat" />
             <!--优惠卡-->
             <TextView
                 android:id="@+id/ft_mine_card_tv"
@@ -69,7 +71,8 @@
                 android:layout_marginStart="@dimen/x40"
                 android:drawableTop="@drawable/user_card"
                 android:text="优惠卡"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:layout_marginLeft="@dimen/x40" />
         </LinearLayout>
         <!--第3个模块-->
         <LinearLayout style="@style/user_fragment_lin">
