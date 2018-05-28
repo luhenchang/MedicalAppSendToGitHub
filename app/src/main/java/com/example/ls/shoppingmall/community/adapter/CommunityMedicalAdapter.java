@@ -75,7 +75,7 @@ public class CommunityMedicalAdapter extends BaseAdapter {
 
         }
         vh.title.setText((mDataTeam.get(position).getDtmName() == null || mDataTeam.get(position).getDtmName().equals(0)) ? "" : mDataTeam.get(position).getDtmName());
-        vh.name.setText((mDataTeam.get(position).getDtmName() == null || mDataTeam.get(position).getDtmName().equals(0)) ? "" : mDataTeam.get(position).getDtmName());
+        vh.name.setText((mDataTeam.get(position).getDtmDisc() == null || mDataTeam.get(position).getDtmDisc().equals(0)) ? "" : mDataTeam.get(position).getDtmDisc());
         vh.tv_medical_team.setText("热门医师团");
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override

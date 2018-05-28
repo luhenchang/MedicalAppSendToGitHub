@@ -370,7 +370,6 @@ public class CommunityAdapter extends BaseAdapter {
                 }
                 Log.e("sizeid", mFirstList.size() + "");
             }
-            Log.e("aiaiaii",mFirstList.get(position).getImgID().getUrl());
             Glide.with(mcontext).load(NetConfig.GLIDE_USRE +( mFirstList.get(position).getImgID()==null?"":mFirstList.get(position).getImgID().getUrl())).error(R.drawable.medical_header_iv).listener(new GlideRequestListner()).centerCrop().into(vh.mCirclerView);
 
 //            Glide.with(mcontext).load(NetConfig.GLIDE_USRE +( mFirstList.get(position).getImgID()==null?"":mFirstList.get(position).getImgID().getUrl())).override(80, 80).skipMemoryCache(false).error(R.drawable.medical_header_iv).diskCacheStrategy(DiskCacheStrategy.ALL).into(vh.mCirclerView);
@@ -441,7 +440,7 @@ public class CommunityAdapter extends BaseAdapter {
 
             if (mSeconder.get(position).getCnName() != null) {
                 medical_name_tv.setText(mSeconder.get(position).getCnName() + "");
-                medical_tager_one.setText(mSeconder.get(position).getHospital().getHospName());
+                medical_tager_one.setText(mSeconder.get(position).getPositional().getPostInfName());
 
             }
             com_adapter_item1_more_tv.setOnClickListener(new View.OnClickListener() {

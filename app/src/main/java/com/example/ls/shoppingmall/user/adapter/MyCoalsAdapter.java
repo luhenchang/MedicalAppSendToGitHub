@@ -13,6 +13,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.support.design.widget.BottomSheetDialog;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.ThemedSpinnerAdapter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -127,67 +129,72 @@ public class MyCoalsAdapter extends BaseAdapter {
             public void onClick(View v) {
                 if (mData.get(position).getOrderNo() != null) {
                     //这里判断5月3日不需要了。都可以拨打客服电话
-                    //if(mData.get(position).clickable){
-                        Intent intent = new Intent(Intent.ACTION_DIAL);
-                        Uri data = Uri.parse("tel:" + "4006502680");
-                        intent.setData(data);
-                        context.startActivity(intent);
-                   /* }else {
-                        Toast.makeText(context, "你已经预约成功！不能退款", Toast.LENGTH_SHORT).show();
-                    }*/
-
-                    /*if (mData.get(position).getNote2().equals("0")) {//微信退款接口
-                        parames = new HashMap<>();
-                             // TODO 6.0.1 微信订单金额，单位是：分 mtotal_amount
-                        String str = String.valueOf(Double.valueOf(mData.get(position).getMoney()) * 100);
-                        String[] strs = str.split("[.]");
-                        //wx_CoinPrice = strs[0];
-                        Log.e("hha", NetConfig.BACK_MONEY_URLW + mData.get(position).getOrderNo() + "&goodsPrice=" + mData.get(position).getMoney());
-                        FrameHttpHelper.getInstance().get(NetConfig.BACK_MONEY_URLW + mData.get(position).getOrderNo() + "&accrual=" + strs[0], parames, new FrameHttpCallback<BackMoneyBean>() {
-                            @Override
-                            public void onSuccess(BackMoneyBean myCoalsBean) {
-                                Log.e("myCoalsBean", myCoalsBean.toString());
-                                if (myCoalsBean.getRESCOD().equals("000000")) {
-                                    mData.remove(mData.get(position));
-                                    notifyDataSetChanged();
-                                    Toast.makeText(context, myCoalsBean.getRESMSG() + "", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(context, myCoalsBean.getRESMSG() + "", Toast.LENGTH_SHORT).show();
+                    if (flag == 0) {
+                        if (mData.get(position).clickable) {
+                            Intent intent = new Intent(Intent.ACTION_DIAL);
+                            Uri data = Uri.parse("tel:" + "4006502680");
+                            intent.setData(data);
+                            context.startActivity(intent);
+                        } else {
+                            Toast.makeText(context, "你已经预约成功！不能退款", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        if (mData.get(position).getNote2().equals("0")) {//微信退款接口
+                            parames = new HashMap<>();
+                            // TODO 6.0.1 微信订单金额，单位是：分 mtotal_amount
+                            String str = String.valueOf(Double.valueOf(mData.get(position).getMoney()) * 100);
+                            String[] strs = str.split("[.]");
+                            //wx_CoinPrice = strs[0];
+                            Log.e("hha", NetConfig.BACK_MONEY_URLW + mData.get(position).getOrderNo() + "&goodsPrice=" + mData.get(position).getMoney());
+                            FrameHttpHelper.getInstance().get(NetConfig.BACK_MONEY_URLW + mData.get(position).getOrderNo() + "&accrual=" + strs[0], parames, new FrameHttpCallback<BackMoneyBean>() {
+                                @Override
+                                public void onSuccess(BackMoneyBean myCoalsBean) {
+                                    Log.e("myCoalsBean", myCoalsBean.toString());
+                                    if (myCoalsBean.getRESCOD().equals("000000")) {
+                                        mData.remove(mData.get(position));
+                                        notifyDataSetChanged();
+                                        Toast.makeText(context, myCoalsBean.getRESMSG() + "", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(context, myCoalsBean.getRESMSG() + "", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                            }
 
-                            @Override
-                            public void onFail(String s) {
+                                @Override
+                                public void onFail(String s) {
 
-                            }
-                        });
-                    } else {//支付宝退款接口
-                        parames = new HashMap<>();
-                        Log.e("hha", NetConfig.BACK_MONEY_URL + mData.get(position).getOrderNo() + "&goodsPrice=" + mData.get(position).getMoney());
-                        FrameHttpHelper.getInstance().get(NetConfig.BACK_MONEY_URL + mData.get(position).getOrderNo() + "&accrual=" + mData.get(position).getMoney(), parames, new FrameHttpCallback<BackMoneyBean>() {
-                            @Override
-                            public void onSuccess(BackMoneyBean myCoalsBean) {
-                                if (myCoalsBean.getRESCOD().equals("000000")) {
-                                    mData.remove(mData.get(position));
-                                    notifyDataSetChanged();
-                                    Toast.makeText(context, myCoalsBean.getRESMSG() + "", Toast.LENGTH_SHORT).show();
-
-                                } else {
-                                    Toast.makeText(context, myCoalsBean.getRESMSG(), Toast.LENGTH_SHORT).show();
                                 }
-                            }
+                            });
+                        } else {//支付宝退款接口
+                            parames = new HashMap<>();
+                            Log.e("hha", NetConfig.BACK_MONEY_URL + mData.get(position).getOrderNo() + "&goodsPrice=" + mData.get(position).getMoney());
+                            FrameHttpHelper.getInstance().get(NetConfig.BACK_MONEY_URL + mData.get(position).getOrderNo() + "&accrual=" + mData.get(position).getMoney(), parames, new FrameHttpCallback<BackMoneyBean>() {
+                                @Override
+                                public void onSuccess(BackMoneyBean myCoalsBean) {
+                                    if (myCoalsBean.getRESCOD().equals("000000")) {
+                                        mData.remove(mData.get(position));
+                                        notifyDataSetChanged();
+                                        Toast.makeText(context, myCoalsBean.getRESMSG() + "", Toast.LENGTH_SHORT).show();
 
-                            @Override
-                            public void onFail(String s) {
+                                    } else {
+                                        Toast.makeText(context, myCoalsBean.getRESMSG(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
 
-                            }
-                        });
-                    }*/
+                                @Override
+                                public void onFail(String s) {
+
+                                }
+                            });
+                        }
+
+                    }
+
 
                 }
 
             }
         });
+        //判断是否二维码生成
         if (mData.get(position).getImgPath() != null) {
             vh.tvErm.setBackgroundResource(R.drawable.text_shapter_consal);
             vh.tvErm.setOnClickListener(new View.OnClickListener() {
@@ -210,19 +217,29 @@ public class MyCoalsAdapter extends BaseAdapter {
                 }
             });
             if (flag == 1) {
-                mData.get(position).clickable=false;
+                mData.get(position).clickable = false;
                 //5.3号只会取消
-               /* vh.tvBackMoney.setBackgroundResource(R.drawable.text_shapter_consal_gray);
-                vh.tvBackMoney.setTextColor(Color.GRAY);*/
+                vh.tvBackMoney.setBackgroundResource(R.drawable.text_shapter_consal_gray);
+                vh.tvBackMoney.setTextColor(Color.GRAY);
+                vh.tvBackMoney.setText("退款");
+
+            }else{
+                vh.tvBackMoney.setText("客服电话");
 
             }
 
         } else {
+
             vh.tvErm.setBackgroundResource(R.drawable.text_shapter_consal_gray);
             if (flag == 1) {
-                mData.get(position).clickable=true;
+                mData.get(position).clickable = true;
                 vh.tvBackMoney.setBackgroundResource(R.drawable.text_shaper_red);
                 vh.tvBackMoney.setTextColor(Color.parseColor("#ff5a5f"));
+                vh.tvBackMoney.setText("退款");
+
+
+            }else{
+                vh.tvBackMoney.setText("客服电话");
 
             }
         }
@@ -232,7 +249,7 @@ public class MyCoalsAdapter extends BaseAdapter {
 
     public class MyViewHolder {
         /*<!--tv_medical_consalPrise tv_medical_name tv_medical_time tv_medical_backmoney_time tv_medical_backmoney-->
-        */
+         */
         private TextView tvName, tvPrice, tvTime, tvBackMoney, tvBackTime, tvErm;
 
         public MyViewHolder(View view) {

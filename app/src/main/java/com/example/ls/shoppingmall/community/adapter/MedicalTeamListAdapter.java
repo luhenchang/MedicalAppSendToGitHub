@@ -50,7 +50,7 @@ public class MedicalTeamListAdapter extends RecyclerView.Adapter<MedicalTeamList
             Glide.with(mcontext).load(NetConfig.GLIDE_USRE + mData.get(position).getPic()).into(holder.cv);
         }
         holder.title.setText((mData.get(position).getDtmName() == null || mData.get(position).getDtmName().equals(0)) ? "" : mData.get(position).getDtmName());
-        holder.name.setText((mData.get(position).getDtmName() == null || mData.get(position).getDtmName().equals(0)) ? "" : mData.get(position).getDtmName());
+        holder.name.setText((mData.get(position).getDtmDisc() == null || mData.get(position).getDtmDisc().equals(0)) ? "" : mData.get(position).getDtmDisc());
         holder.tv_medical_team.setText("热门医师团");
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

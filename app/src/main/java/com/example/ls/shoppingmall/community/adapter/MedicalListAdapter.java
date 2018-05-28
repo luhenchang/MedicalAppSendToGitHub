@@ -52,6 +52,7 @@ public class MedicalListAdapter extends RecyclerView.Adapter<MedicalListAdapter.
         if (mData.get(position).getCnName() != null) {
             holder.medical_name_tv.setText(mData.get(position).getCnName() + "");
         }
+        holder.medical_tager_one.setText(mData.get(position).getPositional().getPostInfName()+"");
         holder.com_adapter_item1_more_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +100,7 @@ public class MedicalListAdapter extends RecyclerView.Adapter<MedicalListAdapter.
     class MyViewHolder extends RecyclerView.ViewHolder{
         private LinearLayout mLine;
         private RelativeLayout ad_medical_item;
-        private TextView medical_name_tv;
+        private TextView medical_name_tv,medical_tager_one;
         private TextView com_adapter_item1_more_tv;
         private CircleImageView header_iv;
         public MyViewHolder(View itemView) {
@@ -109,6 +110,7 @@ public class MedicalListAdapter extends RecyclerView.Adapter<MedicalListAdapter.
             medical_name_tv = itemView.findViewById(R.id.medical_name_tv);
             com_adapter_item1_more_tv = itemView.findViewById(R.id.com_adapter_item1_more_tv);
             header_iv=itemView.findViewById(R.id.medical_header_iv);
+            medical_tager_one=itemView.findViewById(R.id.medical_tager_one);
         }
     }
 }
