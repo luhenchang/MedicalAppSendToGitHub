@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
         exclude 'META-INF/NOTICE'
@@ -16,6 +15,7 @@ android {
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true//为了解决65536限制
@@ -32,6 +32,13 @@ android {
             jniDebuggable false
             renderscriptDebuggable false
             zipAlignEnabled true
+            lintOptions {//这里在as3.2已经修复了
+
+                checkReleaseBuilds false
+
+                abortOnError false
+
+            }
         }
     }
     allprojects {
@@ -43,46 +50,46 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     /*微信支付一类库*/
-    compile files('libs/locSDK_6.13.jar')
-    compile files('libs/httpclient-4.3.5.jar')
-    compile files('libs/httpcore-4.3.2.jar')
-    compile files('libs/httpmime-4.3.5.jar')
-    compile files('libs/jvolley.jar')
-    compile files('libs/json-lib-2.4-jdk15.jar')
+    implementation files('libs/locSDK_6.13.jar')
+    implementation files('libs/httpclient-4.3.5.jar')
+    implementation files('libs/httpcore-4.3.2.jar')
+    implementation files('libs/httpmime-4.3.5.jar')
+    implementation files('libs/jvolley.jar')
+    implementation files('libs/json-lib-2.4-jdk15.jar')
     //百度地图jar
-    compile files('libs/baidumapapi_base_v4_0_0.jar')
-    compile files('libs/baidumapapi_cloud_v4_0_0.jar')
-    compile files('libs/baidumapapi_map_v4_0_0.jar')
-    compile files('libs/baidumapapi_radar_v4_0_0.jar')
-    compile files('libs/baidumapapi_search_v4_0_0.jar')
-    compile files('libs/baidumapapi_util_v4_0_0.jar')
+    implementation files('libs/baidumapapi_base_v4_0_0.jar')
+    implementation files('libs/baidumapapi_cloud_v4_0_0.jar')
+    implementation files('libs/baidumapapi_map_v4_0_0.jar')
+    implementation files('libs/baidumapapi_radar_v4_0_0.jar')
+    implementation files('libs/baidumapapi_search_v4_0_0.jar')
+    implementation files('libs/baidumapapi_util_v4_0_0.jar')
     //图片请求框架
-    compile files('libs/alipaySdk-20170922.jar')
-    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
-    compile 'com.android.support:multidex:1.0.1'
-    compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'com.android.support:design:26.0.0-alpha1'
-    compile 'com.android.support:support-vector-drawable:26.+'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.zhy:okhttputils:2.6.2'
-    compile 'com.google.code.gson:gson:2.8.2'
-    compile 'org.xutils:xutils:3.5.0'
-    compile 'com.lcodecorex:tkrefreshlayout:1.0.4'
-    compile 'com.android.support:cardview-v7:26.+'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'org.greenrobot:eventbus:3.0.0'
-    testCompile 'junit:junit:4.12'
-    compile files('libs/jcore-android_v1.0.0.jar')
-    compile files('libs/jpush-android_v3.0.0.jar')
-    compile 'com.zhy:percent-support-extends:1.0.1'
-    compile 'commons-codec:commons-codec:1.10'
-//1.0.5 当1.1.0出现问题可以回退到1.0.5.1
-    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
-    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'//没有使用特殊Header，可以不加这行
-
+    implementation files('libs/alipaySdk-20170922.jar')
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    implementation 'com.android.support:multidex:1.0.1'
+    implementation 'com.jakewharton:butterknife:7.0.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.zhy:okhttputils:2.6.2'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'org.xutils:xutils:3.5.0'
+    implementation 'com.lcodecorex:tkrefreshlayout:1.0.4'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:cardview-v7:27.+'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    testImplementation 'junit:junit:4.12'
+    implementation files('libs/jcore-android_v1.0.0.jar')
+    implementation files('libs/jpush-android_v3.0.0.jar')
+    implementation 'com.zhy:percent-support-extends:1.0.1'
+    implementation 'commons-codec:commons-codec:1.10'
+    //1.0.5 当1.1.0出现问题可以回退到1.0.5.1
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
+    //没有使用特殊Header，可以不加这行
+    implementation 'com.android.support:design:27.1.0'
 }

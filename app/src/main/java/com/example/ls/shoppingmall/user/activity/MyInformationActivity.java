@@ -196,6 +196,7 @@ public class MyInformationActivity extends AppCompatActivity implements View.OnC
         userMessageMap = new UserDB(this).getUserMessage(new String[]{"1"});
         mUserId = (String) userMessageMap.get("UserID");
         mBinzhen= (TextView) findViewById(R.id.bingzhen);
+
         setView();
         setImage();
         setLisenner();
@@ -204,7 +205,10 @@ public class MyInformationActivity extends AppCompatActivity implements View.OnC
     }
 
     private void setView() {
+
         acMyinforWeightEtss = (EditText) findViewById(R.id.ac_myinfor_weight_etss);
+
+
         db_age = (String) userMessageMap.get("UserAge");
         db_height = (String) userMessageMap.get("UserHeight");
         db_name = (String) userMessageMap.get("UserName");
@@ -234,6 +238,9 @@ public class MyInformationActivity extends AppCompatActivity implements View.OnC
         if (db_weight != null) {
             acMyinforWeightEtss.setText(db_weight);
         }
+        acMyinforNamesTv.setSelection(acMyinforNamesTv.getText().length());
+        acMyinforWeightEtss.setSelection(acMyinforWeightEtss.getText().length());
+        acMyinforNickTv.setSelection(acMyinforNickTv.getText().length());
         //mDiseasHistory=SharedPrefsUtil.getValue(this,"diseasHistory","diseasHistory");
         /* map.key=UserWeight  :map.value=55kg
  map.key=UserPassword  :map.value=123456
@@ -343,6 +350,9 @@ public class MyInformationActivity extends AppCompatActivity implements View.OnC
                         caseHistory = us.getRESOBJ().getCaseHistory();
                         mBinzhen.setText(caseHistory);
                     }
+                    acMyinforNamesTv.setSelection(acMyinforNamesTv.getText().length());
+                    acMyinforWeightEtss.setSelection(acMyinforWeightEtss.getText().length());
+                    acMyinforNickTv.setSelection(acMyinforNickTv.getText().length());
                 } else {
                 }
             }
