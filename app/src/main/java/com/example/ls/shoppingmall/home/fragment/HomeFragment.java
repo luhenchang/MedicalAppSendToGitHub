@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.ls.shoppingmall.R;
+import com.example.ls.shoppingmall.app.MyApplication;
 import com.example.ls.shoppingmall.app.config.NetConfig;
 import com.example.ls.shoppingmall.base.BaseFragment;
 import com.example.ls.shoppingmall.community.activity.DepartmentActivity;
@@ -89,6 +90,9 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
     private LinearLayout mHeader_line;
     private TextView mWuman, mMan;
     private boolean isWmflag = false;
+    private AlertDialog.Builder builder;
+    private ListView listView;
+    private View viewcontent;
 
     @Override
     public View initView() {
@@ -117,6 +121,20 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
         home_man_iv = view.findViewById(R.id.home_man_iv);
         mWuman = view.findViewById(R.id.tv_wuman_fh);
         mMan = view.findViewById(R.id.tv_man_fh);
+
+
+        //弹窗
+
+        builder = new AlertDialog.Builder(getActivity());
+        builder.create();
+        LayoutInflater mInflater = (LayoutInflater) getContext()
+                .getSystemService(getActivity().LAYOUT_INFLATER_SERVICE);
+        viewcontent = mInflater.inflate(R.layout.home_body_pop_dialog, null);
+        builder.setView(viewcontent);
+        alertDialog = builder.create();
+
+        listView = viewcontent.findViewById(R.id.home_body_lv);
+        listView.setOnItemClickListener(this);
         initListener();
         initData();
         return view;
@@ -499,19 +517,10 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
     }
 
     private void showPops() {
-        AlertDialog.Builder builder;
-        builder = new AlertDialog.Builder(getActivity());
-        builder.create();
-        LayoutInflater mInflater = (LayoutInflater) getContext()
-                .getSystemService(getActivity().LAYOUT_INFLATER_SERVICE);
-        View viewcontent = mInflater.inflate(R.layout.home_body_pop_dialog, null);
-        ListView listView = viewcontent.findViewById(R.id.home_body_lv);
-        listView.setOnItemClickListener(this);
         BodySelectAdapter madapter = new BodySelectAdapter(getActivity(), mBodyEacher);
         listView.setAdapter(madapter);
-        builder.setView(viewcontent);
-        alertDialog = builder.show();
-
+        madapter.notifyDataSetChanged();
+        alertDialog.show();
 
     }
 
@@ -533,7 +542,7 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
 
     //这个是跳转到下一个页面：
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
         if (alertDialog != null) {
             alertDialog.dismiss();
         }
@@ -547,17 +556,21 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
             sex = "1";
         }
         intent.putExtra("sex", sex);
+
         if (userId != null) {
-            startActivity(intent);
+            if (!MyApplication.fistBinzhen.equals(mBodyEacher.get(position).getOrgName())) {
+                startActivity(intent);
+            } else {
+                Toast.makeText(mContext, "请选择不同的部位", Toast.LENGTH_SHORT).show();
+            }
         } else {
             new com.example.ls.shoppingmall.utils.layoututils.AlertDialog(mContext).builder()
                     .setCancelable(false)
                     .setMsg("你尚未登录")
                     .setPositiveButton("登录", new View.OnClickListener() {
-
                         @Override
                         public void onClick(View v) {
-                            startActivity(new Intent(mContext,LoginActivity.class));
+                            startActivity(new Intent(mContext, LoginActivity.class));
                         }
                     }).setNegativeButton("取消", new View.OnClickListener() {
                 @Override

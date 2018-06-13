@@ -23,13 +23,10 @@ import android.widget.Toast;
 import com.example.ls.shoppingmall.R;
 import com.example.ls.shoppingmall.app.MyApplication;
 import com.example.ls.shoppingmall.app.config.NetConfig;
-import com.example.ls.shoppingmall.home.bean.ResultBeanData;
-import com.example.ls.shoppingmall.user.bean.FamilyResultBean;
 import com.example.ls.shoppingmall.user.bean.RegisterResultBean;
 import com.example.ls.shoppingmall.user.utils.layoututils.SupportPopupWindow;
 import com.example.ls.shoppingmall.user.utils.layoututils.WheelView;
 import com.example.ls.shoppingmall.utils.dbutils.UserDB;
-import com.example.ls.shoppingmall.utils.dbutils.UserServiceInterface;
 import com.example.ls.shoppingmall.utils.layoututils.OverScrollView;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpCallback;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpHelper;
@@ -68,7 +65,11 @@ public class AddFamelyActivity extends AppCompatActivity {
     OverScrollView myscrollMyslfOs;
     @Bind(R.id.ac_family_tv)
     Button acFamilyTv;
-    private String mFamilyRelation, mFamilyName, mFamilySex="1", mFamilyAge="25", mFamilyDiaseHestory="无病史";
+    @Bind(R.id.ager_tvdis)
+    TextView agerTvdis;
+    @Bind(R.id.ac_add_family)
+    TextView acAddFamily;
+    private String mFamilyRelation, mFamilyName, mFamilySex = "1", mFamilyAge = "25", mFamilyDiaseHestory = "";
     /*病历史*/
     HashMap<String, Object> userHash;
     private String mAge;
@@ -123,7 +124,7 @@ public class AddFamelyActivity extends AppCompatActivity {
         TextView left = (TextView) contentview.findViewById(R.id.left);
         final WheelView picker = (WheelView) contentview.findViewById(R.id.wheel);
         if (flag.equals("age")) {
-            for (int i = 4; i < 102; i++) {
+            for (int i = 0; i < 102; i++) {
                 picker.addData((i + 1) + "");
             }
             picker.setCenterItem(25);
@@ -180,7 +181,7 @@ public class AddFamelyActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ac_ifor_desease_hestory:
-                startActivityForResult(new Intent(AddFamelyActivity.this, DiseasHistoryActivity.class), 2019);
+                startActivityForResult(new Intent(AddFamelyActivity.this, DiseasHistoryActivity.class).putExtra("disHearsh",mFamilyDiaseHestory), 2019);
                 break;
             case R.id.ac_family_tv:
                 sendMessageToServers();
@@ -200,7 +201,7 @@ public class AddFamelyActivity extends AppCompatActivity {
     private void sendMessageToServers() {
         mFamilyRelation = acAddfamilyFamily.getText().toString().trim();
         mFamilyName = acAddfamilyName.getText().toString().trim();
-        mFamilyAge=acAddfamilyAge.getText().toString()+"";
+        mFamilyAge = acAddfamilyAge.getText().toString() + "";
         if (TextUtils.isEmpty(mFamilyRelation)) {
             Toast.makeText(this, "家庭关系不能为空！", Toast.LENGTH_SHORT).show();
 
@@ -215,17 +216,17 @@ public class AddFamelyActivity extends AppCompatActivity {
         } else if (!TextUtils.isEmpty(mFamilyRelation) && !TextUtils.isEmpty(mFamilyName)
                 && !TextUtils.isEmpty(mFamilySex) && !TextUtils.isEmpty(mFamilyAge)) {
             HashMap<String, Object> map = new HashMap<>();
-            map.put("userId",userId);
+            map.put("userId", userId);
             map.put("famRelation", mFamilyRelation);
             map.put("famName", mFamilyName);
             map.put("famSex", mFamilySex);
-            map.put("famAge",mFamilyAge);
+            map.put("famAge", mFamilyAge);
             map.put("famSickHis", mFamilyDiaseHestory);
             FrameHttpHelper.getInstance().post(NetConfig.FAMILY_URL, map, new FrameHttpCallback<RegisterResultBean>() {
 
                 @Override
                 public void onSuccess(RegisterResultBean registerResultBean) {
-                    Log.e("lslsldjlf",registerResultBean.toString());
+                    Log.e("lslsldjlf", registerResultBean.toString());
                     if (registerResultBean.getRESCOD().equals("000000")) {
                         Toast.makeText(AddFamelyActivity.this, "提交成功", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(AddFamelyActivity.this, FamilyActivity.class);
@@ -250,6 +251,10 @@ public class AddFamelyActivity extends AppCompatActivity {
             String result_string = data.getStringExtra("result");
             if (requestCode == 2019 && resultCode == 1000) {
                 mFamilyDiaseHestory = result_string;
+                if (acAddFamily != null) {
+                    acAddFamily.setText(result_string);
+
+                }
             }
         }
     }

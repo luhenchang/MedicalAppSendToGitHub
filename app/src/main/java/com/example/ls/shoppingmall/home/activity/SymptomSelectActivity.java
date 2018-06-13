@@ -1,13 +1,12 @@
 package com.example.ls.shoppingmall.home.activity;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -23,15 +22,13 @@ import com.example.ls.shoppingmall.R;
 import com.example.ls.shoppingmall.app.MyApplication;
 import com.example.ls.shoppingmall.app.config.NetConfig;
 import com.example.ls.shoppingmall.home.adapter.SymptomSelectAdapter;
-import com.example.ls.shoppingmall.home.bean.PerfectInforBean;
 import com.example.ls.shoppingmall.home.bean.SympBean;
 import com.example.ls.shoppingmall.home.bean.SymptomSelectBean;
 import com.example.ls.shoppingmall.utils.layoututils.AlertDialog;
+import com.example.ls.shoppingmall.utils.layoututils.LoadingDialog;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpCallback;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpHelper;
-import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -45,10 +42,10 @@ public class SymptomSelectActivity extends AppCompatActivity implements AbsListV
     EditText searchSymptomEt;
     @Bind(R.id.activity_next_tv)
     TextView activityNextTv;
+    @Bind(R.id.activity_next_tv1)
+    TextView activityNextTv1;
     private ListView symptom_lv;
     private SymptomSelectAdapter mSyAdapter;
-    private List<SympBean> mData;
-    private TwinklingRefreshLayout mSwipeLayout;
     //<!--back_to_after title_top-->
     private ImageView mBack;
     private TextView topTitle;
@@ -61,8 +58,8 @@ public class SymptomSelectActivity extends AppCompatActivity implements AbsListV
     private TextView tv_select_name;
     private EditText et_search;
     private TextView tv_search;
-    private String sex="0";
-
+    private String sex = "0";
+    private LoadingDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,8 +69,8 @@ public class SymptomSelectActivity extends AppCompatActivity implements AbsListV
         MyApplication.addActivity(this);
         if (getIntent().getStringExtra("orgNo") != null) {
             orgNoSearch = getIntent().getStringExtra("orgNo");
-            orgName=getIntent().getStringExtra("orgName");
-            sex=getIntent().getStringExtra("sex");
+            orgName = getIntent().getStringExtra("orgName");
+            sex = getIntent().getStringExtra("sex");
         }
         initView();
         initData();
@@ -89,11 +86,10 @@ public class SymptomSelectActivity extends AppCompatActivity implements AbsListV
     }
 
     private void initData() {
-        mData = new ArrayList<>();
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("orgNo", orgNoSearch);
-        hashMap.put("sex",sex);
-        Log.e("stljslg",hashMap.toString());
+        hashMap.put("sex", sex);
+        Log.e("stljslg", hashMap.toString());
         FrameHttpHelper.getInstance().post(NetConfig.HOME_SYMPTOMSEACHER, hashMap, new FrameHttpCallback<SymptomSelectBean>() {
             @Override
             public void onSuccess(SymptomSelectBean symptombean) {
@@ -102,10 +98,10 @@ public class SymptomSelectActivity extends AppCompatActivity implements AbsListV
                 if (symptombean.getRESCOD().equals("000000")) {
                     if (symptombean.getRESOBJ().size() > 0) {
                         for (int i = 0; i < symptombean.getRESOBJ().size(); i++) {
-                            mData.add(new SympBean(false, symptombean.getRESOBJ().get(i)));
+                            MyApplication.mData.add(new SympBean(false, symptombean.getRESOBJ().get(i)));
                         }
-                        Log.e("ooo11", mData.toString());
-                        mSyAdapter = new SymptomSelectAdapter(SymptomSelectActivity.this, mData);
+                        Log.e("ooo11", MyApplication.mData.toString());
+                        mSyAdapter = new SymptomSelectAdapter(SymptomSelectActivity.this, MyApplication.mData);
                         symptom_lv.setAdapter(mSyAdapter);
                         mSyAdapter.notifyDataSetChanged();
                     } else {
@@ -144,59 +140,69 @@ public class SymptomSelectActivity extends AppCompatActivity implements AbsListV
     }
 
     private void initView() {
+        if (MyApplication.flagisFist) {
+            activityNextTv1.setBackgroundResource(R.drawable.selected_red_shapter_ager);
+        } else {
+            activityNextTv1.setBackgroundResource(R.drawable.selected_gray_shapter_ager);
+
+        }
         activityNextTv.setOnClickListener(this);
+        activityNextTv1.setOnClickListener(this);
         fistLayout = LayoutInflater.from(this).inflate(R.layout.ac_header_search_home, null);
         /*<!--back_to_after title_top-->
-*/
+         */
         mBack = fistLayout.findViewById(R.id.back_to_after);
         topTitle = fistLayout.findViewById(R.id.title_top);
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MyApplication.mData.clear();
+                MyApplication.flagisFist = true;
+                MyApplication.fistBinzhen="部位";
                 finish();
             }
         });
         topTitle.setText("完善选择");
         secondLayout = LayoutInflater.from(this).inflate(R.layout.ac_header_search_home_second, null);
         hideView = findViewById(R.id.secondLayout);
-        mData = new ArrayList<>();
         // mSyAdapter = new SymptomSelectAdapter(this, mData);
         symptom_lv = (ListView) findViewById(R.id.listView);
         //按顺序添加两个view，先添加的在上面。
         symptom_lv.addHeaderView(fistLayout);
         symptom_lv.addHeaderView(secondLayout);
-        tv_select_name=fistLayout.findViewById(R.id.tv_select_name);
-        tv_select_name.setText("你选择的部位为"+orgName);
-       // <!--search_symptom_et tv_search -->
-        et_search=secondLayout.findViewById(R.id.search_symptom_et);
-        tv_search=secondLayout.findViewById(R.id.tv_search);
+        tv_select_name = fistLayout.findViewById(R.id.tv_select_name);
+        tv_select_name.setText("你选择的部位为" + orgName);
+        // <!--search_symptom_et tv_search -->
+        et_search = secondLayout.findViewById(R.id.search_symptom_et);
+        tv_search = secondLayout.findViewById(R.id.tv_search);
         tv_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mData.size()>0){
-                    List<SympBean> mData1=new ArrayList<>();
-                    List<SympBean> mData2=new ArrayList<>();
+                if (MyApplication.mData.size() > 0) {
+                    List<SympBean> mData1 = new ArrayList<>();
+                    List<SympBean> mData2 = new ArrayList<>();
 
-                    for (int i = 0; i <mData.size() ; i++) {
-                        if(!et_search.getText().toString().isEmpty()){
-                            if( mData.get(i).Sympbean.getSypName().contains(et_search.getText().toString())){
-                                mData1.add(mData.get(i));
-                            }else{
-                                mData2.add(mData.get(i));
+                    for (int i = 0; i < MyApplication.mData.size(); i++) {
+                        if (!et_search.getText().toString().isEmpty()) {
+                            if (MyApplication.mData.get(i).Sympbean.getSypName().contains(et_search.getText().toString())) {
+                                mData1.add(MyApplication.mData.get(i));
+                            } else {
+                                mData2.add(MyApplication.mData.get(i));
                             }
 
                         }
                     }
-                    if(mData1.size()>0&&mData2.size()<=0){
-                        mData.clear();
-                        mData.addAll(mData1);
+                    if (mData1.size() > 0 && mData2.size() <= 0) {
+                        MyApplication.mData.clear();
+                        MyApplication.mData.addAll(mData1);
                         mSyAdapter.notifyDataSetChanged();
-                    }if(mData1.size()>0&&mData2.size()>0){
-                        mData.clear();
-                        mData.addAll(mData1);
-                        mData.addAll(mData2);
+                    }
+                    if (mData1.size() > 0 && mData2.size() > 0) {
+                        MyApplication.mData.clear();
+                        MyApplication.mData.addAll(mData1);
+                        MyApplication.mData.addAll(mData2);
                         mSyAdapter.notifyDataSetChanged();
-                    }else{
+                    } else {
                         Toast.makeText(SymptomSelectActivity.this, "没有对应的搜索!", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -223,6 +229,18 @@ public class SymptomSelectActivity extends AppCompatActivity implements AbsListV
     }
 
     @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            MyApplication.mData.clear();
+            MyApplication.flagisFist = true;
+            MyApplication.fistBinzhen="部位";
+            finish();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
         /**
          * 核心代码：
@@ -245,10 +263,10 @@ public class SymptomSelectActivity extends AppCompatActivity implements AbsListV
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Log.e("positon=", position + "");
-        if (mData.get(position - 2).flag) {
-            mData.get(position - 2).flag = false;
-        } else if (!mData.get(position - 2).flag) {
-            mData.get(position - 2).flag = true;
+        if (MyApplication.mData.get(position - 2).flag) {
+            MyApplication.mData.get(position - 2).flag = false;
+        } else if (!MyApplication.mData.get(position - 2).flag) {
+            MyApplication.mData.get(position - 2).flag = true;
 
         }
 
@@ -260,13 +278,32 @@ public class SymptomSelectActivity extends AppCompatActivity implements AbsListV
         switch (v.getId()) {
             case R.id.activity_next_tv:
                 HashMap<String, Object> hashMap = new HashMap<>();
-                for (int i = 0,j=0; i < mData.size(); i++) {
-                    if (mData.get(i).flag) {
-                        hashMap.put("symptoms[" + j + "].sypNo", mData.get(i).Sympbean.getSypNo());
+                for (int i = 0, j = 0; i < MyApplication.mData.size(); i++) {
+                    if (MyApplication.mData.get(i).flag) {
+                        hashMap.put("symptoms[" + j + "].sypNo", MyApplication.mData.get(i).Sympbean.getSypNo());
                         j++;
                     }
                 }
                 sendServer(hashMap);
+                break;
+            case R.id.activity_next_tv1:
+                if (MyApplication.flagisFist) {
+                    int j = 0;
+                    for (int i = 0; i < MyApplication.mData.size(); i++) {
+                        if (MyApplication.mData.get(i).flag) {
+                            j++;
+                        }
+                    }
+                    if (j > 0) {
+                        finish();
+                        MyApplication.flagisFist = false;
+                        MyApplication.fistBinzhen = orgName;
+                    } else {
+                        Toast.makeText(this, "请选择第一病症", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+                break;
 
         }
 
@@ -282,8 +319,6 @@ public class SymptomSelectActivity extends AppCompatActivity implements AbsListV
             intent.putExtra("splithashmap", stringBuffer.toString());
             intent.putExtra("orgNo", orgNoSearch);
             intent.putExtra("sex", sex);
-
-
             startActivity(intent);
         } else {
             Toast.makeText(this, "选择病症", Toast.LENGTH_LONG).show();

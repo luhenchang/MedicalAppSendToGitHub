@@ -14,6 +14,7 @@ import com.baidu.location.BDLocation;
 import com.baidu.mapapi.SDKInitializer;
 import com.bumptech.glide.Glide;
 import com.example.ls.shoppingmall.R;
+import com.example.ls.shoppingmall.home.bean.SympBean;
 import com.example.ls.shoppingmall.utils.httputils.HttpHelper;
 import com.example.ls.shoppingmall.utils.httputils.XutilsProcessor;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpHelper;
@@ -31,7 +32,9 @@ import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.common.SocializeConstants;
-import com.zhy.http.okhttp.OkHttpUtils;
+/*import com.zhy.http.okhttp.OkHttpUtils;
+
+import org.xutils.x;*/
 
 import org.xutils.x;
 
@@ -50,6 +53,9 @@ import okhttp3.OkHttpClient;
  * Created by ls on 2017/11/8.
  */
 public class MyApplication extends Application {
+    public static String fistBinzhen="部位";
+    public static boolean flagisFist=true;
+    public static List<SympBean> mData = new ArrayList<>();
     public static  String PayPager="";
     //定义一个对话是否支付的参数：
     public static String payment_talk="999999";
@@ -158,7 +164,6 @@ public class MyApplication extends Application {
         context = this;
         initOkhttpClient();
 
-
         x.Ext.init(this);
         //相信https证书
         x.Ext.setDefaultHostnameVerifier(new HostnameVerifier() {
@@ -226,6 +231,6 @@ public class MyApplication extends Application {
                 .readTimeout(10000L, TimeUnit.MILLISECONDS)
                 //其他配置呀
                 .build();
-        OkHttpUtils.initClient(okHttpClient);
+       // OkHttpUtils.initClient(okHttpClient);
     }
 }

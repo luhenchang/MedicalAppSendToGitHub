@@ -42,8 +42,6 @@
                     android:layout_marginTop="@dimen/x5"
                     android:layout_toEndOf="@+id/adapter_last_header_iv"
                     android:ellipsize="end"
-                    android:maxLength="11"
-                    android:maxLines="2"
                     android:text="多吃8种蔬菜血液垃圾清理干净Cersl29例子就可以哦"
                     android:textColor="#262626"
                     android:textSize="@dimen/x13"

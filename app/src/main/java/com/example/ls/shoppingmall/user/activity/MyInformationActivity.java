@@ -528,19 +528,20 @@ USR000010005*/
         TextView left = (TextView) contentview.findViewById(R.id.left);
         final WheelView picker = (WheelView) contentview.findViewById(R.id.wheel);
         if (flag.equals("age")) {
-            for (int i = 4; i < 102; i++) {
-                picker.addData((i + 1) + "");
-            }
-            picker.setCenterItem(25);
-        } else if (flag.equals("height")) {
-            for (int i = 1; i < 242; i++) {
+            for (int i = 0; i < 102; i++) {
                 picker.addData((i) + "");
             }
-            picker.setCenterItem(175);
+            Log.e("db_age",db_age.toString());
+            picker.setCenterItem(db_age==null?20:Integer.valueOf(db_age.toString().trim()));
+        } else if (flag.equals("height")) {
+            for (int i = 0; i < 242; i++) {
+                picker.addData((i) + "");
+            }
+            picker.setCenterItem(db_height==null?170:Integer.valueOf(db_height.toString().trim()));
         } else if (flag.equals("sex")) {
             picker.addData("男");
             picker.addData("女");
-            picker.setCenterItem(0);
+            picker.setCenterItem(acMyinforSexTv.getText().toString()==null?"男":acMyinforSexTv.getText().toString());
         }
 
         final PopupWindow popupWindow = new SupportPopupWindow(contentview,

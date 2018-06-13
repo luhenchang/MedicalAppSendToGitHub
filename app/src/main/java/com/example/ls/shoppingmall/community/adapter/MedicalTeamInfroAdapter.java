@@ -61,22 +61,25 @@ public class MedicalTeamInfroAdapter extends BaseAdapter {
 
     public class MyViewHolder {
         private CircleImageView mHeaderIv;
-        private TextView MedicalName, MedicalPosition;
+        private TextView MedicalName, MedicalPosition, MedicalHostpiName;
 
         public MyViewHolder(View view) {
             mHeaderIv = view.findViewById(R.id.cv_medical_header);
             MedicalName = view.findViewById(R.id.tv_medical_name);
             MedicalPosition = view.findViewById(R.id.tv_medical_positon);
+            MedicalHostpiName = view.findViewById(R.id.tv_medical_hospital);
+
         }
 
 
         public void setData(ComMeTeamInforBean.RESOBJEntity.MembersEntity membersEntity) {
-            if (membersEntity.getImgID()!= null) {
+            if (membersEntity.getImgID() != null) {
                 Glide.with(mcontext).load(NetConfig.GLIDE_USRE + membersEntity.getImgID().getUrl()).into(mHeaderIv);
 
             }
             MedicalName.setText(membersEntity.getCnName() == null ? "成员名称" : membersEntity.getCnName());
             MedicalPosition.setText(membersEntity.getPositional().getPostInfName() == null ? "医师名称" : membersEntity.getPositional().getPostInfName());
+            MedicalHostpiName.setText(membersEntity.getHospital().getHospName());
         }
     }
 }

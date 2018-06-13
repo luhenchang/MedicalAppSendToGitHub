@@ -156,7 +156,7 @@ public class MedicalInforActivity extends AppCompatActivity {
         websettings.setUseWideViewPort(true);//设置此属性，可任意比例缩放
         websettings.setLoadWithOverviewMode(true);
         acDedicalWeb.requestFocusFromTouch();
-        websettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        websettings.setJavaScriptCanOpenWindowsAutomatically(true) ;
         acDedicalWeb.loadUrl(str);
         acDedicalWeb.setWebViewClient(new MyWebViewClient());
         acDedicalWeb.setWebChromeClient(new MyWebChromeClient());

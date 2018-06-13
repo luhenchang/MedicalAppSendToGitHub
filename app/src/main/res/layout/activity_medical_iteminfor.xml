@@ -201,7 +201,7 @@
                 <com.example.ls.shoppingmall.community.utis.HorizontalListView
                     android:id="@+id/hl_medical_team"
                     android:layout_width="match_parent"
-                    android:layout_height="130dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -244,7 +244,7 @@
                     <com.example.ls.shoppingmall.community.utis.HorizontalListView
                         android:id="@+id/hl_bottom_view"
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         >
 

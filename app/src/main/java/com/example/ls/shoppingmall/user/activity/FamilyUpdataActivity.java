@@ -94,7 +94,7 @@ public class FamilyUpdataActivity extends AppCompatActivity {
 
     private void initData() {
         Map<String, Object> parames = new HashedMap();
-        HttpHelper.obtain().post(NetConfig.FAMELY_INFOR + famNo, parames, new HttpCallBacks<SlefInforBean>() {
+        FrameHttpHelper.getInstance().post(NetConfig.FAMELY_INFOR + famNo, parames, new FrameHttpCallback<SlefInforBean>() {
             @Override
             public void onSuccess(SlefInforBean result) {
                 if (result.getRESCOD().equals("000000")) {
@@ -107,7 +107,7 @@ public class FamilyUpdataActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailures(String fail_str) {
+            public void onFail(String s) {
 
             }
         });

@@ -56,7 +56,7 @@ public class MyGoodsAdapter extends BaseAdapter {
             vh = (ViewHolder) convertView.getTag();
         }
         if(mData.get(position).getCommodity()!=null) {
-            vh.tv_name.setText(mData.get(position).getCommodity().getTitle()+ "..");
+            vh.tv_name.setText(mData.get(position).getCommodity().getTitle());
         }
         Glide.with(context).load(NetConfig.SHOPPING_PICTOR+mData.get(position).getCommodity().getThumbnailPicUrls()).into(vh.imageView);
         if(visibale){

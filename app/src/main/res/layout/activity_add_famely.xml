@@ -141,9 +141,20 @@
                 android:layout_marginTop="@dimen/x1">
 
                 <TextView
+                    android:id="@+id/ager_tvdis"
                     style="@style/adduserinformation_text"
                     android:text="病例史" />
-
+                <TextView
+                    android:id="@+id/ac_add_family"
+                    android:paddingRight="@dimen/x10"
+                    android:singleLine="true"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:paddingLeft="@dimen/x20"
+                    android:layout_toRightOf="@+id/ager_tvdis"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </RelativeLayout>
         </LinearLayout>
     </com.example.ls.shoppingmall.utils.layoututils.OverScrollView>

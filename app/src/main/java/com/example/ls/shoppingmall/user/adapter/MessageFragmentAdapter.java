@@ -111,6 +111,7 @@ public class MessageFragmentAdapter extends RecyclerView.Adapter<MessageFragment
                         mMyLiveList.get(position).setIsRead("1");
                         notifyDataSetChanged();
                     }
+                    alrideReaderToServer(mMyLiveList.get(position).getMesId());
                     //点击之后跳转到咨询里面。
                     context.startActivity(new Intent(context, MedicalConsultation.class));
                    // context.startActivity(intent);

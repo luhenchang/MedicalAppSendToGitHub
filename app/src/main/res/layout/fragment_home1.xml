@@ -96,7 +96,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_gravity="center"
-                    app:layout_heightPercent="58%"
+                    app:layout_heightPercent="48%"
                     app:layout_widthPercent="100%">
                     <!--左边手臂-->
                     <FrameLayout
@@ -147,7 +147,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:orientation="horizontal"
-                    app:layout_heightPercent="25%"
+                    app:layout_heightPercent="35%"
                     app:layout_widthPercent="100%">
                     <!--左手-->
                     <FrameLayout
@@ -157,7 +157,7 @@
                         app:layout_heightPercent="100%"
                         app:layout_widthPercent="24%" />
                     <!--屁股部-->
-                    <LinearLayout
+                    <com.zhy.android.percent.support.PercentLinearLayout
                         android:id="@+id/ll_tongbu"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
@@ -166,18 +166,21 @@
                         app:layout_heightPercent="100%"
                         app:layout_widthPercent="44%">
                         <!--腰部位-->
-                        <FrameLayout
+                        <com.zhy.android.percent.support.PercentFrameLayout
                             android:id="@+id/after_left_yaobu"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/x10"
-                            android:layout_weight="1" />
+                            android:layout_height="0dp"
+                            app:layout_heightPercent="40%"
+                            />
                         <!--宽部位-->
-                        <FrameLayout
+                        <com.zhy.android.percent.support.PercentFrameLayout
+                            app:layout_heightPercent="60%"
                             android:id="@+id/after_left_kuanbu"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/x10"
-                            android:layout_weight="1" />
-                    </LinearLayout>
+                            android:layout_height="0dp"
+
+                             />
+                    </com.zhy.android.percent.support.PercentLinearLayout>
                     <!--右手手-->
                     <FrameLayout
                         android:id="@+id/after_right_hander"

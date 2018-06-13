@@ -1,5 +1,6 @@
 package com.example.ls.shoppingmall.user.fragment;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -31,6 +32,7 @@ import java.util.Map;
  * Created by 路很长~ on 2018/3/25.
  */
 
+@SuppressLint("ValidFragment")
 public class MedicalConsuFragment extends BaseFragment {
     private ArrayList<MyCoalsBean.RESOBJEntity> mData;
     private int flag;

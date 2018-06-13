@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -104,7 +105,7 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
     private int r_drawble_iv;
     private ComMeTeamInforBean getBean;
     private String UmImageUrl;
-    private String discNo="医师团介绍";
+    private String discNo = "医师团介绍";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +114,7 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
         setContentView(R.layout.activity_medical_iteminfor);
         MyApplication.addActivity(this);
         ButterKnife.bind(this);
-        MyApplication.PayPager="yst";
+        MyApplication.PayPager = "yst";
         userInter = new UserDB(this).getUserMessage(new String[]{"1"});
         userId = userInter.get("UserID");
         if (getIntent().getStringExtra("docNo") != null) {
@@ -149,15 +150,15 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
             @Override
             public void onSuccess(ComMeTeamInforBean o) {
                 if (o.getRESCOD().equals("000000")) {
-                    discNo=o.getRESOBJ().get(0).getDtmDisc();
+                    discNo = o.getRESOBJ().get(0).getDtmDisc();
                     getBean = o;
                     mDtmId = o.getRESOBJ().get(0).getId();
                     mDtmIdtoNext = o.getRESOBJ().get(0).getDtmNo();
-                    tvMedicalTeamAlwaysNumber.setText(o.getRESOBJ().get(0).getTotalAdvice()==null?"120":o.getRESOBJ().get(0).getTotalAdvice());
-                    tvMedicalTeamNumber.setText(o.getRESOBJ().get(0).getMonthAdvice()==null?"20":o.getRESOBJ().get(0).getMonthAdvice());
+                    tvMedicalTeamAlwaysNumber.setText(o.getRESOBJ().get(0).getTotalAdvice() == null ? "120" : o.getRESOBJ().get(0).getTotalAdvice());
+                    tvMedicalTeamNumber.setText(o.getRESOBJ().get(0).getMonthAdvice() == null ? "20" : o.getRESOBJ().get(0).getMonthAdvice());
                     tvMedicalTeamName.setText(o.getRESOBJ().get(0).getDtmName() == null ? "医师团名称" : o.getRESOBJ().get(0).getDtmName());
-                    Glide.with(MedicalTeamInforActivity.this).load(NetConfig.GLIDE_USRE +o.getRESOBJ().get(0).getPic()).error(R.drawable.family_team_iv).listener(new GlideRequestListner()).centerCrop().into(circleIv);
-                    UmImageUrl=NetConfig.GLIDE_USRE +o.getRESOBJ().get(0).getPic();
+                    Glide.with(MedicalTeamInforActivity.this).load(NetConfig.GLIDE_USRE + o.getRESOBJ().get(0).getPic()).error(R.drawable.family_team_iv).listener(new GlideRequestListner()).centerCrop().into(circleIv);
+                    UmImageUrl = NetConfig.GLIDE_USRE + o.getRESOBJ().get(0).getPic();
 
                     if (o.getRESOBJ().get(0).getDtmType().equals("1")) {
                         tvMedicalTeamType.setText("老人医师团");
@@ -173,13 +174,34 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
                        /* circleIv.setImageResource(R.drawable.children_team_iv);
                         r_drawble_iv = R.drawable.children_team_iv;*/
                     } else {
-                       // circleIv.setImageResource(R.drawable.family_team_iv);
+                        // circleIv.setImageResource(R.drawable.family_team_iv);
 
                     }
                     tvBottomIntroduce.setText(o.getRESOBJ().get(0).getDtmDisc() == null ? "医师团名称" : o.getRESOBJ().get(0).getDtmDisc());
                     mDatas.addAll(o.getRESOBJ().get(0).getMembers());
                     mAdapter = new MedicalTeamInfroAdapter(MedicalTeamInforActivity.this, mDatas);
                     hlMedicalTeam.setAdapter(mAdapter);
+                    //计算高度
+
+                    ListAdapter listAdapter = hlMedicalTeam.getAdapter();
+                    if (listAdapter == null) return;
+                    int height = 0;
+                    for (int i = 0; i < listAdapter.getCount(); i++) {
+                        //拿到Item
+                        View listViewItem = listAdapter.getView(i, null, hlMedicalTeam);
+                        //计算宽高
+                        listViewItem.measure(0, 0);
+                        //叠加没一个子项的宽高
+                        if (height < listViewItem.getMeasuredHeight()) {
+                            height = listViewItem.getMeasuredHeight();
+                        }
+                    }
+                    //设置高度
+                    ViewGroup.LayoutParams params = hlMedicalTeam.getLayoutParams();
+                    //Item的高度乘以分割线的高度
+                    params.height = height;
+                    hlMedicalTeam.setLayoutParams(params);
+                    //计算高度结束
                     mAdapter.notifyDataSetChanged();
                 }
             }
@@ -200,6 +222,24 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
                     mData.addAll(o.getData());
                     HoriListAdapter madapters = new HoriListAdapter(MedicalTeamInforActivity.this, mData);
                     hlBottomView.setAdapter(madapters);
+                    ListAdapter listAdapter = hlBottomView.getAdapter();
+                    if (listAdapter == null) return;
+                    int height = 0;
+                    for (int i = 0; i < listAdapter.getCount(); i++) {
+                        //拿到Item
+                        View listViewItem = listAdapter.getView(i, null, hlBottomView);
+                        //计算宽高
+                        listViewItem.measure(0, 0);
+                        //叠加没一个子项的宽高
+                        if (height < listViewItem.getMeasuredHeight()) {
+                            height = listViewItem.getMeasuredHeight();
+                        }
+                    }
+                    //设置高度
+                    ViewGroup.LayoutParams params = hlBottomView.getLayoutParams();
+                    //Item的高度乘以分割线的高度
+                    params.height = height;
+                    hlBottomView.setLayoutParams(params);
                     madapters.notifyDataSetChanged();
                 }
             }
@@ -225,8 +265,8 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
                 int[] location = new int[2];
                 tvPopUp.getLocationOnScreen(location);//获取点击item的左上角的坐标
                 popupWindow.setContentView(popview);
-                TextView disc=popview.findViewById(R.id.tv_medical_hostory);
-                disc.setText(mDatas.get(position).getExperience()==null?"":mDatas.get(position).getExperience());
+                TextView disc = popview.findViewById(R.id.tv_medical_hostory);
+                disc.setText(mDatas.get(position).getExperience() == null ? "" : mDatas.get(position).getExperience());
                 //显示在上方
                 popupWindow.showAsDropDown(tvPopUp);
             }
@@ -249,7 +289,7 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
                 break;
             case R.id.ac_minfor_shared:
                 if (mDatas.size() > 0) {
-                    showBootomDialog(tvMedicalTeamName.getText().toString(),discNo, "https://qy.healthinfochina.com/h5hunhekaifa/team.html?" + "dtmNo=" + getBean.getRESOBJ().get(0).getDtmNo(), R.drawable.app_logo);
+                    showBootomDialog(tvMedicalTeamName.getText().toString(), discNo, "https://qy.healthinfochina.com/h5hunhekaifa/team.html?" + "dtmNo=" + getBean.getRESOBJ().get(0).getDtmNo(), R.drawable.app_logo);
                     Log.e("urllll", "http://qy.healthinfochina.com:8081/h5hunhekaifa/team.html?" + "dtmNo=" + getBean.getRESOBJ().get(0).getDtmNo());
                 }
                 break;
@@ -298,7 +338,7 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
         HttpHelper.obtain().get(NetConfig.MEDICAL_TEAM_COLLECT, parames, new HttpCallBacks<CollectorMeTeamBean>() {
             @Override
             public void onSuccess(CollectorMeTeamBean result) {
-                Log.e("hahahsss",result.toString());
+                Log.e("hahahsss", result.toString());
                 if (result.getRESMSG().equals("收藏取消")) {
                     acMinforCollectionIv.setBackgroundResource(R.drawable.medical_information_connect);
 
@@ -314,7 +354,6 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
             }
         });
     }
-
 
     public class HoriListAdapter extends BaseAdapter {
         public Context context;
@@ -388,7 +427,7 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
             public void onClick(View v) {//KTXCFD2
                 //shareWeb(final Activity activity, String WebUrl, String title, String description, String imageUrl, int imageID, SHARE_MEDIA platform) {
 
-               // ShareUtils.shareWeb(MedicalTeamInforActivity.this, link, title, disc, "", imgUrl, SHARE_MEDIA.QQ);
+                // ShareUtils.shareWeb(MedicalTeamInforActivity.this, link, title, disc, "", imgUrl, SHARE_MEDIA.QQ);
                 UMImage umImage = new UMImage(MedicalTeamInforActivity.this, imgUrl);
                 UMWeb web = new UMWeb(link);
                 web.setTitle(title);//标题
