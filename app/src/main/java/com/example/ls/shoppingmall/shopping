@@ -105,6 +105,6 @@
 
                 }
             };
-            editSms.setFilters(new InputFilter[]{inputFilter, new InputFilter.LengthFilter(220)});
+editSms.setFilters(new InputFilter[]{inputFilter, new InputFilter.LengthFilter(220)});
 
 

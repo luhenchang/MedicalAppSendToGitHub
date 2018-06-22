@@ -28,6 +28,7 @@ import com.example.ls.shoppingmall.app.config.NetConfig;
 import com.example.ls.shoppingmall.community.activity.MedicalInforActivity;
 import com.example.ls.shoppingmall.community.activity.MedicalMapActivity;
 import com.example.ls.shoppingmall.community.activity.MedicalResultActivity;
+import com.example.ls.shoppingmall.community.activity.MedicalTeamInforActivity;
 import com.example.ls.shoppingmall.community.utis.HorizontalListView;
 import com.example.ls.shoppingmall.home.activity.CaseActivityWebView;
 import com.example.ls.shoppingmall.home.activity.ShoppingActivity;
@@ -170,21 +171,28 @@ public class LastInforAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 view.setVisibility(View.GONE);
             }
             if (mData.mlist5.size() > 0) {
-                mName1.setText(mData.mlist5.get(0).getCnName());
-                if (mData.mlist5.get(0).getImgID() != null) {
-                    Glide.with(mContext).load(NetConfig.GLIDE_USRE + mData.mlist5.get(0).getImgID().getUrl() + "").override(80, 80).skipMemoryCache(false).error(R.drawable.medical_header_iv).diskCacheStrategy(DiskCacheStrategy.ALL).into(mIv1);
+                mName1.setText(mData.mlist5.get(0).dtName);
+                if (mData.mlist5.get(0).dtImg != null) {
+                    Glide.with(mContext).load(NetConfig.GLIDE_USRE + mData.mlist5.get(0).dtImg + "").override(80, 80).skipMemoryCache(false).error(R.drawable.medical_header_iv).diskCacheStrategy(DiskCacheStrategy.ALL).into(mIv1);
 
                 }
-                mTitle1.setText(mData.mlist5.get(0).getPositional().getPostInfName());
+                mTitle1.setText(mData.mlist5.get(0).dtName2);
 
 
                 mIv1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(mContext, MedicalInforActivity.class);
-                        intent.putExtra("id", mData.mlist5.get(0).getDocId());
-                        intent.putExtra("imgend", mData.mlist5.get(0).getImgID().getUrl());
-                        mContext.startActivity(intent);
+                        if (mData.mlist5.get(0).flag==0) {
+                            Intent intent = new Intent(mContext, MedicalInforActivity.class);
+                            intent.putExtra("id", mData.mlist5.get(0).dtId);
+                            intent.putExtra("imgend", mData.mlist5.get(0).dtImg);
+                            mContext.startActivity(intent);
+                        } else {
+                            Intent intent = new Intent(mContext, MedicalTeamInforActivity.class);
+                            intent.putExtra("docNo", mData.mlist5.get(0).dtId);
+                            mContext.startActivity(intent);
+                        }
+
                     }
                 });
                 mLin1.setVisibility(View.VISIBLE);
@@ -193,17 +201,24 @@ public class LastInforAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
             }
             if (mData.mlist5.size() > 1) {
-                mName2.setText(mData.mlist5.get(1).getCnName());
-                Glide.with(mContext).load(NetConfig.GLIDE_USRE + mData.mlist5.get(1).getImgID().getUrl() + "").override(80, 80).skipMemoryCache(false).error(R.drawable.medical_header_iv).diskCacheStrategy(DiskCacheStrategy.ALL).into(mIv2);
-                mTitle2.setText(mData.mlist5.get(1).getPositional().getPostInfName());
+                mName2.setText(mData.mlist5.get(1).dtName);
+                Glide.with(mContext).load(NetConfig.GLIDE_USRE + mData.mlist5.get(1).dtImg + "").override(80, 80).skipMemoryCache(false).error(R.drawable.medical_header_iv).diskCacheStrategy(DiskCacheStrategy.ALL).into(mIv2);
+                mTitle2.setText(mData.mlist5.get(1).dtName2);
 
                 mIv2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(mContext, MedicalInforActivity.class);
-                        intent.putExtra("id", mData.mlist5.get(1).getDocId());
-                        intent.putExtra("imgend", mData.mlist5.get(1).getImgID().getUrl());
-                        mContext.startActivity(intent);
+                        if (mData.mlist5.get(1).flag==0) {
+                            Intent intent = new Intent(mContext, MedicalInforActivity.class);
+                            intent.putExtra("id", mData.mlist5.get(1).dtId);
+                            intent.putExtra("imgend", mData.mlist5.get(1).dtImg);
+                            mContext.startActivity(intent);
+                        } else {
+                            Intent intent = new Intent(mContext, MedicalTeamInforActivity.class);
+                            intent.putExtra("docNo", mData.mlist5.get(1).dtId);
+                            mContext.startActivity(intent);
+                        }
+
                     }
                 });
                 // mTitle1.setText(mData.mlist5.get(1).getHospital().getHospName()==null?"":mData.mlist5.get(1).getHospital().getHospName());
@@ -211,17 +226,24 @@ public class LastInforAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
             }
             if (mData.mlist5.size() > 2) {
-                mName3.setText(mData.mlist5.get(2).getCnName());
-                Glide.with(mContext).load(NetConfig.GLIDE_USRE + mData.mlist5.get(2).getImgID().getUrl() + "").override(80, 80).skipMemoryCache(false).error(R.drawable.medical_header_iv).diskCacheStrategy(DiskCacheStrategy.ALL).into(mIv3);
-                mTitle4.setText(mData.mlist5.get(2).getPositional().getPostInfName());
+                mName3.setText(mData.mlist5.get(2).dtName);
+                Glide.with(mContext).load(NetConfig.GLIDE_USRE + mData.mlist5.get(2).dtImg + "").override(80, 80).skipMemoryCache(false).error(R.drawable.medical_header_iv).diskCacheStrategy(DiskCacheStrategy.ALL).into(mIv3);
+                mTitle3.setText(mData.mlist5.get(2).dtName2);
 
                 mIv3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(mContext, MedicalInforActivity.class);
-                        intent.putExtra("id", mData.mlist5.get(2).getDocId());
-                        intent.putExtra("imgend", mData.mlist5.get(2).getImgID().getUrl());
-                        mContext.startActivity(intent);
+                        if (mData.mlist5.get(2).flag==0) {
+                            Intent intent = new Intent(mContext, MedicalInforActivity.class);
+                            intent.putExtra("id", mData.mlist5.get(2).dtId);
+                            intent.putExtra("imgend", mData.mlist5.get(2).dtImg);
+                            mContext.startActivity(intent);
+                        } else {
+                            Intent intent = new Intent(mContext, MedicalTeamInforActivity.class);
+                            intent.putExtra("docNo", mData.mlist5.get(1).dtId);
+                            mContext.startActivity(intent);
+                        }
+
                     }
                 });
                 // mTitle1.setText(mData.mlist5.get(2).getHospital().getHospName()==null?"":mData.mlist5.get(2).getHospital().getHospName());
@@ -229,17 +251,24 @@ public class LastInforAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
             }
             if (mData.mlist5.size() > 3) {
-                mName4.setText(mData.mlist5.get(3).getCnName());
-                Glide.with(mContext).load(NetConfig.GLIDE_USRE + mData.mlist5.get(3).getImgID().getUrl() + "").override(80, 80).skipMemoryCache(false).error(R.drawable.medical_header_iv).diskCacheStrategy(DiskCacheStrategy.ALL).into(mIv4);
-                mTitle4.setText(mData.mlist5.get(3).getPositional().getPostInfName());
+                mName4.setText(mData.mlist5.get(3).dtName);
+                Glide.with(mContext).load(NetConfig.GLIDE_USRE + mData.mlist5.get(3).dtImg + "").override(80, 80).skipMemoryCache(false).error(R.drawable.medical_header_iv).diskCacheStrategy(DiskCacheStrategy.ALL).into(mIv4);
+                mTitle4.setText(mData.mlist5.get(3).dtName2);
 
                 mIv4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(mContext, MedicalInforActivity.class);
-                        intent.putExtra("id", mData.mlist5.get(3).getDocId());
-                        intent.putExtra("imgend", mData.mlist5.get(3).getImgID().getUrl());
-                        mContext.startActivity(intent);
+                        if (mData.mlist5.get(3).flag==0) {
+                            Intent intent = new Intent(mContext, MedicalInforActivity.class);
+                            intent.putExtra("id", mData.mlist5.get(3).dtId);
+                            intent.putExtra("imgend", mData.mlist5.get(3).dtImg);
+                            mContext.startActivity(intent);
+                        } else {
+                            Intent intent = new Intent(mContext, MedicalTeamInforActivity.class);
+                            intent.putExtra("docNo", mData.mlist5.get(3).dtId);
+                            mContext.startActivity(intent);
+                        }
+
                     }
                 });
                 // mTitle1.setText(mData.mlist5.get(3).getHospital().getHospName()==null?"":mData.mlist5.get(3).getHospital().getHospName());
@@ -377,7 +406,7 @@ public class LastInforAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         private String mList1;
         private RelativeLayout mRelativelayout;
         /*<!--adapter_last_header_iv adapter_last_header_tv1_second  adapter_last_header_tv2 -->
-        */
+         */
         private ImageView mImageView;
         private TextView mTitle, mSubject;
 

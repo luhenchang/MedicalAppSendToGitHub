@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.ls.shoppingmall.R;
+import com.example.ls.shoppingmall.WXEntryLoginActivity;
 import com.example.ls.shoppingmall.app.MainActivity;
 import com.example.ls.shoppingmall.app.MyApplication;
 import com.example.ls.shoppingmall.community.activity.SetPassword;
@@ -23,6 +24,7 @@ import com.example.ls.shoppingmall.utils.SharedUtils;
 import com.example.ls.shoppingmall.utils.dbutils.UserDB;
 import com.example.ls.shoppingmall.utils.dbutils.UserServiceInterface;
 import com.example.ls.shoppingmall.utils.layoututils.AlertDialog;
+import com.example.ls.shoppingmall.wxapi.WXEntryActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -132,7 +134,7 @@ public class SettingActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.back_to_after, R.id.log_out, R.id.ac_set_message,
-            R.id.ac_set_serve, R.id.ac_set_clearlurch, R.id.ac_set_getLocation, R.id.ac_infor_weight,R.id.ac_set_password,R.id.ac_set_yaoqma})
+            R.id.ac_set_serve, R.id.ac_set_clearlurch, R.id.ac_set_getLocation, R.id.ac_infor_weight, R.id.ac_set_password, R.id.ac_set_yaoqma})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.back_to_after:
@@ -186,8 +188,8 @@ public class SettingActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.ac_set_password:
-                Intent intentsetting=new Intent(SettingActivity.this, SetPassword.class);
-                intentsetting.putExtra("intentName","setting");
+                Intent intentsetting = new Intent(SettingActivity.this, SetPassword.class);
+                intentsetting.putExtra("intentName", "setting");
                 startActivity(intentsetting);
                 break;
             case R.id.ac_set_yaoqma:
@@ -210,4 +212,7 @@ public class SettingActivity extends AppCompatActivity {
     }
 
 
+    public void wxLogin(View view) {
+        WXEntryActivity.loginWeixin(this,MyApplication.sApi);
+    }
 }

@@ -255,8 +255,10 @@
         <!-- 微信登录与分享回调 -->
         <activity
             android:name=".wxapi.WXEntryActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
-            android:label="@string/app_name" />
+            android:screenOrientation="portrait"/>
 
         <!-- 微信 -->
         <activity

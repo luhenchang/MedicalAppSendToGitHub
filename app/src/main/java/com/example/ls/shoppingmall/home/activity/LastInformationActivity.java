@@ -18,6 +18,7 @@ import com.example.ls.shoppingmall.R;
 import com.example.ls.shoppingmall.app.MyApplication;
 import com.example.ls.shoppingmall.app.config.NetConfig;
 import com.example.ls.shoppingmall.home.adapter.LastInforAdapter;
+import com.example.ls.shoppingmall.home.bean.DoctorAndTeamBean;
 import com.example.ls.shoppingmall.home.bean.LastInforAdapterBean;
 import com.example.ls.shoppingmall.home.bean.LastInforAdatperBean1;
 import com.example.ls.shoppingmall.home.bean.LastInformationBean;
@@ -33,6 +34,7 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -55,7 +57,6 @@ public class LastInformationActivity extends AppCompatActivity {
     private int pageSize = 4;
     private String sickNo1 = "0010";
     private LoadingDialog dialog;
-
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -79,7 +80,7 @@ public class LastInformationActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         MyApplication.addActivity(this);
         titleTop.setText("病症完善");
-        dialog = new LoadingDialog(this, R.layout.login_load_layout,"加载中...");
+        dialog = new LoadingDialog(this, R.layout.login_load_layout, "加载中...");
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
@@ -239,9 +240,49 @@ public class LastInformationActivity extends AppCompatActivity {
         FrameHttpHelper.getInstance().post("https://qy.healthinfochina.com:8080/DOC000010055?sicNo=" + sickNo, hashMap, new FrameHttpCallback<RecommentBean>() {
             @Override
             public void onSuccess(RecommentBean perforbean) {
-                Log.e("recommentBean",perforbean.toString());
+                Log.e("recommentBean", perforbean.toString());
                 if (perforbean.getRESCOD().equals("000000")) {
-                    bean.mlist5.addAll(perforbean.getRESOBJ());
+                    //遍历然后整合到同一个类里面
+                    List<RecommentBean.RESOBJBean.DoctorsBean> doctors = new ArrayList<>();
+                    List<RecommentBean.RESOBJBean.DocTeamsBean> docTeams = new ArrayList<>();
+                    if (perforbean.getRESOBJ().getDoctors() != null) {
+                        if (perforbean.getRESOBJ().getDoctors().size() > 0) {
+                            doctors.addAll(perforbean.getRESOBJ().getDoctors());
+                            DoctorAndTeamBean doctorAndTeamBean = null;
+                            for (int i = 0; i < doctors.size(); i++) {
+                                doctorAndTeamBean = new DoctorAndTeamBean();
+                                doctorAndTeamBean.flag=0;
+                                doctorAndTeamBean.dtId = doctors.get(i).getDocId();
+                                doctorAndTeamBean.dtImg = doctors.get(i).getImgID().getUrl();
+                                doctorAndTeamBean.dtName = doctors.get(i).getCnName();
+                                doctorAndTeamBean.dtName2 = doctors.get(i).getPositional().getPostInfName();
+                                bean.mlist5.add(doctorAndTeamBean);
+                            }
+                        }
+                    }
+
+                    if (perforbean.getRESOBJ().getDocTeams() != null) {
+                        if (perforbean.getRESOBJ().getDocTeams().size() > 0) {
+                            docTeams.addAll(perforbean.getRESOBJ().getDocTeams());
+                            DoctorAndTeamBean doctorAndTeamBean = null;
+                            for (int i = 0; i <docTeams.size(); i++) {
+                                doctorAndTeamBean = new DoctorAndTeamBean();
+                                doctorAndTeamBean.flag=1;
+                                doctorAndTeamBean.dtId = docTeams.get(i).getDtmNo();
+                                doctorAndTeamBean.dtImg = docTeams.get(i).getPic();
+                                doctorAndTeamBean.dtName = docTeams.get(i).getDtmName();
+                                if (docTeams.get(i).getDtmType().equals("0")) {
+                                    doctorAndTeamBean.dtName2 = "老人团";
+                                } else if (docTeams.get(i).getDtmType().equals("1")) {
+                                    doctorAndTeamBean.dtName2 = "妇女团";
+                                } else {
+                                    doctorAndTeamBean.dtName2 = "儿童团";
+                                }
+
+                                bean.mlist5.add(doctorAndTeamBean);
+                            }
+                        }
+                    }
                     //获取到商品对应要显示的编号。
                     sickNo1 = bean.mList1.get(0).getSick().getSicNo();
                 } else {

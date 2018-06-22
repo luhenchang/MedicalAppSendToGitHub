@@ -34,7 +34,6 @@ public class DiseasHistoryActivity extends AppCompatActivity {
     @Bind(R.id.title_top)
     TextView titleTops;
     private String caseHistory="病历史";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,9 +46,7 @@ public class DiseasHistoryActivity extends AppCompatActivity {
             if(intent.getStringExtra("disHearsh")!=null){
                 caseHistory = intent.getStringExtra("disHearsh");
                 editSms.setText(caseHistory);
-
             }
-
         }
         setLisenner();
         initView();

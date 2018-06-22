@@ -24,6 +24,7 @@ import com.example.ls.shoppingmall.app.config.NetConfig;
 import com.example.ls.shoppingmall.home.adapter.SymptomSelectAdapter;
 import com.example.ls.shoppingmall.home.bean.SympBean;
 import com.example.ls.shoppingmall.home.bean.SymptomSelectBean;
+import com.example.ls.shoppingmall.user.bean.DoctorColletListBean;
 import com.example.ls.shoppingmall.utils.layoututils.AlertDialog;
 import com.example.ls.shoppingmall.utils.layoututils.LoadingDialog;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpCallback;
@@ -94,13 +95,14 @@ public class SymptomSelectActivity extends AppCompatActivity implements AbsListV
             @Override
             public void onSuccess(SymptomSelectBean symptombean) {
                 Log.e("stringngngng", symptombean.toString());
+                Log.e("mData.size0=",MyApplication.mData.size()+"");
 
                 if (symptombean.getRESCOD().equals("000000")) {
                     if (symptombean.getRESOBJ().size() > 0) {
                         for (int i = 0; i < symptombean.getRESOBJ().size(); i++) {
                             MyApplication.mData.add(new SympBean(false, symptombean.getRESOBJ().get(i)));
                         }
-                        Log.e("ooo11", MyApplication.mData.toString());
+
                         mSyAdapter = new SymptomSelectAdapter(SymptomSelectActivity.this, MyApplication.mData);
                         symptom_lv.setAdapter(mSyAdapter);
                         mSyAdapter.notifyDataSetChanged();
@@ -158,7 +160,7 @@ public class SymptomSelectActivity extends AppCompatActivity implements AbsListV
             public void onClick(View v) {
                 MyApplication.mData.clear();
                 MyApplication.flagisFist = true;
-                MyApplication.fistBinzhen="部位";
+                MyApplication.fistBinzhen = "部位";
                 finish();
             }
         });
@@ -233,7 +235,7 @@ public class SymptomSelectActivity extends AppCompatActivity implements AbsListV
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             MyApplication.mData.clear();
             MyApplication.flagisFist = true;
-            MyApplication.fistBinzhen="部位";
+            MyApplication.fistBinzhen = "部位";
             finish();
             return false;
         }
@@ -295,9 +297,19 @@ public class SymptomSelectActivity extends AppCompatActivity implements AbsListV
                         }
                     }
                     if (j > 0) {
-                        finish();
                         MyApplication.flagisFist = false;
                         MyApplication.fistBinzhen = orgName;
+
+                        for (int i = MyApplication.mData.size(), k= 0; i >k; i--) {
+                            SympBean sympBean = MyApplication.mData.get(i-1);
+                            if (!sympBean.flag) {
+
+                                MyApplication.mData.remove(sympBean);
+                            }
+
+                        }
+                        Log.e("size",MyApplication.mData.size()+"");
+                        finish();
                     } else {
                         Toast.makeText(this, "请选择第一病症", Toast.LENGTH_SHORT).show();
                     }

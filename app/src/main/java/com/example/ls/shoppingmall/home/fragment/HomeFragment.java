@@ -75,7 +75,6 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
     private FrameLayout mFralayout_header;
     private FrameLayout mFralayout_bootom;
     private FrameLayout mFralayout_foot;
-
     //这下面数据集合用来显示用户病情的
     private ArrayList<ManBean> header_afer;
     private AlertDialog alertDialog;

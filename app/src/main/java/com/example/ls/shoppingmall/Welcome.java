@@ -1,10 +1,15 @@
 package com.example.ls.shoppingmall;
 
 import android.Manifest;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
+import android.os.Binder;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.PagerAdapter;
@@ -45,7 +50,6 @@ public class Welcome extends AppCompatActivity implements ViewPager.OnPageChange
     private ImageView[] mPoints;
     private boolean misScrolled;
     private Button mButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +99,8 @@ public class Welcome extends AppCompatActivity implements ViewPager.OnPageChange
             super.handleMessage(msg);
         }
     };
+
+
 
     public void getHome() {
         Intent intent = new Intent(Welcome.this, LoginActivity.class);

@@ -270,8 +270,6 @@ public class MainActivity extends BaseActivity {
         userFrament = new UserFragment();
         mFragments.add(userFrament);
         mUpdataMessageListenner = userFrament;
-
-
     }
 
     // 这是来自 JPush Example 的设置别名的 Activity 里的代码。一般 App 的设置的调用入口，在任何方便的地方调用都可以。
@@ -294,8 +292,6 @@ public class MainActivity extends BaseActivity {
             Toast.makeText(MainActivity.this, R.string.error_tag_gs_empty, Toast.LENGTH_SHORT).show();
             return;
         }*/
-
-
         // 调用 Handler 来异步设置别名
         mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, alias));
     }
@@ -373,8 +369,6 @@ public class MainActivity extends BaseActivity {
 
         }
     }
-
-
    /* @Override
     public void isVisibalBar(int isVisibal) {
         if (isVisibal == 0) {

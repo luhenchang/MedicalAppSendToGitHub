@@ -55,6 +55,10 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     /*微信支付一类库*/
+    //1.0.5 当1.1.0出现问题可以回退到1.0.5.1
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
+
     implementation files('libs/locSDK_6.13.jar')
     implementation files('libs/httpclient-4.3.5.jar')
     implementation files('libs/httpcore-4.3.2.jar')
@@ -87,9 +91,7 @@ dependencies {
     implementation files('libs/jpush-android_v3.0.0.jar')
     implementation 'com.zhy:percent-support-extends:1.0.1'
     implementation 'commons-codec:commons-codec:1.10'
-    //1.0.5 当1.1.0出现问题可以回退到1.0.5.1
-    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
-    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
     //没有使用特殊Header，可以不加这行
     implementation 'com.android.support:design:27.1.0'
+
 }

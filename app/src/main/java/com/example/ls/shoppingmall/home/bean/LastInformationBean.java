@@ -12,6 +12,6 @@ public class LastInformationBean {
     public static List<String> mList2=new ArrayList<>();
     public static List<LastInforAdatperBean1.DataEntity> mList3=new ArrayList<>();
     public static List<LastInforAdapterBean.DataEntity> mList4=new ArrayList<>();
-    public static List<RecommentBean.RESOBJEntity> mlist5=new ArrayList<>();
+    public static List<DoctorAndTeamBean> mlist5=new ArrayList<>();
 
 }

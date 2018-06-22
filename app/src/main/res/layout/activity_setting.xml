@@ -10,7 +10,6 @@
     <include
         android:id="@+id/top_header"
         layout="@layout/myinformation_header_include" />
-
     <com.example.ls.shoppingmall.utils.layoututils.OverScrollView
         android:layout_width="match_parent"
         android:layout_below="@+id/top_header"
@@ -121,7 +120,14 @@
                     style="@style/userinformation_text"
                     android:text="关于我们" />
             </RelativeLayout>
+            <Button
+                android:visibility="gone"
+                android:text="微信登录"
+                android:onClick="wxLogin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x40" />
         </LinearLayout>
+
     </com.example.ls.shoppingmall.utils.layoututils.OverScrollView>
      <!--退出登录-->
     <TextView
@@ -136,4 +142,5 @@
         android:layout_height="@dimen/x40"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

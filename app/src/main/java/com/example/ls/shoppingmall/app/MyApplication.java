@@ -20,6 +20,7 @@ import com.example.ls.shoppingmall.utils.httputils.XutilsProcessor;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpHelper;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.OkhttpFrameProcessor;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.VolleyFrameProcessor;
+import com.example.ls.shoppingmall.wxapi.WXEntryActivity;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreator;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
@@ -28,6 +29,7 @@ import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
@@ -107,6 +109,7 @@ public class MyApplication extends Application {
     public static String networkType;
     /*百度云检索结束*/
     private static final int BAIDU_READ_PHONE_STATE = 100;
+    public static IWXAPI sApi;
     @Override
     public void onCreate() {
         {//设置全局的Header构建器
@@ -142,8 +145,8 @@ public class MyApplication extends Application {
         }
         JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
         JPushInterface.init(this);     		// 初始化 JPush
-
         UMShareAPI.get(this);//初始化sdk
+        sApi = WXEntryActivity.initWeiXin(this,"wxb1021cbd0975214a");
         //开启debug模式，方便定位错误，具体错误检查方式可以查看http://dev.umeng.com/social/android/quick-integration的报错必看，正式发布，请关闭该模式
         Config.DEBUG = true;
         //各个平台的配置

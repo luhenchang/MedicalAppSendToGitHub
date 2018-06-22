@@ -33,7 +33,7 @@ import com.example.ls.shoppingmall.utils.layoututils.AlertDialog;
 import com.example.ls.shoppingmall.utils.layoututils.MyGoleView;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpCallback;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpHelper;
-import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
+//import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
@@ -59,7 +59,7 @@ public class CommunityFragment extends BaseFragment implements View.OnClickListe
     private List<String> mData;
     private CompatListView mFt_comm_ry;
     private ArrayList<String> mData1;
-    private TwinklingRefreshLayout mFt_comm_trl;
+    //private TwinklingRefreshLayout mFt_comm_trl;
     private TextView mTv_top_search;
     private View mFt_comm_phone_tv;
     private View mFt_comm_weixing_tv;
