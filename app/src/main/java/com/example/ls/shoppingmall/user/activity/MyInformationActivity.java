@@ -258,6 +258,7 @@ public class MyInformationActivity extends AppCompatActivity implements View.OnC
     private void setImage() {
 //        sharedUtils.writeString("my_header_choose", NetConfig.GLIDE_USRE + us.getRESOBJ().getImgID().getUrl());
         String header_iv_choose = sharedUtils.readString("my_header_choose");
+
         if (header_iv_choose != null) {
             Glide.with(this).load(header_iv_choose).error(R.drawable.user_header).listener(new GlideRequestListner()).centerCrop().into(ivMineLogo);
         }
@@ -470,8 +471,11 @@ USR000010005*/
     // UserWeight varchar(64),UserHeight varchar(64))";*/
                     savaUserInforToData("1", mUserId, mNickname, mName, "headiv", mPhone, mPassword, "token", mSex, mWeight, mHeight, mAge);
                     finish();
-                } else {
+                } else if(saveUserMessage.getRESCOD().equals("000106")){
+                    Toast.makeText(MyInformationActivity.this, "昵称已经存在", Toast.LENGTH_SHORT).show();
+                }else{
                     Toast.makeText(MyInformationActivity.this, "保存失败", Toast.LENGTH_SHORT).show();
+
                 }
             }
 
@@ -531,21 +535,21 @@ USR000010005*/
             for (int i = 0; i < 102; i++) {
                 picker.addData((i) + "");
             }
-            Log.e("db_age",db_age.toString());
-            picker.setCenterItem(db_age==null?20:Integer.valueOf(db_age.toString().trim()));
+         //   Log.e("db_age",db_age.toString());
+            picker.setCenterItem(db_age.trim()==null||db_age.trim().equals("")||db_age.trim().equals(" ")?20:Integer.valueOf(db_age.toString().trim()));
         } else if (flag.equals("height")) {
             for (int i = 0; i < 242; i++) {
                 picker.addData((i) + "");
             }
-            picker.setCenterItem(db_height==null?170:Integer.valueOf(db_height.toString().trim()));
+            picker.setCenterItem(db_height==null||db_height.equals("")?170:Integer.valueOf(db_height.toString().trim()));
         } else if (flag.equals("sex")) {
             picker.addData("男");
             picker.addData("女");
             picker.setCenterItem(acMyinforSexTv.getText().toString()==null?"男":acMyinforSexTv.getText().toString());
         }
 
-        final PopupWindow popupWindow = new SupportPopupWindow(contentview,
-                RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+        final SupportPopupWindow popupWindow = new SupportPopupWindow(contentview,
+                RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         popupWindow.setTouchable(true);
         popupWindow.setTouchInterceptor(new View.OnTouchListener() {
             @Override
@@ -555,7 +559,7 @@ USR000010005*/
         });
         popupWindow.setFocusable(true);
         popupWindow.setBackgroundDrawable(new BitmapDrawable());
-        popupWindow.showAsDropDown(w, 0, 0);
+        popupWindow.showAsDropDowns(popupWindow,w, 0, 0);
         right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.ls.shoppingmall.R;
 import com.example.ls.shoppingmall.app.MainActivity;
+import com.example.ls.shoppingmall.user.activity.MedicalConsultation;
 import com.example.ls.shoppingmall.user.activity.MessageActivity;
 
 
@@ -167,7 +168,14 @@ key:cn.jpush.android.MSG_ID, value:1677207157
                         R.layout.customer_notitfication_layout);
                 Intent iintent = null;
                 Intent intent1s=null;
-                intent1s = new Intent(context, MainActivity.class);
+                if(TITLE.equals("二维码生成通知")){
+                    intent1s = new Intent(context, MedicalConsultation.class);
+
+                }else{
+                    intent1s = new Intent(context, MainActivity.class);
+
+                }
+
                 intent1s.putExtra("URL_ONE", Type1);
                 PendingIntent stentIntent1 = PendingIntent.getActivity(context, 0, intent1s, PendingIntent.FLAG_UPDATE_CURRENT);
                 contentView.setOnClickPendingIntent(R.id.notify_set, stentIntent1);

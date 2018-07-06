@@ -25,12 +25,13 @@
                 android:id="@+id/rl_family_team"
                 android:layout_width="match_parent"
                 android:layout_height="100dp">
-
+              <!--doctor_team_iv  family_team_iv-->
                 <ImageView
+                    android:id="@+id/family_team_iv"
                     android:scaleType="fitCenter"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/family_team" />
+                    android:background="@drawable/medical_tem_select" />
             </RelativeLayout>
         </android.support.v7.widget.CardView>
 
@@ -50,6 +51,7 @@
                 android:layout_height="100dp">
 
                 <ImageView
+                    android:id="@+id/doctor_team_iv"
                     android:scaleType="fitCenter"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

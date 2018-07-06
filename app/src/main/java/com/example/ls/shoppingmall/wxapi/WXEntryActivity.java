@@ -25,6 +25,7 @@ import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import com.umeng.weixin.callback.WXCallbackActivity;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -36,7 +37,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
+public class WXEntryActivity extends WXCallbackActivity implements IWXAPIEventHandler {
     //            PlatformConfig.setWeixin("wxb1021cbd0975214a", "89efea75797828388dd933056ba46c40");
     private static final String APP_SECRET = "89efea75797828388dd933056ba46c40";
     private static IWXAPI mWeixinAPI;
@@ -84,7 +85,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
          * 用于保持请求和回调的状态，授权请求后原样带回给第三方
          * 为了防止csrf攻击（跨站请求伪造攻击），后期改为随机数加session来校验
          */
-        req.state = "app_wechat";
+        req.state = "wechat_sdk_demo_test";
         iwxapi.sendReq(req);
     }
     @Override
@@ -154,7 +155,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
         httpRequest(url, new ApiCallback<String>() {
             @Override
             public void onSuccess(String response) {
-
+                Toast.makeText(WXEntryActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
                 if (validateSuccess(response)) {
                     // accessToken没有过期，获取用户信息
                     getUserInfo(accessToken, openid);

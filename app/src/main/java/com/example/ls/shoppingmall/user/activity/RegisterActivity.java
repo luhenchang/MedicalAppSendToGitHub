@@ -27,6 +27,7 @@ import com.example.ls.shoppingmall.app.WebViewActivity;
 import com.example.ls.shoppingmall.community.bean.MessageResult;
 import com.example.ls.shoppingmall.user.bean.RegisterResultBean;
 import com.example.ls.shoppingmall.user.utils.MobilePhoneUtils;
+import com.example.ls.shoppingmall.utils.SharedUtils;
 import com.example.ls.shoppingmall.utils.dbutils.UserDB;
 import com.example.ls.shoppingmall.utils.dbutils.UserServiceInterface;
 import com.google.gson.Gson;
@@ -78,6 +79,8 @@ public class RegisterActivity extends AppCompatActivity {
     TextView tvUserRigistNeed;
     @Bind(R.id.soft_onclick)
     LinearLayout softOnclick;
+    private SharedUtils sharedUtils;
+
     //点击记时短信时间
     private CountDownTimer tirmer = new CountDownTimer(5 * 60000, 1000) {
         @Override
@@ -107,6 +110,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         MyApplication.addActivity(this);
         ButterKnife.bind(this);
+        sharedUtils=new SharedUtils(this);
         /*去初始化和解决一些时间和view*/
         initViewAndListnner();
 
@@ -357,6 +361,8 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
                             //如果注册成功那么这里储存到数据库
                             savaUserInforToData(registerResultBean.getRESOBJ(), user_phoner, user_passwordr);
+                            //每一次注册时候删除这个本地图片地址不然会有问题。
+                            sharedUtils.clear();
                             startActivity(new Intent(RegisterActivity.this, MyInformationActivity.class));
                             finish();
                         } else if (registerResultBean.getRESCOD().equals("000101")) {

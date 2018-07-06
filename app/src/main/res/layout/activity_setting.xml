@@ -14,9 +14,7 @@
         android:layout_width="match_parent"
         android:layout_below="@+id/top_header"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/x7"
-        >
-
+        android:layout_marginTop="@dimen/x7">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -26,11 +24,9 @@
                 android:id="@+id/ac_set_message"
                 style="@style/userinformation_relativelayout"
                 android:layout_marginTop="@dimen/x1">
-
                 <TextView
                     style="@style/userinformation_text"
-                    android:text="消息提醒" />
-
+                    android:text="消息提醒"/>
                 <Switch
                     android:id="@+id/ac_setting_suond_sw"
                     android:layout_width="wrap_content"

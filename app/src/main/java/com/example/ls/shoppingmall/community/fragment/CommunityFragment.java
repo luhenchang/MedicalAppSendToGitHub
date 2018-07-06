@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -74,6 +75,7 @@ public class CommunityFragment extends BaseFragment implements View.OnClickListe
     private int flag1, flag2;
     private SmartRefreshLayout smartRefreshLayout;
     private boolean flagisMedicalTeam = true;
+    private ImageView famly_iv, doctor_iv;
 
     @Override
     public void onClick(View v) {
@@ -138,6 +140,8 @@ public class CommunityFragment extends BaseFragment implements View.OnClickListe
                 if (mUserId != null && !mUserId.equals("")) {
                     if (flag1 == 0) {
                         flag1++;
+                        doctor_iv.setBackgroundResource(R.drawable.medical_team);
+                        famly_iv.setBackgroundResource(R.drawable.medical_tem_select);
                         initData1();
 
                     } else {
@@ -158,6 +162,8 @@ public class CommunityFragment extends BaseFragment implements View.OnClickListe
                 if (mUserId != null && !mUserId.equals("")) {
                     if (flag2 == 0) {
                         flag2++;
+                        doctor_iv.setBackgroundResource(R.drawable.doctor_selected);
+                        famly_iv.setBackgroundResource(R.drawable.family_team);
                         initData2();
                     } else {
                         Toast.makeText(mContext, "已经在当前页面了", Toast.LENGTH_SHORT).show();
@@ -202,6 +208,8 @@ public class CommunityFragment extends BaseFragment implements View.OnClickListe
         mFt_comm_weixing_tv = headerView.findViewById(R.id.ft_comm_winxing_tv);*/
         mRfamliyteam = headerView.findViewById(R.id.rl_family_team);
         mRmedicalteam = headerView.findViewById(R.id.rl_medical_team);
+        famly_iv = headerView.findViewById(R.id.family_team_iv);
+        doctor_iv = headerView.findViewById(R.id.doctor_team_iv);
         //mTv_top_search = headerView.findViewById(R.id.community_list_header_searcher_tv);
         mSearch = rootView.findViewById(R.id.tv_search_home);
         mSearch.setOnClickListener(this);
@@ -248,12 +256,12 @@ public class CommunityFragment extends BaseFragment implements View.OnClickListe
         FrameHttpHelper.getInstance().post(NetConfig.COMMUNITY_MEDICAL_TEAM, map, new FrameHttpCallback<CommuniMedicalTeam>() {
             @Override
             public void onSuccess(CommuniMedicalTeam cmt) {
-                if (cmt.getRESCOD().equals("000000")){
+                if (cmt.getRESCOD().equals("000000")) {
                     mDataTeam.addAll(cmt.getRESOBJ());
                     medicalTeamAdapter = new CommunityMedicalAdapter(getActivity(), mDataTeam);
                     mFt_comm_ry.setAdapter(medicalTeamAdapter);
                     medicalTeamAdapter.notifyDataSetChanged();
-                }else {
+                } else {
                     medicalTeamAdapter = new CommunityMedicalAdapter(getActivity(), mDataTeam);
                     mFt_comm_ry.setAdapter(medicalTeamAdapter);
                     medicalTeamAdapter.notifyDataSetChanged();
@@ -268,10 +276,10 @@ public class CommunityFragment extends BaseFragment implements View.OnClickListe
     }
 
     private void initData2() {
-       /*
-       *
-       * https://qy.healthinfochina.com:8080/DOC000010006?isHot=0&pageSize=10&currentPage=1
-       * */
+        /*
+         *
+         * https://qy.healthinfochina.com:8080/DOC000010006?isHot=0&pageSize=10&currentPage=1
+         * */
         mSecondList = new ArrayList<>();
         mSecondList.clear();
         Map<String, Object> map1 = new HashedMap();

@@ -18,7 +18,6 @@ import com.example.ls.shoppingmall.utils.dbutils.UserDB;
 import com.example.ls.shoppingmall.utils.layoututils.MyGoleView;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpCallback;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpHelper;
-import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,7 +29,6 @@ import java.util.Map;
  */
 
 public class CommunicationFragment extends BaseFragment {
-    private TwinklingRefreshLayout mTwinkRefreshlayout;
     private ListView mListView;
     private CommunicationAdapter communiAdapter;
     private List<ArticalBean.RESOBJEntity> mData;

@@ -66,7 +66,7 @@
         android:textSize="16sp"
         android:layout_margin="@dimen/x20"
         android:layout_below="@+id/heaer_padter"
-        android:text="此邀请码有优惠，购买周卡延期2天，购买月卡延期10天，购买季卡延期20天，购买半年卡延期30天，购买年卡延期60天。对所有医师团生效，并且永久有效。"
+        android:text="此邀请码有优惠，购买周卡延期2天，购买月卡延期5天，购买半年卡延期10天，购买年卡延期30天。对所有医师团生效，并且永久有效。"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </RelativeLayout>

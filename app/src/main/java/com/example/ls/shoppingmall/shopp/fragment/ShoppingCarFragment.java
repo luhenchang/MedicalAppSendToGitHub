@@ -50,9 +50,9 @@ import static android.content.ContentValues.TAG;
  */
 
 public class ShoppingCarFragment extends BaseFragment {
-//    private MainBarVisibal mainBarVisibal;
+    //    private MainBarVisibal mainBarVisibal;
     private int flagcount;
-    private int i=0;
+    private int i = 0;
 
   /*  public ShoppingCarFragment(MainBarVisibal mainActivity) {
         this.mainBarVisibal = mainActivity;
@@ -77,14 +77,14 @@ public class ShoppingCarFragment extends BaseFragment {
         }
     };
     private Map<String, Object> userInter;
-    private String userId;
+    private String user_Id;
     private ProgressBar mprogressbar;
 
     @Override
     public View initView() {
         View view = View.inflate(mContext, R.layout.fragment_shopping, null);
         userInter = new UserDB(mContext).getUserMessage(new String[]{"1"});
-        userId = (String) userInter.get("UserID");
+        user_Id = (String) userInter.get("UserID");
         CheckNetworkInfoUtils checkNetworkInfoUtils = new CheckNetworkInfoUtils(mContext);
         if (checkNetworkInfoUtils.checkNetworkInfo()) {
             initViews(view);
@@ -117,8 +117,17 @@ String str = "http://www.51ququ.com/";是拼接到后面还是....
                 "openJava");
 
         webvew.addJavascriptInterface(new JSInterface(), "Android");
-        Log.e("shoppingUserid", "用户名哦=" + userId);
-        webvew.loadUrl("javascript:appLogin(" + "'" + userId + "'" + ")");
+        Log.e("shoppinguser_Id", "用户名哦=" + user_Id);
+        if (user_Id != null && user_Id.length() > 0) {
+            Log.e("userId1", user_Id);
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    webvew.loadUrl("javascript:appLogin(" + "\"" + user_Id + "\"" + ")");
+                }
+            });
+
+        }
     }
 
     public class MyWebChromeClient extends WebChromeClient {
@@ -167,9 +176,14 @@ String str = "http://www.51ququ.com/";是拼接到后面还是....
         public void onPageFinished(WebView view, String url) {
             Log.e("urlwebs", url + "");
             super.onPageFinished(view, url);
-            if (i == 0) {
+            if (i == 0 && user_Id != null && user_Id.length() > 0) {
                 i++;
-                webvew.loadUrl("javascript:appLogin(" + "'" + userId + "'" + ")");
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        webvew.loadUrl("javascript:appLogin(" + "\"" + user_Id + "\"" + ")");
+                    }
+                });
 
 
             }
@@ -214,6 +228,23 @@ String str = "http://www.51ququ.com/";是拼接到后面还是....
 
     //这个是电话和微信选择切换
     private class JSInterface {
+        //window.XJYJS.getMsg(str)
+        //window.Android.LoginGetUserId();
+        @JavascriptInterface
+        public void LoginGetUserId() {
+
+            Map<String, Object> userInters = new UserDB(mContext).getUserMessage(new String[]{"1"});
+            String user_Id1 = (String) userInters.get("UserID");
+            Log.e("userId1", user_Id1);
+            //webView.loadUrl("javascript:javaCallJs("+"'"+name+"'"+")");
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    webvew.loadUrl("javascript:appLogin(" + "\"" + user_Id + "\"" + ")");
+                }
+            });
+        }
+
         @JavascriptInterface
         public void tipDialog(int errocode) {
             if (errocode == 30001 && flagcount == 0) {
@@ -256,7 +287,7 @@ String str = "http://www.51ququ.com/";是拼接到后面还是....
              * subject : 自研方剂标题
              * body : 自研方剂标题
              * goodsPrice : 113.00
-             * userId : 20180123151256558621
+             * user_Id : 20180123151256558621
              * goodsType : Z
              * goodsOrder : 24
              * goodsNo : 1
@@ -267,7 +298,7 @@ String str = "http://www.51ququ.com/";是拼接到后面还是....
                 params.put("subject", "测试的商品");
                 params.put("body", "该测试商品的详细描述");
                 params.put("goodsPrice", "0.01");//必须 商品价格（总价格）
-                params.put("usrId", UserID);//必须 用户ID
+                params.put("usrId", user_Id);//必须 用户ID
                 */
             Intent intent = new Intent(mContext, PayMoneyActivity.class);
             ShoppingPayBean shoppingPayBean = new Gson().fromJson(infor.toString(), ShoppingPayBean.class);
@@ -320,7 +351,7 @@ String str = "http://www.51ququ.com/";是拼接到后面还是....
                 web.setTitle(title);//标题
                 web.setThumb(umImage);  //缩略图
                 web.setDescription(disc);//描述
-                new ShareAction((Activity) mContext).setPlatform(SHARE_MEDIA.WEIXIN_CIRCLE).withMedia(web).share();
+                new ShareAction((Activity) mContext).setPlatform(SHARE_MEDIA.WEIXIN).withMedia(web).share();
                 bottomSheetDialog.dismiss();
             }
         });
@@ -344,7 +375,7 @@ String str = "http://www.51ququ.com/";是拼接到后面还是....
                 web.setTitle(title);//标题
                 web.setThumb(umImage);  //缩略图
                 web.setDescription(disc);//描述
-                new ShareAction((Activity) mContext).setPlatform(SHARE_MEDIA.WEIXIN).withMedia(web).share();
+                new ShareAction((Activity) mContext).setPlatform(SHARE_MEDIA.WEIXIN_CIRCLE).withMedia(web).share();
                 bottomSheetDialog.dismiss();
             }
         });
