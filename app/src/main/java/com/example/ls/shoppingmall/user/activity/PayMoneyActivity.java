@@ -171,7 +171,7 @@ public class PayMoneyActivity extends AppCompatActivity {
     OverScrollView myscrollMyslfOs;
     private String myInputMoney = "";
     @SuppressLint("HandlerLeak")
-    private Handler mHandler = new Handler() {
+    private Handler mHandler = new Handler() {  //TODO 走起10
         @SuppressWarnings("unused")
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -197,22 +197,6 @@ public class PayMoneyActivity extends AppCompatActivity {
                             MyApplication.PayPager="";
                             finish();
                         }
-                      /*new com.example.ls.shoppingmall.utils.layoututils.AlertDialog(PayMoneyActivity.this).builder()
-                                .setTitle("提示")
-                                .setMsg("支付成功进行阅读！")
-                                .setCancelable(false)
-                                .setPositiveButton("确定", new View.OnClickListener() {
-
-                                    @Override
-                                    public void onClick(View v) {
-                                        finish();
-                                    }
-                                }).setNegativeButton("否", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-
-                            }
-                        }).show();*/
                     } else {
                         // 判断resultStatus 为非"9000"则代表可能支付失败
                         // "8000"代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）
@@ -222,7 +206,6 @@ public class PayMoneyActivity extends AppCompatActivity {
                         } else {
                             // 其他值就可以判断为支付失败，包括用户主动取消支付，或者系统返回的错误
                             Toast.makeText(PayMoneyActivity.this, "支付失败", Toast.LENGTH_SHORT).show();
-
                         }
                     }
                     break;
@@ -361,12 +344,13 @@ public class PayMoneyActivity extends AppCompatActivity {
 
     /**
      * TODO 6.1.1 支付宝支付. 调用SDK支付
+     *
      */
     public void ZfbPay() {
         Runnable payRunnable = new Runnable() {
 
             @Override
-            public void run() {
+            public void run() {  //TODO 走起9
                 PayTask alipay = new PayTask(PayMoneyActivity.this);
                 Map<String, String> result = alipay.payV2(orderInfor, true);
                 Log.i("msp", result.toString());
@@ -374,7 +358,7 @@ public class PayMoneyActivity extends AppCompatActivity {
                 Message msg = new Message();
                 msg.what = SDK_PAY_FLAG;
                 msg.obj = result;
-                mHandler.sendMessage(msg);
+                mHandler.sendMessage(msg);//TODO 走起9.1
             }
         };
 
@@ -441,7 +425,7 @@ public class PayMoneyActivity extends AppCompatActivity {
                 break;
             case R.id.ac_recharg_money_taobao_lin:
                 break;
-            case R.id.pay_button:
+            case R.id.pay_button:    //TODO 走起一
                 //  diaLog.show();
                 //TODO 1 点击开始支付：
                 //判断金额输入框是整数还是
@@ -455,7 +439,7 @@ public class PayMoneyActivity extends AppCompatActivity {
         }
     }
 
-    private void paySwitch() {
+    private void paySwitch() {//TODO 走起 1
         //TODO 没做的
         /*//TOADO  APP客户端-商城购买-调用支付界面时，
         必须向商城服务器发一个请求，
@@ -473,12 +457,12 @@ public class PayMoneyActivity extends AppCompatActivity {
         diaLog.setCancelable(false);*/
         // diaLog.show();
         //TODO 3 生成订单
-        new Thread(new PayMoneyActivity.MyThreadPay()).start();
+        new Thread(new PayMoneyActivity.MyThreadPay()).start();//TODO 走起3
     }
 
 
     //TODO 4 生成订单 将订单信息提交到到后台
-    public class MyThreadPay implements Runnable {
+    public class MyThreadPay implements Runnable {  //TODO 走起4
 
         /**
          * APP客户端-商城购买-调用支付界面时，
@@ -492,7 +476,7 @@ public class PayMoneyActivity extends AppCompatActivity {
          */
         public void run() {
 
-            if (payType.equals("0")) {//TODO 支付宝支付
+            if (payType.equals("0")) {//TODO 支付宝支付  //TODO 走起5
                 //payType（0：会员支付，1：充值支付，2：商城支付）
                 if (ActivityType.equals("ShoppingActivity")) {
                     /*
@@ -566,7 +550,7 @@ public class PayMoneyActivity extends AppCompatActivity {
 
                 } else {//TODO 我们这边的支付
                 /*"accrual", "payer", "goodsType", "body", "usrId", "traType", "subject"*/
-                    Map<String, Object> params = new HashMap<String, Object>();
+                    Map<String, Object> params = new HashMap<String, Object>();    //TODO 走起6
                     //必须传递的参数
                     params.put("accrual", mtotal_amount.toString());//必须 商品价格（总价格）
                     params.put("goodNo", cardId);//TODO gooNo商品编号 医师团的时候是卡的ID  articalid这里代表所有的id
@@ -593,7 +577,7 @@ public class PayMoneyActivity extends AppCompatActivity {
                                     msg.what = Integer.valueOf(payType);
 
                                     // TODO 5 判断支付方式
-                                    hand.sendMessage(msg);
+                                    hand.sendMessage(msg);//TODO 走起7
                                 } else {
 
                                     Toast.makeText(PayMoneyActivity.this, "支付失败", Toast.LENGTH_SHORT).show();
@@ -683,7 +667,7 @@ public class PayMoneyActivity extends AppCompatActivity {
                         break;
                     case 0:
                         //TODO 6.1 支付宝支付
-                        ZfbPay();
+                        ZfbPay();   //TODO 走起8
                         break;
                 }
             } else {
@@ -950,778 +934,6 @@ public class PayMoneyActivity extends AppCompatActivity {
 
         }
     }
-    //下面是老版本的支付
 
 
-    // 随机字符串
-    private String genNonceStr() {
-        Random random = new Random();
-        return MD5.getMessageDigest(String.valueOf(random.nextInt(10000)).getBytes());
-    }
-
-    // 微信获取时间戳参数
-    private long genTimeStamp() {
-        return System.currentTimeMillis() / 1000;
-    }
-
-
-    /**
-     * 微信支付签名算法sign
-     *
-     * @param characterEncoding
-     * @param parameters
-     * @return
-     */
-    public static String createSign(String characterEncoding,
-                                    SortedMap<Object, Object> parameters) {
-
-        StringBuffer sb = new StringBuffer();
-        Set es = parameters.entrySet();// 所有参与传参的参数按照accsii排序（升序）
-        Iterator it = es.iterator();
-        while (it.hasNext()) {
-            @SuppressWarnings("rawtypes")
-            Map.Entry entry = (Map.Entry) it.next();
-            String k = (String) entry.getKey();
-            Object v = entry.getValue();
-            if (null != v && !"".equals(v) && !"sign".equals(k)
-                    && !"key".equals(k)) {
-                sb.append(k + "=" + v + "&");
-            }
-        }
-        sb.append("key=" + Constants.PARTNER_KEY); //KEY是商户秘钥
-        String sign = MD5Util.MD5Encode(sb.toString(), characterEncoding)
-                .toUpperCase();
-        return sign; // D3A5D13E7838E1D453F4F2EA526C4766
-        // D3A5D13E7838E1D453F4F2EA526C4766
-    }
-
-
-    // 微信生成签名
-    private String genPackageSign(List<NameValuePair> params) {
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < params.size(); i++) {
-            sb.append(params.get(i).getName());
-            sb.append('=');
-            sb.append(params.get(i).getValue());
-            sb.append('&');
-        }
-        sb.append("key=");
-        sb.append(PARTNER_KEY);
-
-        String packageSign = MD5.getMessageDigest(sb.toString().getBytes()).toUpperCase();
-        return packageSign;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   /* private void initView() {
-        diaLog = new ProgressDialog(this);
-        diaLog.setTitle("提示");
-        diaLog.setMessage("正在加载,请等待...");
-        diaLog.setCancelable(false);
-    }
-
-
-    *//**
-     * TODO 6.1.1 支付宝支付. 调用SDK支付
-     *//*
-    public void ZfbPay() {
-        if (TextUtils.isEmpty(APPID) || (TextUtils.isEmpty(RSA2_PRIVATE) && TextUtils.isEmpty(RSA_PRIVATE))) {
-            new android.app.AlertDialog.Builder(this).setTitle("警告").setMessage("需要配置APPID | RSA_PRIVATE")
-                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialoginterface, int i) {
-                            //
-                            finish();
-                        }
-                    }).show();
-            return;
-        }
-
-        *//**
-     * 这里只是为了方便直接向商户展示支付宝的整个支付流程；所以Demo中加签过程直接放在客户端完成；
-     * 真实App里，privateKey等数据严禁放在客户端，加签过程务必要放在服务端完成；
-     * 防止商户私密数据泄露，造成不必要的资金损失，及面临各种安全风险；
-     *
-     * orderInfo的获取必须来自服务端；
-     *//*
-        boolean rsa2 = (RSA2_PRIVATE.length() > 0);
-        Map<String, String> params = OrderInfoUtil2_0.buildOrderParamMap(APPID, rsa2);
-        params.put("biz_content", "{\"timeout_express\":\"30m\",\"product_code\":\"QUICK_MSECURITY_PAY\",\"total_amount\":\"" + mtotal_amount + "\",\"subject\":\"" + mSubject + "\",\"body\":\"" + mBody + "\",\"out_trade_no\":\"" + PayOrderNo + "\"}");
-        String orderParam = OrderInfoUtil2_0.buildOrderParam(params);
-
-        String privateKey = rsa2 ? RSA2_PRIVATE : RSA_PRIVATE;
-        String sign = OrderInfoUtil2_0.getSign(params, privateKey, rsa2);
-        final String orderInfo = orderParam + "&" + sign;
-
-        Runnable payRunnable = new Runnable() {
-
-            @Override
-            public void run() {
-                try {
-                    PayTask alipay = new PayTask(PayMoneyActivity.this);
-                    Map<String, String> result = alipay.payV2(orderInfo, true);
-                    Log.i("msp", result.toString());
-
-                    Message msg = new Message();
-                    msg.what = SDK_PAY_FLAG;
-                    msg.obj = result;
-                    mHandler.sendMessage(msg);
-                }catch (Exception e){
-                    Log.e("e",e.toString());
-                }
-            }
-        };
-
-        Thread payThread = new Thread(payRunnable);
-        payThread.start();
-    }
-
-    *//**
-     * 原生的H5（手机网页版支付切natvie支付） 【对应页面网页支付按钮】
-     *
-     * @param v
-     *//*
-    public void h5Pay(View v) {
-        Intent intent = new Intent(this, H5PayDemoActivity.class);
-        Bundle extras = new Bundle();
-        *//**
-     * url 是要测试的网站，在 Demo App 中会使用 H5PayDemoActivity 内的 WebView 打开。
-     *
-     * 可以填写任一支持支付宝支付的网站（如淘宝或一号店），在网站中下订单并唤起支付宝；
-     * 或者直接填写由支付宝文档提供的“网站 Demo”生成的订单地址
-     * （如 https://mclient.alipay.com/h5Continue.htm?h5_route_token=303ff0894cd4dccf591b089761dexxxx）
-     * 进行测试。
-     *
-     * H5PayDemoActivity 中的 MyWebViewClient.shouldOverrideUrlLoading() 实现了拦截 URL 唤起支付宝，
-     * 可以参考它实现自定义的 URL 拦截逻辑。
-     *//*
-        String url = "http://m.taobao.com";
-        extras.putString("url", url);
-        intent.putExtras(extras);
-        startActivity(intent);
-    }
-
-    *//**
-     * get the out_trade_no for an order. 生成商户订单号，该值在商户端应保持唯一（可自定义格式规范）
-     *//*
-    private String getOutTradeNo() {
-        SimpleDateFormat format = new SimpleDateFormat("MMddHHmmss", Locale.getDefault());
-        Date date = new Date();
-        String key = format.format(date);
-
-        Random r = new Random();
-        key = key + r.nextInt();
-        key = key.substring(0, 15);
-        return key;
-    }
-
-    @OnClick({R.id.back_to_after, R.id.radio_1, R.id.radio_2, R.id.image_view_zfb, R.id.ac_recharg_money_taobao_lin, R.id.pay_button})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.back_to_after:
-                finish();
-                break;
-            case R.id.radio_1:
-                payType = "1";
-                radio1.setBackgroundResource(R.drawable.ic_checked);
-                radio2.setBackgroundResource(R.drawable.ic_uncheck);
-                break;
-            case R.id.radio_2:
-                payType = "0";
-                radio2.setBackgroundResource(R.drawable.ic_checked);
-                radio1.setBackgroundResource(R.drawable.ic_uncheck);
-                break;
-            case R.id.image_view_zfb:
-                break;
-            case R.id.ac_recharg_money_taobao_lin:
-                break;
-            case R.id.pay_button:
-                //TODO 1 点击开始支付：
-                //判断金额输入框是整数还是
-                mtotal_amount = ((acRechargMoneyEt.getText().toString() == null) || (acRechargMoneyEt.getText().toString().equals(""))) == true ? "" : acRechargMoneyEt.getText().toString();
-                if (!mtotal_amount.equals("")) {
-                    String[] strs = mtotal_amount.split("[.]");
-                    mtotal_amount = strs[0];
-                    paySwitch();
-                } else {
-                    Toast.makeText(this, "输入填写充值金额", Toast.LENGTH_SHORT).show();
-                }
-                break;
-        }
-    }
-
-    private void paySwitch() {
-        //TODO 2 生成订单号
-        PayOrderNo = getOutTradeNo();
-        Constants.order_no = PayOrderNo;
-        diaLog = new ProgressDialog(this);
-        diaLog.setTitle("提示");
-        diaLog.setMessage("正在生成订单,请等待...");
-        diaLog.setCancelable(false);
-        // diaLog.show();
-        //TODO 3 生成订单
-        new Thread(new MyThreadPay()).start();
-
-
-    }
-
-
-    //TODO 4 生成订单 将订单信息提交到到后台
-    public class MyThreadPay implements Runnable {
-
-        public void run() {
-            if (payType.equals("0")) {
-                Map<String, Object> params = new HashMap<String, Object>();
-                /*//*  params.put("UserId", UserID);
-        *//*    params.put("RechargeAmount", CoinPrice);// 总价
-            params.put("PayAmount", CoinAmount + "");// 实际价格
-            params.put("PayType", payType + "");// 支付类型（微信0，支付宝1）
-            params.put("PayOrderNo", PayOrderNo);// 商户订单号
-            params.put("RechargeType", CoinId);// 0*//*
-        *//*subject/totalAmount/body  测试的商品 该测试商品的详细描述*//*
-                params.put("subject", "测试的商品");
-                params.put("totalAmount", "0.01");
-                params.put("body", "该测试商品的详细描述");
-
-                params.put("UserId", "27491");
-                params.put("RechargeAmount", "0.01");// 总价
-                params.put("PayAmount", "0.1");// 实际价格
-                params.put("PayType", payType + "");// 支付类型（微信0，支付宝1）
-
-                // params.put("PayOrderNo", PayOrderNo);// 商户订单号
-
-                params.put("tradeNo", PayOrderNo);// 商户订单号
-                params.put("RechargeType", "0");
-                FrameHttpHelper.getInstance().post("https://qy.healthinfochina.com:8080/DOC800010001", params, new FrameHttpCallback<PayBeanCode>() {
-                    @Override
-                    public void onSuccess(PayBeanCode o) {
-                        try {
-                            Log.e("zfbcode", o.getRESCOD());
-                       *//* JSONArray arr = new JSONArray(0);
-                        JSONObject jb = (JSONObject) arr.get(0);
-                        String result = jb.getString("Result");*//*
-                            String result = o.getRESCOD();
-
-                            Message msg = Message.obtain();
-                            msg.obj = result;
-                            msg.what = Integer.valueOf(payType);
-
-                            // TODO 5 判断支付方式
-                            hand.sendMessage(msg);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-
-                    @Override
-                    public void onFail(String s) {
-
-                    }
-                });
-            } else {
-                Message msg = Message.obtain();
-                msg.obj = "000000";
-                msg.what = Integer.valueOf(payType);
-
-                // TODO 5 判断支付方式
-                hand.sendMessage(msg);
-            }
-           *//* String strUrltoken = "http://51yuejianshen.com/index.php?g=home&m=coin&a=recharge";
-            StringRequest tokenRequest = new StringRequest(Request.Method.POST, strUrltoken,
-                    new Response.Listener<String>() {
-                        public void onResponse(String arg0) {
-                            try {
-                                JSONArray arr = new JSONArray(arg0);
-                                JSONObject jb = (JSONObject) arr.get(0);
-                                String result = jb.getString("Result");
-                                Message msg = Message.obtain();
-                                msg.obj = result;
-                                msg.what = Integer.valueOf(payType);
-
-                                // TODO 5 判断支付方式
-                                hand.sendMessage(msg);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-
-                        }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError arg0) {
-                }
-            }) {
-
-                @Override
-                protected Map<String, String> getParams() {
-                    *//**//*
-                    * Userid=27491
-                    * PayType=1或者0
-                    * RechargeAmount=1
-                    * payAmount=1.0
-                    * CoinId="0"
-                    * *//**//*
-
-                    Map<String, String> params = new HashMap<String, String>();
-                  *//**//*  params.put("UserId", UserID);
-                    params.put("RechargeAmount", CoinPrice);// 总价
-                    params.put("PayAmount", CoinAmount + "");// 实际价格
-                    params.put("PayType", payType + "");// 支付类型（微信0，支付宝1）
-                    params.put("PayOrderNo", PayOrderNo);// 商户订单号
-                    params.put("RechargeType", CoinId);// 0*//**//*
-                    params.put("UserId", "27491");
-                    params.put("RechargeAmount", "0.1");// 总价
-                    params.put("PayAmount", "0.1");// 实际价格
-                    params.put("PayType", payType + "");// 支付类型（微信0，支付宝1）
-                    params.put("PayOrderNo", PayOrderNo);// 商户订单号
-                    params.put("RechargeType", "0");
-                    return params;
-                }
-            };
-            mRequestQueue.add(tokenRequest);*//*
-
-        }
-
-    }
-
-    // TODO 6 判断是否订单成功 成功时候用来判断支付方式进行各自的支付
-    private Handler hand = new Handler() {
-        public void handleMessage(Message msg) {
-            diaLog.dismiss();
-            String result = (String) msg.obj;
-
-            if (result.equals("000000")) {
-                switch (msg.what) {
-                    case 1:
-                        //TODO 6.0 微信支付
-                        WXPay();
-                        break;
-                    case 0:
-                        //TODO 6.1 支付宝支付
-                        ZfbPay();
-                        break;
-                }
-            } else {
-                //TODO 7 否则支付失败弹出吐司提示 弹出提示信息
-                TiShi();
-            }
-        }
-
-        ;
-    };
-
-    // 提示信息
-    public void TiShi() {
-        Toast toast = Toast.makeText(this, "支付失败", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.TOP, 0, 3);
-        toast.show();
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            exit();
-            return false;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
-
-    //TODO 微信支付方式
-    // 微信支付
-
-
-    // 加载微信对象
-    private void initWX() {
-        req = new PayReq();
-        sb = new StringBuffer();
-    }
-
-    public void WXPay() {
-      // TODO 6.0.1 微信订单金额，单位是：分 mtotal_amount
-        String str = String.valueOf(Double.valueOf(CoinAmount) * 100);
-        String[] strs = str.split("[.]");
-        wx_CoinPrice = strs[0];*//*
-        String str = String.valueOf(Double.valueOf(mtotal_amount) * 100);
-        String[] strs = str.split("[.]");
-        wx_CoinPrice = strs[0];
-        Map<String, Object> params = new HashMap<String, Object>();
-        /*//*  params.put("UserId", UserID);
-        *//*    params.put("RechargeAmount", CoinPrice);// 总价
-            params.put("PayAmount", CoinAmount + "");// 实际价格
-            params.put("PayType", payType + "");// 支付类型（微信0，支付宝1）
-            params.put("PayOrderNo", PayOrderNo);// 商户订单号
-            params.put("RechargeType", CoinId);// 0*//*
-        *//*subject/totalAmount/body  测试的商品 该测试商品的详细描述*//*
-*//*        params.put("subject", "测试的商品");
-        params.put("totalAmount", "1");
-        params.put("body", "该测试商品的详细描述");*//*
-        params.put("totalFee", wx_CoinPrice);
-*//*
-        params.put("UserId", "27491");
-        params.put("RechargeAmount", "0.01");// 总价
-        params.put("PayAmount", "0.1");// 实际价格
-        params.put("PayType", payType + "");// 支付类型（微信0，支付宝1）*//*
-
-        // params.put("PayOrderNo", PayOrderNo);// 商户订单号
-
-        params.put("tradeNo", PayOrderNo);// 商户订单号
-        params.put("RechargeType", "0");
-        FrameHttpHelper.getInstance().post("https://qy.healthinfochina.com:8080/DOC800010002", params, new FrameHttpCallback<WxPayBean>() {
-            @Override
-            public void onSuccess(WxPayBean wxPayBean) {
-                if (null != wxPayBean) {
-                    PayReq req = new PayReq();
-                    req.appId=wxPayBean.getAppid();
-                    req.partnerId = wxPayBean.getPartnerid();
-                    req.prepayId = wxPayBean.getPrepayid();
-                    req.nonceStr = wxPayBean.getNoncestr();
-                    req.timeStamp =wxPayBean.getTimestamp() + "";
-                    req.packageValue =wxPayBean.getPackageX();
-                   *//*  req.appId = Constants.APP_ID;
-                    req.partnerId = Constants.PARTNER_ID;
-                    req.prepayId = wxPayBean.getPrepayid();
-                    req.nonceStr = genNonceStr();
-                    req.timeStamp = genTimeStamp() + "";
-                    req.packageValue = "Sign=WXPay";
-                   //将所有的参数去进行Singn签名
-                    SortedMap<Object, Object> parameters = new TreeMap<Object, Object>();
-                    parameters.put("appid", req.appId);
-                    parameters.put("noncestr", req.nonceStr);
-                    parameters.put("package", req.packageValue);
-                    parameters.put("partnerid", req.partnerId);
-                    parameters.put("prepayid", req.prepayId);
-                    parameters.put("timestamp", req.timeStamp);
-
-                    String characterEncoding = "UTF-8";
-                    String mySign = createSign(characterEncoding, parameters);
-                    req.sign = mySign;*//*
-                    req.sign=wxPayBean.getSign();
-                    Toast.makeText(PayMoneyActivity.this, "正常调起支付", Toast.LENGTH_SHORT).show();
-                    // 在支付之前，如果应用没有注册到微信，应该先调用IWXMsg.registerApp将应用注册到微信
-                    try {
-                        msgApi.sendReq(req);
-                    } catch (Exception e) {
-                        Log.e("res_erro", e.toString());
-                    }
-                } else {
-                    Toast.makeText(PayMoneyActivity.this, "返回错误" + wxPayBean.toString(), Toast.LENGTH_SHORT).show();
-                }
-
-            }
-
-            @Override
-            public void onFail(String s) {
-
-            }
-        });
-
-
-    }
-
-
-    *//*
-       * 微信异步
-       *//*
-    private class GetPrepayIdTask extends AsyncTask<Void, Void, Map<String, String>> {
-
-        private ProgressDialog dialog;
-
-        @Override
-        protected void onPreExecute() {
-
-            dialog = ProgressDialog.show(PayMoneyActivity.this, "提示", "正在生成订单请稍后...");
-        }
-
-        @Override
-        protected void onPostExecute(Map<String, String> result) {
-            if (dialog != null) {
-                dialog.dismiss();
-            }
-
-            // prepay_id 微信生成的预支付回话标识，用于后续接口调用中使用，该值有效期为2小时
-            sb.append("prepay_id\n" + result.get("prepay_id") + "\n\n");
-            Log.e("string", result.toString());
-            resultunifiedorder = result;
-
-            //微信支付参数
-            sendPayReq();
-        }
-
-        @Override
-        protected void onCancelled() {
-            super.onCancelled();
-        }
-
-        @Override
-        protected Map<String, String> doInBackground(Void... params) {
-
-            // 调用该接口在微信支付服务后台生成预支付交易单，返回正确的预支付交易回话标识后再在APP里面调起支付
-            String url = String.format("https://api.mch.weixin.qq.com/pay/unifiedorder");
-            // 组装参数
-            String entity = genProductArgs();
-
-            byte[] buf = Util.httpPost(url, entity);
-
-            String content = new String(buf);
-            Log.e("content", content);
-            // 解析xml
-            Map<String, String> xml = decodeXml(content);
-
-            return xml;
-        }
-    }
-
-    *//*
-  * 微信解析xml类型返回值
-  *//*
-    public Map<String, String> decodeXml(String content) {
-
-        try {
-            Map<String, String> xml = new HashMap<String, String>();
-            XmlPullParser parser = Xml.newPullParser();
-            parser.setInput(new StringReader(content));
-            int event = parser.getEventType();
-            while (event != XmlPullParser.END_DOCUMENT) {
-
-                String nodeName = parser.getName();
-                switch (event) {
-                    case XmlPullParser.START_DOCUMENT:
-                        break;
-                    case XmlPullParser.START_TAG:
-                        if ("xml".equals(nodeName) == false) {
-                            // 实例化student对象
-                            xml.put(nodeName, parser.nextText());
-                        }
-                        break;
-                    case XmlPullParser.END_TAG:
-                        break;
-                }
-                event = parser.next();
-            }
-            return xml;
-        } catch (Exception e) {
-        }
-        return null;
-
-    }
-
-    // 随机字符串
-    private String genNonceStr() {
-        Random random = new Random();
-        return MD5.getMessageDigest(String.valueOf(random.nextInt(10000)).getBytes());
-    }
-
-    // 微信获取时间戳参数
-    private long genTimeStamp() {
-        return System.currentTimeMillis() / 1000;
-    }
-
-    *//**
-     * 微信支付签名算法sign
-     *
-     * @param characterEncoding
-     * @param parameters
-     * @return
-     *//*
-    public static String createSign(String characterEncoding,
-                                    SortedMap<Object, Object> parameters) {
-
-        StringBuffer sb = new StringBuffer();
-        Set es = parameters.entrySet();// 所有参与传参的参数按照accsii排序（升序）
-        Iterator it = es.iterator();
-        while (it.hasNext()) {
-            @SuppressWarnings("rawtypes")
-            Map.Entry entry = (Map.Entry) it.next();
-            String k = (String) entry.getKey();
-            Object v = entry.getValue();
-            if (null != v && !"".equals(v) && !"sign".equals(k)
-                    && !"key".equals(k)) {
-                sb.append(k + "=" + v + "&");
-            }
-        }
-        sb.append("key=" + Constants.PARTNER_KEY); //KEY是商户秘钥
-        String sign = MD5Util.MD5Encode(sb.toString(), characterEncoding)
-                .toUpperCase();
-        return sign; // D3A5D13E7838E1D453F4F2EA526C4766
-        // D3A5D13E7838E1D453F4F2EA526C4766
-    }
-
-	*//*
-     * private String genOutTradNo() { Random random = new Random(); return
-	 * MD5.getMessageDigest(String.valueOf(random.nextInt(10000)).getBytes()); }
-	 *//*
-
-    // 微信预支付交易单url参数
-    private String genProductArgs() {
-
-        StringBuffer xml = new StringBuffer();
-        try {
-            String nonceStr = genNonceStr();
-
-            xml.append("</xml>");
-            List<NameValuePair> packageParams = new LinkedList<NameValuePair>();
-
-            packageParams.add(new BasicNameValuePair("appid", Constants.APP_ID));// 应用ID
-            packageParams.add(new BasicNameValuePair("body", CoinName));// 商品描述
-            packageParams.add(new BasicNameValuePair("mch_id", MCH_ID));// 商户号
-            packageParams.add(new BasicNameValuePair("nonce_str", nonceStr));// 随机字符串
-            packageParams.add(new BasicNameValuePair("notify_url", "http://51yuejianshen.com"));// 接收微信支付异步通知回调地址，通知url必须为直接可访问的url，不能携带参数
-            packageParams.add(new BasicNameValuePair("out_trade_no", PayOrderNo));// 商户订单号
-            packageParams.add(new BasicNameValuePair("spbill_create_ip", getPhoneIp()));// 用户端实际IP
-            packageParams.add(new BasicNameValuePair("total_fee", wx_CoinPrice));// 订单总金额，单位：分
-            packageParams.add(new BasicNameValuePair("trade_type", "APP"));// 支付类型
-
-            String sign = genPackageSign(packageParams);
-            packageParams.add(new BasicNameValuePair("sign", sign));// 签名
-            String xmlstring = toXml(packageParams);
-            // 解决body传中文报签名错误的问题，生成的xml请求参数转为字节数组后，用“ISO8859-1”编码格式进行编码为字符
-            return new String(xmlstring.getBytes(), "ISO8859-1");
-
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    // 微信获取终端ip
-    public static String getPhoneIp() {
-
-        // 此方法仅适用于android2.3以下，且返回的为ipv6地址
-        try {
-            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
-                NetworkInterface intf = en.nextElement();
-                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
-                    InetAddress inetAddress = enumIpAddr.nextElement();
-                    if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet4Address) {
-                        // if (!inetAddress.isLoopbackAddress() && inetAddress
-                        // instanceof Inet6Address) {
-                        return inetAddress.getHostAddress().toString();
-                    }
-                }
-            }
-        } catch (Exception e) {
-        }
-        return "127.0.0.1";
-    }
-
-    // 微信预支付转为xml
-    private String toXml(List<NameValuePair> params) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("<xml>");
-        for (int i = 0; i < params.size(); i++) {
-            sb.append("<" + params.get(i).getName() + ">");
-            sb.append(params.get(i).getValue());
-            sb.append("</" + params.get(i).getName() + ">");
-        }
-        sb.append("</xml>");
-
-        return sb.toString();
-    }
-
-    // 微信生成签名
-    private String genPackageSign(List<NameValuePair> params) {
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < params.size(); i++) {
-            sb.append(params.get(i).getName());
-            sb.append('=');
-            sb.append(params.get(i).getValue());
-            sb.append('&');
-        }
-        sb.append("key=");
-        sb.append(PARTNER_KEY);
-
-        String packageSign = MD5.getMessageDigest(sb.toString().getBytes()).toUpperCase();
-        return packageSign;
-    }
-
-    *//*
-     * 微信支付参数
-     *//*
-    private void sendPayReq() {
-        req.appId = Constants.APP_ID;//
-        req.nonceStr = genNonceStr();
-        req.packageValue = "Sign=WXPay";
-        req.partnerId = MCH_ID;// 商户号
-        req.prepayId = resultunifiedorder.get("prepay_id");// 预支付回话标示
-        req.timeStamp = String.valueOf(genTimeStamp());
-
-        List<NameValuePair> signParams = new LinkedList<NameValuePair>();
-        signParams.add(new BasicNameValuePair("appid", req.appId));
-        signParams.add(new BasicNameValuePair("noncestr", req.nonceStr));
-        signParams.add(new BasicNameValuePair("package", req.packageValue));
-        signParams.add(new BasicNameValuePair("partnerid", req.partnerId));
-        signParams.add(new BasicNameValuePair("prepayid", req.prepayId));
-        signParams.add(new BasicNameValuePair("timestamp", req.timeStamp));
-
-        req.sign = genAppSign(signParams);
-
-        sb.append("sign\n" + req.sign + "\n\n");
-
-        // 生成订单
-        //	msgApi.registerApp(Constants.APP_ID);
-        try {
-
-            msgApi.sendReq(req);
-        } catch (Exception e) {
-            Log.e("dd", e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
-    // 微信获取支付签名
-    private String genAppSign(List<NameValuePair> params) {
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < params.size(); i++) {
-            sb.append(params.get(i).getName());
-            sb.append('=');
-            sb.append(params.get(i).getValue());
-            sb.append('&');
-        }
-        sb.append("key=");
-        sb.append(PARTNER_KEY);
-
-        this.sb.append("sign str\n" + sb.toString() + "\n\n");
-        String appSign = MD5.getMessageDigest(sb.toString().getBytes());
-        return appSign;
-    }
-
-    public void exit() {
-        finish();
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-
-    }*/
 }

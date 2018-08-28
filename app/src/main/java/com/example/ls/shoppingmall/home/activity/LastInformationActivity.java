@@ -143,10 +143,10 @@ public class LastInformationActivity extends AppCompatActivity {
     }
 
     //对应的商品哦
-    private void initData2() {
+    private void initData2(String sickName) {
         HashMap<String, Object> hashMap2 = new HashMap<>();
-        Log.e("order1", "http://47.94.165.113:22000/mall/recommends/" + "0010" + "?pageIndex=" + pageInd + "&pageSize=" + pageSize);
-        FrameHttpHelper.getInstance().get("http://47.94.165.113:22000/mall/recommends/" + "0010" + "?pageIndex=" + pageInd + "&pageSize=" + pageSize, hashMap2, new FrameHttpCallback<LastInforAdapterBean>() {
+        Log.e("order1", "http://47.94.165.113:22000/mall/recommends/" + sickName + "?pageIndex=" + pageInd + "&pageSize=" + pageSize);
+        FrameHttpHelper.getInstance().get("http://47.94.165.113:22000/mall/recommends/" + sickName + "?pageIndex=" + pageInd + "&pageSize=" + pageSize, hashMap2, new FrameHttpCallback<LastInforAdapterBean>() {
             @Override
             public void onSuccess(LastInforAdapterBean o) {
                 Log.e("stirnhaha", o.toString());
@@ -221,8 +221,9 @@ public class LastInformationActivity extends AppCompatActivity {
                     bean.mList2.add("第二个Item=" + 1);
                     //获取到商品对应要显示的编号。
                     sickNo1 = bean.mList1.get(0).getSick().getSicNo();
+                    Log.e("eheh",sickNo1);
                     initData5(sickNo1);
-                    initData2();
+                    initData2(sickNo1);
                 }
             }
 

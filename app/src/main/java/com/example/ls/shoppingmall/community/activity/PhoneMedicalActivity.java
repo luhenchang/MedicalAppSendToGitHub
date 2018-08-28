@@ -18,8 +18,6 @@ import com.example.ls.shoppingmall.community.utis.CompatListView;
 import com.example.ls.shoppingmall.utils.layoututils.MyGoleView;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpCallback;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpHelper;
-import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
-import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 
 import org.apache.commons.collections.map.HashedMap;
 
@@ -40,8 +38,6 @@ public class PhoneMedicalActivity extends AppCompatActivity {
 
     @Bind(R.id.ft_comm_ry)
     CompatListView ftCommRy;
-    @Bind(R.id.ft_comm_trl)
-    TwinklingRefreshLayout ftCommTrl;
     private PhoneCallAdapter mAdapter;
     private String intentflag="0";
 
@@ -58,7 +54,7 @@ public class PhoneMedicalActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        ftCommTrl.setHeaderView(new MyGoleView(this, 0));
+        /*ftCommTrl.setHeaderView(new MyGoleView(this, 0));
         ftCommTrl.setBottomView(new MyGoleView(this, 1));
 
         //下拉刷新
@@ -82,7 +78,7 @@ public class PhoneMedicalActivity extends AppCompatActivity {
                     }
                 },2000);
             }
-        });
+        });*/
     }
 
     private void initDatas() {

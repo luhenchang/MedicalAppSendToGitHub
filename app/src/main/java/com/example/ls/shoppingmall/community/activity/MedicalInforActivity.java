@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.nfc.Tag;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -155,6 +156,10 @@ public class MedicalInforActivity extends AppCompatActivity {
         websettings.setJavaScriptEnabled(true);
         websettings.setUseWideViewPort(true);//设置此属性，可任意比例缩放
         websettings.setLoadWithOverviewMode(true);
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+            websettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
+        websettings.setBlockNetworkImage(false);
         acDedicalWeb.requestFocusFromTouch();
         websettings.setJavaScriptCanOpenWindowsAutomatically(true) ;
         acDedicalWeb.loadUrl(str);

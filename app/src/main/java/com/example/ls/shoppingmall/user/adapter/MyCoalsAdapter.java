@@ -24,13 +24,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.ls.shoppingmall.R;
 import com.example.ls.shoppingmall.app.config.NetConfig;
 import com.example.ls.shoppingmall.community.activity.MedicalInforActivity;
+import com.example.ls.shoppingmall.user.activity.SettingActivity;
 import com.example.ls.shoppingmall.user.bean.BackMoneyBean;
 import com.example.ls.shoppingmall.user.bean.MyCoalsBean;
+import com.example.ls.shoppingmall.utils.CacheUtil;
 import com.example.ls.shoppingmall.utils.DataUtils;
 import com.example.ls.shoppingmall.utils.ShareUtils;
+import com.example.ls.shoppingmall.utils.layoututils.AlertDialog;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpCallback;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpHelper;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.SSLSocketClient;
@@ -109,14 +113,7 @@ public class MyCoalsAdapter extends BaseAdapter {
             vh = (MyViewHolder) convertView.getTag();
         }
         vh.tvPrice.setText(mData.get(position).getMoney() == null ? "" : "￥" + mData.get(position).getMoney());
-        if (flag == 0) {
-            vh.tvTime.setText("预约时段: " + mData.get(position).getNote1() + " " + "  " + mData.get(position).getStartTime() + "-" + mData.get(position).getEndTime());
 
-        } else {
-            String star1 = mData.get(position).getStartTime().substring(0, 4) + "." + mData.get(position).getStartTime().substring(4, 6) + "." + mData.get(position).getStartTime().substring(6, 8);
-            String end1 = mData.get(position).getEndTime().substring(0, 4) + "." + mData.get(position).getEndTime().substring(4, 6) + "." + mData.get(position).getEndTime().substring(6, 8);
-            vh.tvTime.setText("预约时长:" + mData.get(position).getName2().toString() + star1 + "~" + end1);
-        }
         vh.tvName.setText(mData.get(position).getName1() == null ? "" : mData.get(position).getName1());
         vh.tvBackTime.setText(DataUtils.getDateToString(mData.get(position).getTradeTime()));
         if (flag == 0) {
@@ -131,10 +128,18 @@ public class MyCoalsAdapter extends BaseAdapter {
                     //这里判断5月3日不需要了。都可以拨打客服电话
                     if (flag == 0) {
                         if (mData.get(position).clickable) {
-                            Intent intent = new Intent(Intent.ACTION_DIAL);
+                            /*Intent intent = new Intent(Intent.ACTION_DIAL);
                             Uri data = Uri.parse("tel:" + "4006502680");
                             intent.setData(data);
-                            context.startActivity(intent);
+                            context.startActivity(intent);*/
+                            new AlertDialog(context).builder()
+                                    .setCancelable(false)
+                                    .setMsg("如果医生没有在预约时间段内联系您,请拨打客服电话: 4006502680")
+                                    .setPositiveButton("确定", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                        }
+                                    }).show();
                         } else {
                             Toast.makeText(context, "你已经预约成功！不能退款", Toast.LENGTH_SHORT).show();
                         }
@@ -196,6 +201,14 @@ public class MyCoalsAdapter extends BaseAdapter {
         });
         //判断是否二维码生成
         if (mData.get(position).getImgPath() != null) {
+            if (flag == 0) {
+                vh.tvTime.setText("预约时间: " + mData.get(position).getNote1() + " " + "  " + mData.get(position).getStartTime() + "-" + mData.get(position).getEndTime());
+
+            } else {
+                String star1 = mData.get(position).getStartTime().substring(0, 4) + "." + mData.get(position).getStartTime().substring(4, 6) + "." + mData.get(position).getStartTime().substring(6, 8);
+                String end1 = mData.get(position).getEndTime().substring(0, 4) + "." + mData.get(position).getEndTime().substring(4, 6) + "." + mData.get(position).getEndTime().substring(6, 8);
+                vh.tvTime.setText("实际服务时间:" + mData.get(position).getName2().toString() + star1 + "~" + end1);
+            }
             vh.tvErm.setBackgroundResource(R.drawable.text_shapter_consal);
             vh.tvErm.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -224,12 +237,19 @@ public class MyCoalsAdapter extends BaseAdapter {
                 vh.tvBackMoney.setText("退款");
 
             }else{
-                vh.tvBackMoney.setText("客服电话");
+                vh.tvBackMoney.setText("联系客服");
 
             }
 
         } else {
+            if (flag == 0) {
+                vh.tvTime.setText("预约时段: " + mData.get(position).getNote1() + " " + "  " + mData.get(position).getStartTime() + "-" + mData.get(position).getEndTime());
 
+            } else {
+                String star1 = mData.get(position).getStartTime().substring(0, 4) + "." + mData.get(position).getStartTime().substring(4, 6) + "." + mData.get(position).getStartTime().substring(6, 8);
+                String end1 = mData.get(position).getEndTime().substring(0, 4) + "." + mData.get(position).getEndTime().substring(4, 6) + "." + mData.get(position).getEndTime().substring(6, 8);
+                vh.tvTime.setText("预约时间:" + mData.get(position).getName2().toString() + star1 + "~" + end1);
+            }
             vh.tvErm.setBackgroundResource(R.drawable.text_shapter_consal_gray);
             if (flag == 1) {
                 mData.get(position).clickable = true;
@@ -239,7 +259,7 @@ public class MyCoalsAdapter extends BaseAdapter {
 
 
             }else{
-                vh.tvBackMoney.setText("客服电话");
+                vh.tvBackMoney.setText("联系客服");
 
             }
         }

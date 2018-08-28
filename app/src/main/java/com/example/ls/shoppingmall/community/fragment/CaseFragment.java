@@ -20,8 +20,6 @@ import com.example.ls.shoppingmall.utils.dbutils.UserDB;
 import com.example.ls.shoppingmall.utils.layoututils.MyGoleView;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpCallback;
 import com.example.ls.shoppingmall.utils.okhttpnetframe.FrameHttpHelper;
-import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

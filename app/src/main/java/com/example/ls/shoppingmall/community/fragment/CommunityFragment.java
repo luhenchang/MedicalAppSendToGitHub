@@ -253,6 +253,7 @@ public class CommunityFragment extends BaseFragment implements View.OnClickListe
         map.put("ishot", "1");//1热门,0不是热门
         map.put("pageSize", 10);
         map.put("currentPage", 1);
+        //https://qy.healthinfochina.com:8080/DOC000010041?ishot=1&pageSize=10&currentPage=1
         FrameHttpHelper.getInstance().post(NetConfig.COMMUNITY_MEDICAL_TEAM, map, new FrameHttpCallback<CommuniMedicalTeam>() {
             @Override
             public void onSuccess(CommuniMedicalTeam cmt) {

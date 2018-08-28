@@ -3,6 +3,7 @@ package com.example.ls.shoppingmall.home.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -132,8 +133,14 @@ public class CaseActivityWebView extends AppCompatActivity {
     private void initView() {
         String str = NetConfig.MEDICAL_CASE + "user_id=" + userId + "&feed_id=" + dialogue_id + "&be_from=android";
         Log.e("hahhasssss0000",str);
+
+
         WebSettings websettings = webCase.getSettings();
         websettings.setJavaScriptEnabled(true);
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+            websettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
+        websettings.setBlockNetworkImage(false);
         websettings.setUseWideViewPort(true);//设置此属性，可任意比例缩放
         websettings.setLoadWithOverviewMode(true);
         webCase.requestFocusFromTouch();

@@ -217,6 +217,21 @@ public class ShoppingActivity extends AppCompatActivity {
 
     //这个是电话和微信选择切换
     private class JSInterface {
+        @JavascriptInterface
+        public void LoginGetUserId() {
+            Map<String, Object> userInters = new UserDB(ShoppingActivity.this).getUserMessage(new String[]{"1"});
+            final String user_Id1 = (String) userInters.get("UserID");
+            Log.e("userId1", user_Id1);
+            //webView.loadUrl("javascript:javaCallJs("+"'"+name+"'"+")");
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    webCase.loadUrl("javascript:appLogin(" + "\"" + user_Id1 + "\"" + ")");
+                }
+            });
+        }
+
+
         //这里商品下架提示信息
         //tipDialog  errorCode  30017
         //调用：Android.tipDialog(30017);

@@ -159,24 +159,35 @@ public class MedicalTeamInforActivity extends AppCompatActivity {
                     tvMedicalTeamName.setText(o.getRESOBJ().get(0).getDtmName() == null ? "医师团名称" : o.getRESOBJ().get(0).getDtmName());
                     Glide.with(MedicalTeamInforActivity.this).load(NetConfig.GLIDE_USRE + o.getRESOBJ().get(0).getPic()).error(R.drawable.family_team_iv).listener(new GlideRequestListner()).centerCrop().into(circleIv);
                     UmImageUrl = NetConfig.GLIDE_USRE + o.getRESOBJ().get(0).getPic();
+                    StringBuilder stringBuilder = new StringBuilder();
+                    for (int i = 0; i < o.getRESOBJ().get(0).getSicks().size(); i++) {
 
-                    if (o.getRESOBJ().get(0).getDtmType().equals("1")) {
+                        if (i <o.getRESOBJ().get(0).getSicks().size()-1) {
+                            stringBuilder.append(o.getRESOBJ().get(0).getSicks().get(i).getSicName() + ",");
+                        } else {
+                            stringBuilder.append(o.getRESOBJ().get(0).getSicks().get(i).getSicName());
+                        }
+                    }
+
+                    tvMedicalTeamType.setText("擅长疾病: "+stringBuilder.toString());
+
+                   /* if (o.getRESOBJ().get(0).getDtmType().equals("1")) {
                         tvMedicalTeamType.setText("老人医师团");
-                      /*  r_drawble_iv = R.drawable.family_team_iv;
-                        circleIv.setImageResource(R.drawable.family_team_iv);*/
+                      *//*  r_drawble_iv = R.drawable.family_team_iv;
+                        circleIv.setImageResource(R.drawable.family_team_iv);*//*
                     } else if (o.getRESOBJ().get(0).getDtmType().equals("2")) {
                         tvMedicalTeamType.setText("妇女医师团");
-                       /* circleIv.setImageResource(R.drawable.wuman_team_iv);
-                        r_drawble_iv = R.drawable.wuman_team_iv;*/
+                       *//* circleIv.setImageResource(R.drawable.wuman_team_iv);
+                        r_drawble_iv = R.drawable.wuman_team_iv;*//*
 
                     } else if (o.getRESOBJ().get(0).getDtmType().equals("3")) {
                         tvMedicalTeamType.setText("儿童医师团");
-                       /* circleIv.setImageResource(R.drawable.children_team_iv);
-                        r_drawble_iv = R.drawable.children_team_iv;*/
+                       *//* circleIv.setImageResource(R.drawable.children_team_iv);
+                        r_drawble_iv = R.drawable.children_team_iv;*//*
                     } else {
                         // circleIv.setImageResource(R.drawable.family_team_iv);
 
-                    }
+                    }*/
                     tvBottomIntroduce.setText(o.getRESOBJ().get(0).getDtmDisc() == null ? "医师团名称" : o.getRESOBJ().get(0).getDtmDisc());
                     mDatas.addAll(o.getRESOBJ().get(0).getMembers());
                     mAdapter = new MedicalTeamInfroAdapter(MedicalTeamInforActivity.this, mDatas);

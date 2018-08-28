@@ -101,7 +101,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/y9"
                 android:background="@drawable/text_shaper_red"
-                android:text="客服电话"
+                android:text="联系客服"
                 android:textColor="@color/base_text_red"
                 android:textSize="14.4sp" />
 

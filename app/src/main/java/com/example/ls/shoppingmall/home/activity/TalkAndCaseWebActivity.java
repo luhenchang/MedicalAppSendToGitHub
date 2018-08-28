@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -125,8 +126,32 @@ public class TalkAndCaseWebActivity extends AppCompatActivity {
             Log.e("talk", str.toString());
 
         }
+        /*
+        *
         WebSettings websettings = webCase.getSettings();
         websettings.setJavaScriptEnabled(true);
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+            websettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
+        websettings.setBlockNetworkImage(false);
+        websettings.setUseWideViewPort(true);//设置此属性，可任意比例缩放
+        websettings.setLoadWithOverviewMode(true);
+        webCase.requestFocusFromTouch();
+        websettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        webCase.setWebViewClient(new MyWebViewClient());
+        webCase.setWebChromeClient(new MyWebChromeClient());
+        //清除缓存
+        webCase.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+        webCase.addJavascriptInterface(new JavaScriptinterface(this), "openJava");
+        webCase.addJavascriptInterface(new JSInterface(), "showDiolog");
+        webCase.loadUrl(str);
+        * */
+        WebSettings websettings = webCase.getSettings();
+        websettings.setJavaScriptEnabled(true);
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+            websettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
+        websettings.setBlockNetworkImage(false);
         websettings.setUseWideViewPort(true);//设置此属性，可任意比例缩放
         websettings.setLoadWithOverviewMode(true);
         webCase.requestFocusFromTouch();
