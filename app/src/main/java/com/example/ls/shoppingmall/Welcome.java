@@ -50,6 +50,7 @@ public class Welcome extends AppCompatActivity implements ViewPager.OnPageChange
     private ImageView[] mPoints;
     private boolean misScrolled;
     private Button mButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
